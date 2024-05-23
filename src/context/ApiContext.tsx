@@ -6,6 +6,9 @@ import { getPlatformInfo, validateToken } from "../function/ApiFunction";
 import Loading from "../component/loading/Loading";
 
 interface IPlatformType {
+  srno: number;
+  uniqueID: string;
+  accountPrefix: string;
   primaryColor: string;
   secondaryColor: string;
   tabIcon: string;
@@ -32,18 +35,25 @@ interface IPlatformType {
   selfRegister: number;
   phoneNoVerify: number;
 }
+interface IGpCategoryType {
+  category: string;
+}
 
 interface IApiContextType {
   windowWidth: number;
   setWindowWidth: Dispatch<SetStateAction<number>>;
   platformInfo: IPlatformType | undefined;
   setPlatformInfo: Dispatch<SetStateAction<IPlatformType | undefined>>;
+  gpCategory: IGpCategoryType[] | [];
+  setGpCategory: Dispatch<SetStateAction<IGpCategoryType[] | []>>;
 }
 const initApiContext: IApiContextType = {
   windowWidth: window.innerWidth,
   setWindowWidth: () => {},
   platformInfo: undefined,
   setPlatformInfo: () => {},
+  gpCategory: [],
+  setGpCategory: () => {},
 };
 export const Api = createContext<IApiContextType>(initApiContext);
 
@@ -55,16 +65,17 @@ const ApiContext = ({ children }: IApiContextProps) => {
   const { setPlayerInfo, hostname } = playerContext;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
   const [platformInfo, setPlatformInfo] = useState<IPlatformType | undefined>(undefined);
+  const [gpCategory, setGpCategory] = useState<IGpCategoryType[] | []>([]);
 
   useEffect(() => {
     handleFirstLoad();
   }, []);
 
   async function handleFirstLoad() {
-    const api1 = getPlatformInfo(hostname, setPlatformInfo);
+    const api1 = getPlatformInfo(hostname, setPlatformInfo, setGpCategory);
     const api2 = validateToken(hostname, setPlayerInfo);
 
     await Promise.all([api1, api2]).catch((error) => console.log(error));
@@ -75,7 +86,7 @@ const ApiContext = ({ children }: IApiContextProps) => {
     return <Loading />;
   }
 
-  const values: IApiContextType = { windowWidth, setWindowWidth, platformInfo, setPlatformInfo };
+  const values: IApiContextType = { windowWidth, setWindowWidth, platformInfo, setPlatformInfo, gpCategory, setGpCategory };
   return <Api.Provider value={values}>{children}</Api.Provider>;
 };
 

@@ -7,4 +7,6 @@ export const useNavbar = () => {
 
   const apiContext = useContext(Api);
   const { platformInfo } = apiContext;
+
+  return { t, platformInfo };
 };

@@ -15,3 +15,32 @@
   --header-color: #ddd;
   --footer-color: #ddd;
 }
+
+img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-layout {
+  background-color: var(--background-color);
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  .neon-hr {
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px var(--secondary-color);
+    -webkit-filter: brightness(1.8);
+    filter: brightness(1.8);
+    height: 5px;
+    width: 100%;
+  }
+}
