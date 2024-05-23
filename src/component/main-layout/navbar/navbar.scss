@@ -1,28 +1,65 @@
 @import "../main-layout.scss";
 
 .navbar {
-  height: 90px;
-  width: 100%;
-  background: var(--header-color);
-
-  .logo {
-    @extend .flex-layout;
+    height: 90px;
     width: 100%;
-    max-height: 85px;
-    cursor: pointer;
-  }
+    background: var(--header-color);
 
-  .btn-login {
-    @extend .flex-layout;
-    padding: 15px;
-    color: var(--secondary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    transition: all 0.5s;
-    cursor: pointer;
-
-    :is(&:hover, &:active) {
-      filter: brightness(2);
+    .logo {
+        @extend .flex-layout;
+        width: 100%;
+        max-height: 85px;
+        cursor: pointer;
     }
-  }
+
+    .btn-login {
+        @extend .flex-layout;
+        @extend .bold-font;
+        padding: 12px;
+        color: var(--secondary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        transition: all 0.5s;
+        cursor: pointer;
+
+        :is(&:hover, &:active) {
+            filter: brightness(2);
+        }
+    }
+
+    .btn-menu {
+        @extend .flex-layout;
+        gap: 8px;
+
+        .btn-info {
+            @extend .flex-layout;
+            @extend .bold-font;
+            padding: 12px;
+            color: var(--secondary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            transition: all 0.5s;
+            cursor: pointer;
+            gap: 5px;
+
+            :is(&:hover, &:active) {
+                filter: brightness(2);
+            }
+        }
+
+        .ant-dropdown {
+            .ant-dropdown-menu {
+                .ant-dropdown-menu-item {
+                    color: gold;
+                    .ant-dropdown-menu-title-content {
+                        gap: 5px;
+                    }
+                }
+            }
+        }
+
+        .menu-item {
+            color: gold;
+        }
+    }
 }
