@@ -1,2 +1,193 @@
 .deposit-wrapper {
+    padding: 15px;
+    background-color: #141414;
+    border-radius: 8px;
+
+    .deposit-type-title {
+        color: var(--color);
+        font-size: 14px;
+        font-weight: 600;
+
+        &:before {
+            content: "*";
+            margin-inline-end: 4px;
+            color: #ff4d4f;
+        }
+    }
+
+    .deposit-type-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 9px;
+        margin-top: 15px;
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 15px;
+            color: var(--color);
+            border: 1px solid var(--primary-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.5s;
+
+            :is(&:hover, &:active, &.true) {
+                color: #000;
+                background-color: var(--secondary-color);
+                border-color: var(--secondary-color);
+            }
+        }
+
+        .item[disabled] {
+            cursor: not-allowed;
+            filter: grayscale(1);
+
+            :is(&:hover, &:active, &.true) {
+                color: var(--color);
+                background-color: transparent;
+                border-color: var(--primary-color);
+            }
+        }
+    }
+
+    .telco-provider {
+        margin-top: 10px;
+
+        .telco-provider-title {
+            color: var(--color);
+            font-size: 14px;
+            font-weight: 600;
+
+            &:before {
+                content: "*";
+                margin-inline-end: 4px;
+                color: #ff4d4f;
+            }
+        }
+
+        .telco-provider-item {
+            margin-top: 15px;
+
+            .item {
+                width: 100%;
+                border-radius: 8px;
+                overflow: hidden;
+                cursor: pointer;
+                filter: brightness(0.6);
+                transition: 0.5s;
+
+                img {
+                    width: 100%;
+                }
+
+                :is(&:hover, &:active, &.true) {
+                    filter: brightness(1);
+                }
+            }
+        }
+    }
+
+    .cdm {
+        margin-top: 10px;
+
+        .cdm-title {
+            color: var(--color);
+            font-size: 14px;
+            font-weight: 600;
+
+            &:before {
+                content: "*";
+                margin-inline-end: 4px;
+                color: #ff4d4f;
+            }
+        }
+
+        .cdm-item {
+            margin-top: 15px;
+
+            .item {
+                width: 100%;
+                border-radius: 8px;
+                overflow: hidden;
+                cursor: pointer;
+                filter: brightness(0.6);
+                transition: 0.5s;
+
+                img {
+                    width: 100%;
+                }
+
+                :is(&:hover, &:active, &.true) {
+                    filter: brightness(1);
+                }
+            }
+        }
+    }
+
+    .ant-form {
+        margin-top: 10px;
+
+        label {
+            color: var(--color);
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+
+    .ant-form input {
+        background-color: rgba(255, 255, 255, 0.9);
+
+        &:disabled {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    .ant-upload-list-item,
+    .ant-upload-list-item svg {
+        color: #fff !important;
+        cursor: pointer;
+    }
+
+    .ant-upload-list-item svg:hover {
+        color: var(--secondary-color) !important;
+    }
+}
+
+.deposit-desc {
+    padding: 15px;
+    background-color: #141414;
+    border-radius: 8px;
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--secondary-color);
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        padding-inline-start: 20px;
+        list-style-type: decimal;
+
+        .item {
+            color: #fff;
+            cursor: pointer;
+            filter: brightness(0.7);
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+
+            &:hover {
+                filter: brightness(3);
+            }
+        }
+    }
 }

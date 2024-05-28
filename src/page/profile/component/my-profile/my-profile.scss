@@ -3,5 +3,18 @@
         border: 1px solid var(--primary-color);
         border-radius: 8px;
         overflow: hidden;
+
+        .ant-descriptions-view {
+            .ant-descriptions-row {
+                // border-bottom: 1px solid var(--primary-color);
+
+                .ant-descriptions-item-label {
+                    background-color: var(--secondary-color);
+                }
+                .ant-descriptions-item-content {
+                    border-bottom: 1px solid var(--primary-color);
+                }
+            }
+        }
     }
 }

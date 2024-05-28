@@ -1,2 +1,132 @@
 .game-account-wrapper {
-}
+    .ant-btn-default.ant-btn-background-ghost:disabled {
+      color: rgba(255, 255, 255, 0.5) !important;
+      border-color: rgba(255, 255, 255, 0.5);
+  
+      &:hover {
+        color: rgba(255, 255, 255, 0.5) !important;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  
+    .ant-btn-default.ant-btn-background-ghost:hover {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  
+    .ant-table {
+      color: #fff;
+      background-color: transparent !important;
+      border: 1px solid var(--primary-color);
+      border-radius: 8px !important;
+      overflow: hidden;
+    }
+  
+    .ant-table-thead > tr > th {
+      color: #fff !important;
+      background-color: var(--primary-color) !important;
+      border: none;
+    }
+  
+    .ant-table-wrapper .ant-table-tbody > tr.ant-table-row:hover > td {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+  
+    .ant-empty-normal {
+      color: #fff !important;
+      background-color: transparent !important;
+    }
+  
+    .ant-table-wrapper .ant-table-tbody > tr > th,
+    .ant-table-wrapper .ant-table-tbody > tr > td {
+      border-color: rgba(188, 188, 188, 0.3);
+    }
+  
+    .ant-table-wrapper .ant-table-tbody > tr:last-child > th,
+    .ant-table-wrapper .ant-table-tbody > tr:last-child > td {
+      border: none;
+    }
+  
+    .ant-empty-normal .ant-empty-description {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  
+    .ant-table-wrapper .ant-table-tbody > tr.ant-table-placeholder:hover > th,
+    .ant-table-wrapper .ant-table-tbody > tr.ant-table-placeholder:hover > td,
+    .ant-table-wrapper .ant-table-tbody > tr.ant-table-placeholder {
+      color: #fff !important;
+      background-color: transparent !important;
+    }
+  
+    .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+      background: transparent !important;
+    }
+  
+    .ant-pagination {
+      display: flex;
+      justify-content: center;
+  
+      //btn-prev and btn-next
+      .ant-pagination-prev .ant-pagination-item-link,
+      .ant-pagination-next .ant-pagination-item-link {
+        color: #fff !important;
+        background: transparent;
+        border: none;
+        outline: 2px solid #fff;
+        border-radius: 50%;
+      }
+  
+      //btn-number page
+      .ant-pagination-item {
+        color: #fff !important;
+        background: transparent;
+        border: none;
+        outline: 2px solid #fff;
+        border-radius: 50%;
+      }
+  
+      .ant-pagination-item a {
+        color: #fff;
+      }
+  
+      .ant-pagination-item-active,
+      .ant-pagination-item:hover {
+        outline: 2px solid var(--primary-color);
+      }
+  
+      .ant-pagination-item-active a,
+      .ant-pagination-item a:hover {
+        color: var(--primary-color);
+      }
+  
+      //ellipsis
+      .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis,
+      .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
+        color: #fff;
+      }
+  
+      .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon,
+      .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+        color: var(--primary-color);
+      }
+  
+      //page size selector
+      .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        color: #fff;
+        background: transparent;
+        outline: 2px solid #fff;
+        border: none;
+        border-radius: 50px;
+      }
+  
+      .ant-select-arrow {
+        color: #fff;
+      }
+  
+      .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        border: none;
+        outline: 2px solid #fff;
+      }
+    }
+  }
