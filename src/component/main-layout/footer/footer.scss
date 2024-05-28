@@ -1,0 +1,81 @@
+@import "../main-layout.scss";
+
+.footer {
+    padding: 10px 0;
+    background-color: #141414;
+
+    .title {
+        margin-bottom: 10px;
+        color: var(--primary-color);
+        font-size: 18px;
+        font-weight: 600;
+        filter: brightness(1.5);
+    }
+
+    .content {
+        display: flex;
+        gap: 10px;
+
+        .item {
+            display: inline-flex;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+            filter: brightness(0.5);
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+
+            &:hover {
+                filter: brightness(3);
+            }
+        }
+
+        .download-app-btn img {
+            width: 100%;
+            filter: brightness(0.6);
+            transition: 0.5s;
+
+            &:hover {
+                filter: brightness(1);
+            }
+        }
+
+        .download-app-btn[disabled] img {
+            filter: brightness(0.6) grayscale(1);
+            cursor: not-allowed;
+        }
+    }
+
+    .contact-us {
+        .content {
+            flex-direction: column;
+        }
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-remark {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        padding-top: 10px;
+        color: var(--primary-color);
+        border-top: 1px solid rgba(255, 255, 255, 0.8);
+        font-size: 11px;
+        filter: brightness(3);
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 575px) {
+    .footer {
+        background-color: #242424;
+    }
+
+    .footer-remark {
+        margin-top: 0;
+    }
+}

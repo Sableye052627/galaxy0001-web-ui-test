@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Api } from "../../../../context/ApiContext";
-import { Player } from "../../../../context/player/PlayerContext";
 import { useNavigate } from "react-router-dom";
+import { Api } from "../../../../../context/ApiContext";
+import { Player } from "../../../../../context/player/PlayerContext";
 
-export const useNavbar = () => {
+export const useTransactionHistory = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ export const useNavbar = () => {
     const { platformInfo } = apiContext;
 
     const playerContext = useContext(Player);
-    const { playerInfo, setPlayerInfo } = playerContext;
+    const { playerInfo } = playerContext;
 
-    return { t, navigate, platformInfo, playerInfo, setPlayerInfo };
+    return { t, navigate, platformInfo, playerInfo };
 };

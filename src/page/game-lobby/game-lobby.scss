@@ -1,0 +1,39 @@
+.game-lobby {
+    margin-bottom: 20px;
+
+    .banner-img img {
+        width: 100%;
+        max-height: 500px;
+    }
+
+    .game-provider {
+        margin-top: 20px;
+
+        .gp-card img {
+            width: 100%;
+        }
+
+        .gp-card.active {
+            overflow: hidden;
+            cursor: pointer;
+            -webkit-transition: all 1s ease;
+            transition: all 1s ease;
+
+            :is(&:hover, &:active) {
+                filter: brightness(1.5);
+            }
+        }
+
+        .gp-card.testing {
+            overflow: hidden;
+            cursor: pointer;
+            filter: grayscale(80%);
+        }
+
+        .gp-card.inactive {
+            overflow: hidden;
+            filter: grayscale(1);
+            cursor: not-allowed;
+        }
+    }
+}

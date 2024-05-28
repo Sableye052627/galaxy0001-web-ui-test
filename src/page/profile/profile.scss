@@ -1,0 +1,65 @@
+.profile-wrapper {
+    .banner-img img {
+        width: 100%;
+        max-height: 500px;
+    }
+
+    .marquee {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 0;
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+.profile {
+    padding: 20px 0;
+
+    .profile-menu {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        padding: 15px 20px 7px;
+        background-color: rgba(188, 188, 188, 0.2);
+        border-radius: 8px;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(188, 188, 188, 0.4);
+            border-radius: 12px;
+        }
+
+        .item {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: 0.5s;
+
+            :is(&:hover, &:active, &.true) {
+                color: var(--secondary-color);
+            }
+        }
+    }
+
+    .content {
+        margin-top: 10px;
+    }
+
+    // @media only screen and (max-width: 992px) {
+    //   .content {
+    //     margin-top: 0;
+    //   }
+    // }
+}

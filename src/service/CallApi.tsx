@@ -14,3 +14,10 @@ export async function playerApi(url: string, object: object) {
 
   return result;
 }
+
+export async function gameApi(url: string, object: object) {
+  const response = await ApiBaseUrl(api1).post("game" + url, object);
+  const result = response.data;
+
+  return result;
+}

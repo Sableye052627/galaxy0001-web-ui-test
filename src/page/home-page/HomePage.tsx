@@ -2,16 +2,37 @@ import { Carousel, Col, Row } from "antd";
 import "./home-page.scss";
 import { useHomePage } from "./hook/useHomePage";
 import { gridSetting } from "../../component/main-layout/MainLayout";
-import { NotificationOutlined, MobileOutlined, LockOutlined, WalletOutlined } from "@ant-design/icons";
+import { NotificationOutlined, MobileOutlined, LockOutlined, CreditCardOutlined, PlayCircleOutlined, FireOutlined } from "@ant-design/icons";
 
 import Marquee from "react-fast-marquee";
 import { Parallax, Background } from "react-parallax";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useState } from "react";
+import { Autoplay } from "swiper/modules";
 
 const HomePage = () => {
-    const { t, platformInfo, windowWidth } = useHomePage();
+    const { t, platformInfo, gpCategory, windowWidth, handleRedirect } = useHomePage();
 
+    const [gameSwiperShow, setGameSwiperShow] = useState(5);
+    const [providerSwiperShow, setProviderSwiperShow] = useState(10);
+
+    useEffect(() => {
+        if (windowWidth < 992) {
+            setGameSwiperShow(4);
+            setProviderSwiperShow(8);
+            if (windowWidth < 768) {
+                setGameSwiperShow(3);
+                setProviderSwiperShow(6);
+                if (windowWidth < 577) {
+                    setGameSwiperShow(2);
+                    setProviderSwiperShow(4);
+                }
+            }
+        }
+    }, [windowWidth]);
+
+    const sponsorList = [{ gameCode: "VP" }];
+    const poster = [{ title: "asd" }];
     return (
         <div id="home-page">
             <Carousel autoplay dots={false}>
@@ -38,7 +59,9 @@ const HomePage = () => {
             <Row className="about-us" justify="center">
                 <Col {...gridSetting}>
                     <div className="title">{t("trustedOnlineCasinoMalaysia")}</div>
-                    <div className="desc">{t("aboutUsDesc")}</div>
+
+                    <div className="desc">{platformInfo?.descriptionEN}</div>
+                    {/* <div dangerouslySetInnerHTML={{ __html: platformInfo?.descriptionEN }} /> */}
                 </Col>
             </Row>
 
@@ -53,33 +76,34 @@ const HomePage = () => {
                             }}
                         />
                     </Background>
-                    {/* <Row gutter={[16, 16]} justify="center">
-                        {gameCategory?.map((items, index) => (
+                    <Row gutter={[16, 16]} justify="center">
+                        {gpCategory?.map((items, index) => (
                             <Col key={index} xs={6}>
-                                <div className="sm-menu-item" onClick={() => handleRedirect(items)}>
-                                    <img src={items.icon} alt={items.title} />
-                                    {t(items.title)}
+                                <div className="sm-menu-item" onClick={() => handleRedirect(items.category)}>
+                                    {/* <img src={items.icon} alt={items.title} /> */}
+                                    {t(items.category)}
                                 </div>
                             </Col>
                         ))}
-                    </Row> */}
+                    </Row>
                 </Parallax>
             )}
 
-            {/* <Row className="sponsored" justify="center">
+            <Row className="sponsored" justify="center">
                 <Col {...gridSetting}>
                     <div className="title">{t("sponsored")}</div>
                     <Swiper spaceBetween={15} slidesPerView={providerSwiperShow} autoplay modules={[Autoplay]}>
                         {sponsorList.map((items, index) => (
                             <SwiperSlide key={index}>
                                 <div className="sponsored-item">
-                                    <img src={items.image} alt={items.gameCode} />
+                                    {/* <img src={items.image} alt={items.gameCode} /> */}
+                                    {items.gameCode}
                                 </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </Col>
-            </Row> */}
+            </Row>
 
             <Row className="useful-information" justify="center">
                 <Col {...gridSetting}>
@@ -104,7 +128,7 @@ const HomePage = () => {
 
                         <div className="info-item">
                             <div className="title">
-                                <WalletOutlined />
+                                <CreditCardOutlined />
                                 {t("paymentMethod")}
                             </div>
                             <div className="content">{t("infoContent3")}</div>
@@ -113,30 +137,32 @@ const HomePage = () => {
                 </Col>
             </Row>
 
-            {/* <Row className="game-category" justify="center">
+            <Row className="game-category" justify="center">
                 <Col {...gridSetting}>
-                    <div className="title" hidden={gameCategory[0] === undefined}>
-                        {t("typesOfTheBestOnlineCasinoGames")}
-                    </div>
+                    <div className="title">{t("typesOfTheBestOnlineCasinoGames")}</div>
                     <Swiper spaceBetween={15} slidesPerView={gameSwiperShow} autoplay modules={[Autoplay]}>
-                        {gameCategory?.map((items, index) => (
+                        {gpCategory?.map((items, index) => (
                             <SwiperSlide key={index}>
                                 <div className="game-category-item">
-                                    <img src={items.buttonImg} alt={items.gameCode} />
+                                    {/* <img
+                                        src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
+                                        alt={items.category}
+                                    /> */}
+                                    {items.category}
                                 </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </Col>
-            </Row> */}
+            </Row>
 
-            {/* <Row className="video-poster" justify="center">
+            <Row className="video-poster" justify="center">
                 <Col {...gridSetting}>
                     <Row justify="space-between" gutter={[10, 10]}>
                         <Col xs={24} lg={16}>
                             <div className="latest-video">
                                 <div className="title">
-                                    <RxVideo />
+                                    <PlayCircleOutlined />
                                     {t("latestHighlightVideo")}
                                 </div>
 
@@ -149,14 +175,15 @@ const HomePage = () => {
                         <Col xs={24} sm={0} lg={8}>
                             <div className="recomanded-poster">
                                 <div className="title">
-                                    <BsFire />
+                                    <FireOutlined />
                                     {t("recommended")}
                                 </div>
 
                                 <Carousel autoplay dots={false}>
                                     {poster?.map((items, index) => (
                                         <div key={index} className="poster-img">
-                                            <img src={items.image} alt={items.title} />
+                                            {/* <img src={items.image} alt={items.title} /> */}
+                                            {items.title}
                                         </div>
                                     ))}
                                 </Carousel>
@@ -164,7 +191,7 @@ const HomePage = () => {
                         </Col>
                     </Row>
                 </Col>
-            </Row> */}
+            </Row>
         </div>
     );
 };

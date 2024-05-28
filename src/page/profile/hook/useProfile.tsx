@@ -3,16 +3,12 @@ import { useTranslation } from "react-i18next";
 import { Api } from "../../../context/ApiContext";
 import { useNavigate } from "react-router-dom";
 
-export const useHomePage = () => {
+export const useProfile = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
-    const { platformInfo, gpCategory, windowWidth } = apiContext;
+    const { platformInfo, windowWidth } = apiContext;
 
-    function handleRedirect(path: string) {
-        navigate(`/play-game/${path?.toLocaleLowerCase()}`);
-    }
-
-    return { t, platformInfo, gpCategory, windowWidth, handleRedirect };
+    return { t, navigate, platformInfo, windowWidth };
 };

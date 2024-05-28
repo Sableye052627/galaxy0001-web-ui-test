@@ -1,12 +1,13 @@
 import { useNavbar } from "./hook/useNavbar";
+import { Col, Popover, Row } from "antd";
 import { WalletOutlined, UserOutlined, CaretDownOutlined } from "@ant-design/icons";
-import { Col, Dropdown, Popover, Row } from "antd";
 
 import "./navbar.scss";
 import { gridSetting } from "../MainLayout";
+import UserDropdown from "./component/user-dropdown/UserDropdown";
 
 const Navbar = () => {
-    const { t, platformInfo, playerInfo, items } = useNavbar();
+    const { t, platformInfo, playerInfo } = useNavbar();
 
     return (
         <Row className="navbar" justify="center">
@@ -22,13 +23,19 @@ const Navbar = () => {
                                 <WalletOutlined />
                                 {t("balance")}
                             </div>
-                            <Dropdown overlayClassName="dropdown" menu={{ items }} placement="bottomRight">
+                            <Popover
+                                overlayInnerStyle={{ padding: 0 }}
+                                placement="bottomRight"
+                                trigger="hover"
+                                arrow={false}
+                                content={<UserDropdown />}
+                            >
                                 <div className="btn-info">
                                     <UserOutlined />
                                     {t("playerid")}
                                     <CaretDownOutlined />
                                 </div>
-                            </Dropdown>
+                            </Popover>
                         </Col>
                     ) : (
                         <Col className="btn-login">{t("login")}</Col>
