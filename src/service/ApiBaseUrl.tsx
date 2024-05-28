@@ -17,16 +17,14 @@ export default function ApiBaseUrl(domain: string) {
       Swal.fire({
         text: "Error 500. Please try again later.",
         icon: "error",
-      }).then(() => window.location.reload());
+      }).then((result) => (result.isConfirmed || result.dismiss || result.isDenied) && window.location.reload());
     }
 
     if (error?.response?.status === 401) {
       Cookies.remove("UserID");
       Cookies.remove("UserToken");
 
-      if (window.location.pathname !== "/") {
-        window.location.replace("/");
-      }
+      window.location.pathname !== "/" && window.location.replace("/");
     }
     return Promise.reject(error);
   };
