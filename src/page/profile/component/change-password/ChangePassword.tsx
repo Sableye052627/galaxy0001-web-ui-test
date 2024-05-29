@@ -1,8 +1,9 @@
-import { Button, Card, Col, Form, Input, Row, Spin } from "antd";
+import { Button, Card, Col, Form, Input, Row, Spin, message } from "antd";
 
 import "./change-password.scss";
 import { useChangePassword } from "./hook/useChangePassword";
 import { useState } from "react";
+import { playerApi } from "../../../../service/CallApi";
 
 const ChangePassword = () => {
     const { t, navigate, platformInfo, playerInfo } = useChangePassword();
@@ -11,22 +12,22 @@ const ChangePassword = () => {
 
     async function updatePassword(values: any) {
         setIsLoading(true);
-        // try {
-        //   const object = {
-        //     DomainName: logoInfo?.domainName,
-        //     PlayerID: localStorage.getItem("PlayerID"),
-        //     PlayerToken: localStorage.getItem("PlayerToken"),
-        //     CurrentPassword: values.currentPassword,
-        //     NewPassword: values.newPassword,
-        //   };
-        //   const result = await playerApi("/update-password", object);
-        //   if (result.status) {
-        //     message.success(result.message);
-        //     form.resetFields();
-        //   }
-        // } catch (error) {
-        //   message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
-        // }
+        try {
+            const object = {
+                // DomainName: platformInfo?.domainName,
+                PlayerID: localStorage.getItem("PlayerID"),
+                PlayerToken: localStorage.getItem("PlayerToken"),
+                CurrentPassword: values.currentPassword,
+                NewPassword: values.newPassword,
+            };
+            const result = await playerApi("/update-password", object);
+            if (result.status) {
+                message.success(result.message);
+                form.resetFields();
+            }
+        } catch (error) {
+            //   message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+        }
         setIsLoading(false);
     }
 

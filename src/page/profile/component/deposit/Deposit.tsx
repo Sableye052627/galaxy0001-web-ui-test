@@ -1,15 +1,18 @@
 import { Button, Col, Form, Input, InputNumber, Row, Spin, Upload, message } from "antd";
-import { CloudUploadOutlined } from "@ant-design/icons";
+import { CloudUploadOutlined, QrcodeOutlined, BankOutlined, BarcodeOutlined, DollarOutlined } from "@ant-design/icons";
 
 import "./deposit.scss";
 import { gridSetting } from "../../../../component/main-layout/MainLayout";
 import { useDeposit } from "./hook/useDeposit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { playerApi } from "../../../../service/CallApi";
+import { checkImage, previewImage } from "../../../../function/UploadFunction";
 
 const Deposit = () => {
     const { t, navigate, platformInfo, playerInfo } = useDeposit();
     const [form] = Form.useForm();
+    const [firstLoad, setIsFirstLoad] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     const [type, setType] = useState();
@@ -21,6 +24,77 @@ const Deposit = () => {
 
     const [imgPreview, setImgPreview] = useState();
     const [isPreview, setIsPreview] = useState(false);
+
+    const depositType = [
+        {
+            key: "QRDeposit",
+            icon: <QrcodeOutlined />,
+            label: "qrPay",
+            // disabled: agent?.safePayQR !== 1,
+        },
+        {
+            key: "OBDeposit",
+            icon: <BankOutlined />,
+            label: "onlineBanking",
+            // disabled: agent?.safePayOB !== 1,
+        },
+        {
+            key: "TelcoDeposit",
+            icon: <BarcodeOutlined />,
+            label: "telco",
+            // disabled: agent?.safePayTelco !== 1,
+        },
+        {
+            key: "CDM",
+            icon: <DollarOutlined />,
+            label: "cdm",
+            // disabled: agent?.cdm !== 1,
+        },
+    ];
+
+    useEffect(() => {
+        if (platformInfo?.cdM_Deposit === 0) {
+            navigate("/player-info/my-profile");
+            return;
+        }
+        // getAgentBank();
+    }, []);
+
+    async function getAgentBank() {
+        try {
+            const object = {
+                // DomainName: platformInfo?.domainName,
+                PlayerID: localStorage.getItem("PlayerID"),
+                PlayerToken: localStorage.getItem("PlayerToken"),
+            };
+            const result = await playerApi("/agent-bank", object);
+            if (result.status) {
+                setAgent(result.data);
+                setAgentBank(result.data2);
+            }
+        } catch (error) {
+            // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+            navigate(-1);
+        }
+        setIsFirstLoad(false);
+    }
+
+    function handleType(item: any) {
+        if (!item.disabled) {
+            setType(item.key);
+        }
+    }
+
+    function handleBank(item: any) {
+        setBank(item);
+        form.setFieldValue("bankAccountNo", item.bankAccountNo);
+        form.setFieldValue("bankAccountName", item.bankAccountName);
+    }
+
+    async function handlePreview(file: any) {
+        setImgPreview(await previewImage(file));
+        setIsPreview(true);
+    }
 
     function confirmMsg(values: any) {
         if (!type) {
@@ -52,17 +126,17 @@ const Deposit = () => {
         <Row gutter={[16, 10]}>
             <Col xs={24} lg={11} xl={12}>
                 <Spin spinning={isLoading}>
-                    <div className="deposit">
+                    <div className="deposit-wrapper">
                         <div className="deposit-type-title">{t("depositType")}</div>
                         <div className="deposit-type-item">
-                            {/* {depositType.map((items) => (
+                            {depositType.map((items) => (
                                 <span key={items.key} onClick={() => handleType(items)}>
-                                    <div disabled={items.disabled} className={`item ${type === items.key}`}>
+                                    <div className={`item ${type === items.key}`}>
                                         {items.icon}
                                         {t(items.label)}
                                     </div>
                                 </span>
-                            ))} */}
+                            ))}
                         </div>
 
                         <div className="telco-provider" hidden={type !== "TelcoDeposit"}>
@@ -81,7 +155,7 @@ const Deposit = () => {
                         <div className="cdm" hidden={type !== "CDM"}>
                             <div className="cdm-title">{t("agentBank")}</div>
                             <Row className="cdm-item" gutter={[9, 9]}>
-                                {/* {agentBank?.map((items) => (
+                                {/* {agentBank?.map((items: any) => (
                                     <Col xs={12} sm={8} md={6} key={items.srno} onClick={() => handleBank(items)}>
                                         <div className={`item ${bank?.srno === items.srno}`}>
                                             <img src={items.image + items.bankCode + ".png"} alt={items.bankCode} />
@@ -133,8 +207,7 @@ const Deposit = () => {
                                         // getValueFromEvent={getFile}
                                         rules={[{ required: true, message: t("pleaseUploadAttachment") }]}
                                     >
-                                        {/* <Upload listType="picture" maxCount={1} beforeUpload={checkImage} onPreview={handlePreview}> */}
-                                        <Upload listType="picture" maxCount={1}>
+                                        <Upload listType="picture" maxCount={1} beforeUpload={checkImage} onPreview={handlePreview}>
                                             <Button icon={<CloudUploadOutlined />}>{t("clickToUpload")}</Button>
                                         </Upload>
                                     </Form.Item>
