@@ -1,1 +1,154 @@
-{}
+{
+    "withdrawAllBalance": "Tarik Semua Baki",
+    "settings": "Tetapan",
+
+    "english": "BAHASA INGGERIS",
+    "mandarin": "MANDARIN",
+    "bahasa": "BAHASA",
+
+    "login": "LOG MASUK",
+    "language": "Bahasa",
+
+    "home": "LAMAN UTAMA",
+    "slot": "MESIN SLOT",
+    "casino": "KASINO",
+    "sportbook": "BUKU SUKAN",
+    "lottery": "LOTERI",
+    "fishing": "MEMANCING",
+    "esport": "E-SPORT",
+    "series918": "SIRI 918",
+    "suggestion": "CADANGAN",
+
+    "contactUs": "Hubungi Kami",
+    "telegram": "Telegram: ",
+    "whatsapp": "WhatsApp: ",
+    "product": "Produk",
+    "info": "Maklumat",
+    "termsAndConditions": "Terma & Syarat",
+    "faq": "Soalan Lazim",
+    "depositMethod": "Kaedah Deposit",
+
+    "playerID": "ID Pemain",
+    "pleaseInsertPlayerID": "Sila masukkan ID pemain",
+    "password": "Kata Laluan",
+    "pleaseInsertPassword": "Sila masukkan kata laluan",
+
+    "loginSuccess": "LOG MASUK BERJAYA",
+    "loginSuccessMsg": "Selamat datang ke {{domainName}}",
+    "close": "TUTUP",
+
+    "marqueeText": "{{domainName}} bukan sahaja menawarkan anda peluang untuk bermain permainan judi kegemaran anda menggunakan pelayar web anda tetapi juga menawarkan anda bermain permainan menggunakan aplikasi mudah alih. Ini adalah pendekatan mudah yang dibawa oleh kami kepada pengguna supaya mereka boleh mengakses pelbagai perkhidmatan yang ditawarkan dalam platform dengan mudah. Sama ada anda adalah pengguna peranti mudah alih Android atau iOS, aplikasi ini akan serasi untuk mana-mana peranti.",
+
+    "trustedOnlineCasinoMalaysia": "KASINO DALAM TALIAN TERPERCAYA DI MALAYSIA - {{domainName}}",
+    "aboutUsDesc": "{{domainName}} adalah kasino dalam talian yang dipercayai di Malaysia, wilayah geografi Asia yang mempunyai lebih sejuta pengguna. Kami bukan sahaja boleh bermain permainan di pelbagai syarikat permainan terkenal, tetapi juga menyediakan perkhidmatan pengeluaran wang yang cepat.",
+
+    "sponsored": "DITAJA",
+
+    "usefulInformation": "MAKLUMAT BERGUNA",
+    "mobileApp": "Aplikasi Mudah Alih",
+    "infoContent1": "{{domainName}} bukan sahaja menawarkan anda peluang untuk bermain permainan judi kegemaran anda menggunakan pelayar web anda tetapi juga menawarkan anda bermain permainan menggunakan aplikasi mudah alih. Ini adalah pendekatan mudah yang dibawa oleh kami kepada pengguna supaya mereka boleh mengakses pelbagai perkhidmatan yang ditawarkan dalam platform dengan mudah. Sama ada anda adalah pengguna peranti mudah alih Android atau iOS, aplikasi ini akan serasi untuk mana-mana peranti.",
+    "securityAndSafety": "Keselamatan Dan Keselamatan",
+    "infoContent2": "Pemain kami adalah selamat dan terjamin menggunakan platform kasino dalam talian dan aplikasi mudah alih. Kami menampilkan ciri pengesahan dua faktor serta ciri penyulitan 128 yang selamat daripada sebarang aktiviti penggodam. Kami telah memperoleh pelbagai lesen perjudian dalam talian daripada syarikat perjudian antarabangsa seperti Gaming Curacao, yang merupakan pihak berkuasa yang menyediakan lesen kasino yang sah. Oleh itu, pemain kami boleh yakin bahawa kasino dalam talian adalah sah dan legit.",
+    "paymentMethod": "Kaedah Pembayaran",
+    "infoContent3": "Apabila berurusan di platform kami, anda yakin dengan penghantaran deposit dan pengeluaran yang cepat dan terjamin. Transaksi boleh dilakukan pada bila-bila masa dengan tiada had atau sekatan pada hari cuti umum. Kaedah deposit yang diterima di laman perjudian dalam talian yang dipercayai ini adalah Perbankan Dalam Talian, E-Wallet dan Telco tanpa caj tambahan yang dikenakan dan semua transaksi diselesaikan dengan cepat dalam sehari.",
+
+    "typesOfTheBestOnlineCasinoGames": "JENIS-JENIS PERMAINAN KASINO DALAM TALIAN TERBAIK",
+
+    "latestHighlightVideo": "Video Sorotan Terbaru",
+    "recommended": "Disyorkan",
+
+    "downloadApp": "MUAT TURUN APLIKASI {{domainName}}",
+
+    "suggestionType": "Jenis Cadangan",
+    "gameProblem": "Masalah Permainan",
+    "dealerCheat": "Penipuan Peniaga",
+    "dealerComplaints": "Aduan Peniaga",
+    "others": "Lain-lain",
+    "message": "Mesej",
+    "pleaseSelectSuggestionTypeAndInsertMessage": "Sila pilih jenis cadangan dan masukkan mesej",
+
+    "myProfile": "Profil Saya",
+    "changePassword": "Tukar Kata Laluan",
+    "changeLanguage": "Tukar Bahasa",
+    "deposit": "Deposit",
+    "withdraw": "Pengeluaran",
+    "transactionHistory": "Sejarah Transaksi",
+    "gameAccount": "Akaun Permainan",
+    "logOut": "Log Keluar",
+
+    "phoneNumber": "Nombor Telefon",
+    "agentID": "ID Ejen",
+    "registerDate": "Tarikh Daftar",
+
+    "currentPassword": "Kata Laluan Semasa",
+    "pleaseInsertCurrentPassword": "Sila masukkan kata laluan semasa",
+    "newPassword": "Kata Laluan Baru",
+    "pleaseInsertNewPassword": "Sila masukkan kata laluan baru",
+    "clear": "Padam",
+    "update": "Kemas Kini",
+
+    "depositType": "Pilihan Deposit",
+    "qrPay": "Bayar QR",
+    "onlineBanking": "Perbankan Dalam Talian",
+    "telco": "Telco",
+    "cdm": "Mesin Deposit Tunai",
+
+    "agentBank": "Bank Ejen",
+    "pleaseSelectBank": "Sila pilih bank",
+    "bankAccountNo": "Nombor Akaun Bank",
+    "bankAccountName": "Nama Akaun Bank",
+    "amount": "Jumlah",
+    "pleaseInsertAmount": "Sila masukkan jumlah",
+    "provider": "Penyedia",
+    "pinNumber": "Nombor Pin",
+    "pleaseInsertPinNumber": "Sila masukkan nombor pin",
+    "attachment": "Lampiran",
+    "clickToUpload": "Klik Untuk Muat Naik",
+    "pleaseUploadAttachment": "Sila muat naik lampiran",
+    "submit": "Hantar",
+
+    "confirmToDepositBalance": "Sahkan untuk deposit baki",
+    "pleaseSelectDepositType": "Sila pilih jenis deposit",
+    "pleaseSelectTelcoProvider": "Sila pilih penyedia telco",
+
+    "importantNotice": "Notis Penting :",
+    "depositDesc1": "Pastikan untuk memeriksa akaun deposit terkini sebelum membuat deposit untuk mengelakkan proses yang perlahan.",
+    "depositDesc2": "Semasa memindahkan wang, sila rujuk kepada 'Nombor Rujukan Bank' 'Rujukan Penerima/Lain-lain Maklumat Pembayaran'",
+    "depositDesc3": "Sila jangan masukkan sebarang maklumat sensitif semasa memindahkan wang, seperti berikut PERJUDIAN, PERMAINAN, KASINO dan lain-lain.",
+    "depositDesc4": "Sila sahkan pemindahan berjaya sebelum menghantar permohonan deposit untuk mengelakkan kelewatan deposit.",
+    "depositDesc5": "Sila sertakan risalah dengan setiap permohonan deposit supaya permintaan anda boleh diproses lebih cepat.",
+    "depositDesc6": "Untuk transaksi deposit tunai, sila tulis 'untuk {{domainName}} sahaja' pada resit setiap kali, dan kemudian muat naik resit selepas menghantar permohonan.",
+
+    "bankCode": "Kod Bank",
+    "haventRegisterWithdrawalBankYet": "Belum Mendaftar Akaun Bank Pengeluaran!",
+    "confirmToWithdrawBalance": "Sahkan untuk mengeluarkan baki",
+
+    "addBankDesc1": "Belum Mempunyai Bank Pengeluaran Anda Sendiri?",
+    "addBankDesc2": "Ingin Menambah Bank Pengeluaran Lain?",
+    "addBank": "Tambah Bank",
+    "addNewBank": "Tambah Bank Baru",
+    "pleaseSelectBankCode": "Sila pilih kod bank",
+    "pleaseInsertBankAccountName": "Sila masukkan nama akaun bank",
+    "pleaseInsertBankAccountNo": "Sila masukkan nombor akaun bank",
+    "confirmToAddBank": "Sahkan untuk tambah bank",
+
+    "action": "Tindakan",
+    "beforeBalance": "Baki Sebelum",
+    "afterBalance": "Baki Selepas",
+    "remark": "Catatan",
+    "createDate": "Tarikh Cipta",
+
+    "gameName": "Nama Permainan",
+    "gameLoginID": "ID Log Masuk Permainan",
+    "gamePassword": "Kata Laluan Permainan",
+    "balance": "Baki",
+    "checkBalance": "Semak Baki",
+    "transferToWallet": "Pindah ke Dompet",
+    "noCreditInsideGame": "Tiada kredit dalam permainan",
+
+    "gameUnderMaintenance": "Permainan Sedang Diselenggara",
+    "comingSoon": "Akan Datang",
+    "transferAndPlay": "Pindah dan Main",
+    "confirmTransferMsg": "Sekali dipindah tidak boleh dikeluarkan dari permainan",
+    "redirectToGameNow": "Alihkan ke Permainan Sekarang"
+}

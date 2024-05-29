@@ -18,6 +18,9 @@ const HomePage = () => {
     const [providerSwiperShow, setProviderSwiperShow] = useState(10);
     const [lang, setLang] = useState(false);
 
+    const currentLng = localStorage.getItem("i18nextLng");
+    let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "ZH" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
+
     useEffect(() => {
         if (windowWidth < 992) {
             setGameSwiperShow(4);
@@ -62,7 +65,13 @@ const HomePage = () => {
                 <Col {...gridSetting}>
                     <div className="title">{t("trustedOnlineCasinoMalaysia")}</div>
 
-                    <div className="desc">{platformInfo?.descriptionEN}</div>
+                    <div className="desc">
+                        {language === "bahasa"
+                            ? platformInfo?.descriptionMY
+                            : language === "mandarin"
+                            ? platformInfo?.descriptionCN
+                            : platformInfo?.descriptionEN}
+                    </div>
                     {/* <div dangerouslySetInnerHTML={{ __html: platformInfo?.descriptionEN }} /> */}
                 </Col>
             </Row>
@@ -79,7 +88,7 @@ const HomePage = () => {
                         />
                     </Background>
                     <Row gutter={[16, 16]} justify="center">
-                        {gpCategory?.map((items, index) => (
+                        {gpCategory?.map((items: any, index: number) => (
                             <Col key={index} xs={6}>
                                 <div className="sm-menu-item" onClick={() => handleRedirect(items.category)}>
                                     {/* <img src={items.icon} alt={items.title} /> */}
@@ -95,7 +104,7 @@ const HomePage = () => {
                 <Col {...gridSetting}>
                     <div className="title">{t("sponsored")}</div>
                     <Swiper spaceBetween={15} slidesPerView={providerSwiperShow} autoplay modules={[Autoplay]}>
-                        {sponsorList.map((items, index) => (
+                        {sponsorList.map((items: any, index: number) => (
                             <SwiperSlide key={index}>
                                 <div className="sponsored-item">
                                     {/* <img src={items.image} alt={items.gameCode} /> */}
@@ -143,14 +152,13 @@ const HomePage = () => {
                 <Col {...gridSetting}>
                     <div className="title">{t("typesOfTheBestOnlineCasinoGames")}</div>
                     <Swiper spaceBetween={15} slidesPerView={gameSwiperShow} autoplay modules={[Autoplay]}>
-                        {gpCategory?.map((items, index) => (
+                        {gpCategory?.map((items: any, index: number) => (
                             <SwiperSlide key={index}>
                                 <div className="game-category-item">
-                                    {/* <img
+                                    <img
                                         src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
                                         alt={items.category}
-                                    /> */}
-                                    {items.category}
+                                    />
                                 </div>
                             </SwiperSlide>
                         ))}
@@ -182,7 +190,7 @@ const HomePage = () => {
                                 </div>
 
                                 <Carousel autoplay dots={false}>
-                                    {poster?.map((items, index) => (
+                                    {poster?.map((items: any, index: number) => (
                                         <div key={index} className="poster-img">
                                             {/* <img src={items.image} alt={items.title} /> */}
                                             {items.title}

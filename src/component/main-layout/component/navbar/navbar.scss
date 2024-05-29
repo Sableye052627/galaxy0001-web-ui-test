@@ -21,6 +21,7 @@
         border-radius: 8px;
         transition: all 0.5s;
         cursor: pointer;
+        gap: 5px;
 
         :is(&:hover, &:active) {
             filter: brightness(2);

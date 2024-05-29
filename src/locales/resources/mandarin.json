@@ -1,1 +1,154 @@
-{}
+{
+    "withdrawAllBalance": "提取全部余额",
+    "settings": "设置",
+
+    "english": "英语",
+    "mandarin": "普通话",
+    "bahasa": "马来语",
+
+    "login": "登录",
+    "language": "语言",
+
+    "home": "首页",
+    "slot": "老虎机",
+    "casino": "赌场",
+    "sportbook": "体育博彩",
+    "lottery": "彩票",
+    "fishing": "捕鱼",
+    "esport": "电子竞技",
+    "series918": "918系列",
+    "suggestion": "建议",
+
+    "contactUs": "联系我们",
+    "telegram": "Telegram: ",
+    "whatsapp": "WhatsApp: ",
+    "product": "产品",
+    "info": "信息",
+    "termsAndConditions": "条款和条件",
+    "faq": "常见问题",
+    "depositMethod": "存款方式",
+
+    "playerID": "玩家ID",
+    "pleaseInsertPlayerID": "请输入玩家ID",
+    "password": "密码",
+    "pleaseInsertPassword": "请输入密码",
+
+    "loginSuccess": "登录成功",
+    "loginSuccessMsg": "欢迎来到{{domainName}}",
+    "close": "关闭",
+
+    "marqueeText": "{{domainName}}不仅提供您通过浏览器玩您喜爱的在线赌博游戏的机会，还提供使用移动应用程序玩游戏的机会。这是我们为用户提供的一种便捷方法，使他们能够轻松访问平台上提供的各种服务。无论您是Android或iOS移动设备的用户，此应用程序都可以兼容任何设备。",
+
+    "trustedOnlineCasinoMalaysia": "马来西亚可信赖的在线赌场 - {{domainName}}",
+    "aboutUsDesc": "{{domainName}}是马来西亚可信赖的在线赌场，拥有超过一百万用户的亚洲客户群体。我们不仅可以玩各种知名游戏公司的游戏，还提供快速提现服务。",
+
+    "sponsored": "赞助",
+
+    "usefulInformation": "有用的信息",
+    "mobileApp": "移动应用",
+    "infoContent1": "{{domainName}}不仅提供您通过浏览器玩您喜爱的在线赌博游戏的机会，还提供使用移动应用程序玩游戏的机会。这是我们为用户提供的一种便捷方法，使他们能够轻松访问平台上提供的各种服务。无论您是Android或iOS移动设备的用户，此应用程序都可以兼容任何设备。",
+    "securityAndSafety": "安全与保障",
+    "infoContent2": "我们的玩家使用在线赌场平台和移动应用程序是安全可靠的。我们提供两因素认证功能以及128位加密功能，防止任何黑客攻击。我们已经从国际赌博公司如Gaming Curacao获得了多个在线赌博许可证。因此，我们的玩家可以放心，在线赌场是合法和可信的。",
+    "paymentMethod": "支付方式",
+    "infoContent3": "在我们平台进行交易时，您可以放心，存款和提现的交付迅速且安全。交易可以在任何时间进行，没有公共假期的限制。此可信的在线赌博网站接受的存款方式有在线银行、电子钱包和电信，没有任何额外费用，所有交易都在一天内完成。",
+
+    "typesOfTheBestOnlineCasinoGames": "最佳在线赌场游戏类型",
+
+    "latestHighlightVideo": "最新亮点视频",
+    "recommended": "推荐",
+
+    "downloadApp": "下载{{domainName}}应用",
+
+    "suggestionType": "建议类型",
+    "gameProblem": "游戏问题",
+    "dealerCheat": "庄家作弊",
+    "dealerComplaints": "庄家投诉",
+    "others": "其他",
+    "message": "消息",
+    "pleaseSelectSuggestionTypeAndInsertMessage": "请选择建议类型并输入消息",
+
+    "myProfile": "我的资料",
+    "changePassword": "更改密码",
+    "changeLanguage": "更改语言",
+    "deposit": "存款",
+    "withdraw": "提现",
+    "transactionHistory": "交易记录",
+    "gameAccount": "游戏账户",
+    "logOut": "退出登录",
+
+    "phoneNumber": "电话号码",
+    "agentID": "代理ID",
+    "registerDate": "注册日期",
+
+    "currentPassword": "当前密码",
+    "pleaseInsertCurrentPassword": "请输入当前密码",
+    "newPassword": "新密码",
+    "pleaseInsertNewPassword": "请输入新密码",
+    "clear": "清除",
+    "update": "更新",
+
+    "depositType": "存款选项",
+    "qrPay": "二维码支付",
+    "onlineBanking": "在线银行",
+    "telco": "电信",
+    "cdm": "现金存款机",
+
+    "agentBank": "代理银行",
+    "pleaseSelectBank": "请选择银行",
+    "bankAccountNo": "银行账号",
+    "bankAccountName": "银行账户名",
+    "amount": "金额",
+    "pleaseInsertAmount": "请输入金额",
+    "provider": "提供者",
+    "pinNumber": "PIN码",
+    "pleaseInsertPinNumber": "请输入PIN码",
+    "attachment": "附件",
+    "clickToUpload": "点击上传",
+    "pleaseUploadAttachment": "请上传附件",
+    "submit": "提交",
+
+    "confirmToDepositBalance": "确认存款余额",
+    "pleaseSelectDepositType": "请选择存款类型",
+    "pleaseSelectTelcoProvider": "请选择电信提供商",
+
+    "importantNotice": "重要通知：",
+    "depositDesc1": "存款前请务必检查最新的存款账号，以免延迟处理。",
+    "depositDesc2": "转账时，请参考“银行参考号码”“收款人参考/其他支付详情”。",
+    "depositDesc3": "转账时请勿填写任何敏感信息，如赌博、游戏、赌场等。",
+    "depositDesc4": "提交存款申请前请确认转账成功，以免存款延迟。",
+    "depositDesc5": "请在每次存款申请中附上传单，以便快速处理您的请求。",
+    "depositDesc6": "对于现金存款交易，请在每次收据上用笔写“仅限{{domainName}}”，然后在提交申请后上传收据。",
+
+    "bankCode": "银行代码",
+    "haventRegisterWithdrawalBankYet": "尚未注册提现银行账户！",
+    "confirmToWithdrawBalance": "确认提现余额",
+
+    "addBankDesc1": "还没有自己的提现银行？",
+    "addBankDesc2": "想要添加另一提现银行？",
+    "addBank": "添加银行",
+    "addNewBank": "添加新银行",
+    "pleaseSelectBankCode": "请选择银行代码",
+    "pleaseInsertBankAccountName": "请输入银行账户名",
+    "pleaseInsertBankAccountNo": "请输入银行账号",
+    "confirmToAddBank": "确认添加银行",
+
+    "action": "操作",
+    "beforeBalance": "之前余额",
+    "afterBalance": "之后余额",
+    "remark": "备注",
+    "createDate": "创建日期",
+
+    "gameName": "游戏名称",
+    "gameLoginID": "游戏登录ID",
+    "gamePassword": "游戏密码",
+    "balance": "余额",
+    "checkBalance": "检查余额",
+    "transferToWallet": "转到钱包",
+    "noCreditInsideGame": "游戏中无信用",
+
+    "gameUnderMaintenance": "游戏维护中",
+    "comingSoon": "即将到来",
+    "transferAndPlay": "转账并游戏",
+    "confirmTransferMsg": "转账后无法从游戏中提现",
+    "redirectToGameNow": "立即跳转到游戏"
+}

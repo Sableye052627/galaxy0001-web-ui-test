@@ -1,6 +1,6 @@
 import { useNavbar } from "./hook/useNavbar";
 import { Col, Popover, Row, Tooltip } from "antd";
-import { WalletOutlined, UserOutlined, CaretDownOutlined, MenuOutlined, TranslationOutlined } from "@ant-design/icons";
+import { WalletOutlined, LoginOutlined, UserOutlined, CaretDownOutlined, MenuOutlined, TranslationOutlined } from "@ant-design/icons";
 
 import "./navbar.scss";
 import { gridSetting } from "../../MainLayout";
@@ -22,6 +22,7 @@ const Navbar = () => {
 
     const renderNoLogin = () => (
         <div className="btn-login" onClick={() => handleRedirect("/login")}>
+            <LoginOutlined />
             {t("login")}
         </div>
     );
