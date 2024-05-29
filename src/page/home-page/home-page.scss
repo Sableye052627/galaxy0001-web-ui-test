@@ -93,10 +93,27 @@
             font-weight: 800;
         }
 
-        .game-category-item img {
-            object-fit: contain;
-            width: 100%;
+        ::-webkit-scrollbar {
+            display: none;
         }
+
+        .game-category-content {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            gap: 16px;
+
+            .game-category-item img {
+                object-fit: contain;
+                width: 100%;
+                min-width: 150px;
+            }
+        }
+
+        // .game-category-item img {
+        //     object-fit: contain;
+        //     width: 100%;
+        // }
     }
 
     .video-poster {

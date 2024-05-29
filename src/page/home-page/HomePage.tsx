@@ -150,8 +150,10 @@ const HomePage = () => {
 
             <Row className="game-category" justify="center">
                 <Col {...gridSetting}>
-                    <div className="title">{t("typesOfTheBestOnlineCasinoGames")}</div>
-                    <Swiper spaceBetween={15} slidesPerView={gameSwiperShow} autoplay modules={[Autoplay]}>
+                    <div className="title" hidden={gpCategory[0] === undefined}>
+                        {t("typesOfTheBestOnlineCasinoGames")}
+                    </div>
+                    {/* <Swiper spaceBetween={15} slidesPerView={gameSwiperShow} autoplay modules={[Autoplay]}>
                         {gpCategory?.map((items: any, index: number) => (
                             <SwiperSlide key={index}>
                                 <div className="game-category-item">
@@ -162,7 +164,17 @@ const HomePage = () => {
                                 </div>
                             </SwiperSlide>
                         ))}
-                    </Swiper>
+                    </Swiper> */}
+                    <div className="game-category-content">
+                        {gpCategory?.map((items: any, index: number) => (
+                            <div key={index} className="game-category-item">
+                                <img
+                                    src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${"SLOT"}.png`}
+                                    alt={items.category}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </Col>
             </Row>
 

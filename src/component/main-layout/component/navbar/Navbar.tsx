@@ -55,7 +55,7 @@ const Navbar = () => {
                             <MenuOutlined />
                         </div>
                     </Col>
-                    <Col xs={6} sm={6} md={4} lg={3} xxl={2}>
+                    <Col xs={6} md={4} lg={3} xxl={2}>
                         <div className="navbar-logo" onClick={() => handleRedirect("/")}>
                             <img src={platformInfo?.logoImage} alt={platformInfo?.uniqueID} />
                         </div>
