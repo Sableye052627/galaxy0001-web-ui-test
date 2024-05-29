@@ -29,7 +29,7 @@ const Withdraw = () => {
     async function getPlayerBank() {
         // try {
         //     const object = {
-        //         DomainName: logoInfo?.domainName,
+        //         PlatformName: logoInfo?.platformName,
         //         PlayerID: localStorage.getItem("PlayerID"),
         //         PlayerToken: localStorage.getItem("PlayerToken"),
         //     };
@@ -68,7 +68,7 @@ const Withdraw = () => {
         setIsLoading(true);
         // try {
         //     const object = {
-        //         DomainName: logoInfo?.domainName,
+        //         PlatformName: logoInfo?.platformName,
         //         PlayerID: localStorage.getItem("PlayerID"),
         //         PlayerToken: localStorage.getItem("PlayerToken"),
         //         BankSrno: bank,
@@ -109,7 +109,7 @@ const Withdraw = () => {
         setIsLoading(true);
         // try {
         //     const object = {
-        //         DomainName: logoInfo?.domainName,
+        //         PlatformName: logoInfo?.platformName,
         //         PlayerID: localStorage.getItem("PlayerID"),
         //         PlayerToken: localStorage.getItem("PlayerToken"),
         //         BankCode: values.bankCode,

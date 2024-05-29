@@ -9,12 +9,14 @@ import { Parallax, Background } from "react-parallax";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
+import LanguageModal from "../../component/language-modal/LanguageModal";
 
 const HomePage = () => {
     const { t, platformInfo, gpCategory, windowWidth, handleRedirect } = useHomePage();
 
     const [gameSwiperShow, setGameSwiperShow] = useState(5);
     const [providerSwiperShow, setProviderSwiperShow] = useState(10);
+    const [lang, setLang] = useState(false);
 
     useEffect(() => {
         if (windowWidth < 992) {
@@ -50,8 +52,8 @@ const HomePage = () => {
                         <NotificationOutlined />
                         <Marquee gradient={false}>{t("marqueeText")}</Marquee>
 
-                        {/* <LanguageModal lang={lang} setLang={setLang} />
-                        <BsTranslate style={{ fontSize: 20, cursor: "pointer" }} onClick={() => setLang(!lang)} /> */}
+                        <LanguageModal lang={lang} setLang={setLang} />
+                        {/* <BsTranslate style={{ fontSize: 20, cursor: "pointer" }} onClick={() => setLang(!lang)} /> */}
                     </div>
                 </Col>
             </Row>

@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Api } from "../../../../context/ApiContext";
 import { useNavigate } from "react-router-dom";
+import { Api } from "../../../context/ApiContext";
 
-export const useNavbarSec = () => {
+export const useMainLayout = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
-    const { platformInfo, gpCategory } = apiContext;
+    const { platformInfo, windowWidth } = apiContext;
 
-    return { t, navigate, platformInfo, gpCategory };
+    return { t, navigate, platformInfo, windowWidth };
 };

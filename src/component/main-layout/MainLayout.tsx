@@ -1,40 +1,47 @@
 import { Outlet } from "react-router-dom";
+import { PhoneOutlined } from "@ant-design/icons";
 
 import "./main-layout.scss";
-import Navbar from "./navbar/Navbar";
-import Footer from "./footer/Footer";
-import NavbarSec from "./navbar-sec/NavbarSec";
+import Navbar from "./component/navbar/Navbar";
+import NavbarSec from "./component/navbar-sec/NavbarSec";
+import Footer from "./component/footer/Footer";
+import { useMainLayout } from "./hook/useMainLayout";
 
 export const gridSetting = { xxl: 18, xs: 23 };
 
 const MainLayout = () => {
+    const { t, navigate, platformInfo, windowWidth } = useMainLayout();
+
     const agentContact = [
         {
             srno: 1,
             contactType: "Whatsapp",
-            url: "",
+            url: "asd",
         },
         {
             srno: 2,
             contactType: "Telegram",
-            url: "",
+            url: "asd",
         },
     ];
     return (
         <div id="main-layout">
             <Navbar />
             <div className="neon-hr" />
-            <NavbarSec />
-            <div className="neon-hr" />
+
+            {windowWidth > 991 && <NavbarSec />}
+            {windowWidth > 991 && <div className="neon-hr" />}
+
             <Outlet />
-            <div className="neon-hr" />
+            {/* <div className="neon-hr" /> */}
+
             <Footer />
 
             <div className="contact-us-float" hidden={!agentContact || agentContact[0] === undefined}>
                 <div className="content">
                     {agentContact?.map((items, index) => (
                         <div className="items" key={index} onClick={() => window.open(items.url)}>
-                            {logoInfo?.domainName?.toUpperCase()} @ {items?.contactType?.toUpperCase()}
+                            {/* {platformInfo?.platformName?.toUpperCase()} @ {items?.contactType?.toUpperCase()} */}
                         </div>
                     ))}
                 </div>

@@ -2,7 +2,7 @@ import { useNavbarSec } from "./hook/useNavbarSec";
 import { Col, Row } from "antd";
 
 import "./navbar-sec.scss";
-import { gridSetting } from "../MainLayout";
+import { gridSetting } from "../../MainLayout";
 
 const NavbarSec = () => {
     const { t, navigate, gpCategory } = useNavbarSec();
@@ -27,7 +27,7 @@ const NavbarSec = () => {
                         </div>
                     </Col>
 
-                    {gpCategory?.map((items, index) => (
+                    {gpCategory?.map((items: any, index: number) => (
                         <Col key={index}>
                             <div
                                 className={`item ${pathname[2] === items.category.toLocaleLowerCase()}`}

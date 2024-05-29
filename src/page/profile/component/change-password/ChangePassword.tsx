@@ -14,7 +14,7 @@ const ChangePassword = () => {
         setIsLoading(true);
         try {
             const object = {
-                // DomainName: platformInfo?.domainName,
+                // PlatformName: platformInfo?.platformName,
                 PlayerID: localStorage.getItem("PlayerID"),
                 PlayerToken: localStorage.getItem("PlayerToken"),
                 CurrentPassword: values.currentPassword,

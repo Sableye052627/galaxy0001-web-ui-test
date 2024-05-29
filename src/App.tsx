@@ -3,6 +3,8 @@ import HomePage from "./page/home-page/HomePage";
 import MainLayout from "./component/main-layout/MainLayout";
 import GameLobby from "./page/game-lobby/GameLobby";
 import Profile from "./page/profile/Profile";
+import Login from "./page/login/Login";
+import Suggestion from "./page/suggestion/Suggestion";
 
 function App() {
     const router = createBrowserRouter([
@@ -13,10 +15,10 @@ function App() {
                     path: "/",
                     element: <HomePage />,
                 },
-                // {
-                //   path: "/login",
-                //   element: ,
-                // },
+                {
+                    path: "/login",
+                    element: <Login />,
+                },
                 {
                     path: "/play-game/:category",
                     element: <GameLobby />,
@@ -26,11 +28,11 @@ function App() {
                 //   element: GameMenu,
                 //   hidden: !playerInfo,
                 // },
-                // {
-                //   path: "/suggestion",
-                //   element: Suggestion,
-                //   hidden: !playerInfo,
-                // },
+                {
+                    path: "/suggestion",
+                    element: <Suggestion />,
+                    //   hidden: !playerInfo,
+                },
                 {
                     path: "/player-info/:key",
                     element: <Profile />,

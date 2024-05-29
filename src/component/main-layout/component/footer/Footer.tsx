@@ -2,8 +2,9 @@ import { useFooter } from "./hook/useFooter";
 import { Col, Row } from "antd";
 
 import "./footer.scss";
-import { gridSetting } from "../MainLayout";
+import { gridSetting } from "../../MainLayout";
 import { useState } from "react";
+import LanguageModal from "../../../language-modal/LanguageModal";
 
 const Footer = () => {
     const { t, navigate, platformInfo, windowWidth } = useFooter();
@@ -35,7 +36,7 @@ const Footer = () => {
                                 {agentContact?.map((items, index) => (
                                     <div key={index} className="item" onClick={() => window.open(items.url)}>
                                         <span>{`${
-                                            t(items.contactType) + logoInfo?.domainName?.toUpperCase()
+                                            t(items.contactType) + logoInfo?.platformName?.toUpperCase()
                                         } @ ${items?.contactType?.toUpperCase()}`}</span>
                                     </div>
                                 ))}
@@ -61,7 +62,7 @@ const Footer = () => {
                             </div>
 
                             <div className="info">
-                                {/* <LanguageModal lang={lang} setLang={setLang} /> */}
+                                <LanguageModal lang={lang} setLang={setLang} />
 
                                 <div className="title">{t("info")}</div>
                                 <div className="content">

@@ -1,0 +1,65 @@
+.suggestion {
+    padding: 20px 0;
+  
+    .header {
+      color: var(--color);
+      font-size: 18px;
+      font-weight: 800;
+    }
+  
+    .ant-card {
+      margin-top: 15px;
+      background-color: #141414;
+      border: none;
+  
+      .suggestion-type {
+        .title {
+          margin-bottom: 5px;
+          color: var(--primary-color);
+          font-size: 14px;
+          font-weight: 800;
+        }
+  
+        .content .item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px 0;
+          color: var(--color);
+          border: 2px solid var(--primary-color);
+          border-radius: 6px;
+          font-size: 16px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: 0.5s;
+  
+          :is(&:hover, &.true) {
+            color: #000;
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+          }
+        }
+      }
+  
+      .suggestion-message {
+        margin-top: 15px;
+  
+        .title {
+          margin-bottom: 5px;
+          color: var(--primary-color);
+          font-size: 14px;
+          font-weight: 800;
+        }
+  
+        .content textarea {
+          color: var(--color);
+          border: 2px solid var(--primary-color);
+          border-radius: 6px;
+        }
+      }
+  
+      .clear-submit {
+        margin-top: 20px;
+      }
+    }
+  }

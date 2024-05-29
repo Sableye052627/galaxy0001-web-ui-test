@@ -14,7 +14,7 @@ const GameAccount = () => {
         // setCurrentGp(record.srno);
         // try {
         //   const object = {
-        //     DomainName: logoInfo?.domainName,
+        //     PlatformName: logoInfo?.platformName,
         //     PlayerID: localStorage.getItem("PlayerID"),
         //     PlayerToken: localStorage.getItem("PlayerToken"),
         //     GameCode: record.gameCode,
@@ -42,7 +42,7 @@ const GameAccount = () => {
         // setWithdrawGp(record.srno);
         // try {
         //   const object = {
-        //     DomainName: logoInfo?.domainName,
+        //     PlatformName: logoInfo?.platformName,
         //     PlayerID: localStorage.getItem("PlayerID"),
         //     PlayerToken: localStorage.getItem("PlayerToken"),
         //     GameCode: record.gameCode,

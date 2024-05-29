@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Api } from "../../../context/ApiContext";
 import { Player } from "../../../context/player/PlayerContext";
 
-export const useLogin = () => {
+export const useSuggestion = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 

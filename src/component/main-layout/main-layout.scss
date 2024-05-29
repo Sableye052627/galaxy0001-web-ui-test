@@ -7,6 +7,20 @@
     --footer-color: #ddd;
 }
 
+::-webkit-scrollbar {
+    height: 2px;
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8c8c8c;
+    border-radius: 12px;
+}
+
 [data-theme="dark"] {
     --primary-color: #ddd;
     --secondary-color: #ddd;

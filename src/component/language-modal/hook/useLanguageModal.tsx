@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Api } from "../../../context/ApiContext";
 import { Player } from "../../../context/player/PlayerContext";
 
-export const useLogin = () => {
+export const useLanguageModal = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ export const useLogin = () => {
     const { platformInfo, windowWidth } = apiContext;
 
     const playerContext = useContext(Player);
-    const { playerInfo, setPlayerInfo } = playerContext;
+    const { playerInfo } = playerContext;
 
-    return { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo };
+    return { t, navigate, platformInfo, windowWidth, playerInfo };
 };

@@ -34,6 +34,7 @@ interface IPlatformType {
     suggestion: number;
     selfRegister: number;
     phoneNoVerify: number;
+    platformName: string;
 }
 interface IGpCategoryType {
     category: string;
