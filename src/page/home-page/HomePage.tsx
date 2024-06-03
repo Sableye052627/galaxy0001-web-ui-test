@@ -10,9 +10,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import LanguageModal from "../../component/language-modal/LanguageModal";
+import { sponsorList } from "../../asset/Asset";
 
 const HomePage = () => {
-    const { t, platformInfo, gpCategory, windowWidth, handleRedirect } = useHomePage();
+    const { t, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect } = useHomePage();
 
     const [gameSwiperShow, setGameSwiperShow] = useState(5);
     const [providerSwiperShow, setProviderSwiperShow] = useState(10);
@@ -36,11 +37,14 @@ const HomePage = () => {
         }
     }, [windowWidth]);
 
-    const sponsorList = [{ gameCode: "VP" }];
+    // const sponsorList = [{ gameCode: "VP" }];
     const poster = [{ title: "asd" }];
     return (
         <div id="home-page">
             <Carousel autoplay dots={false}>
+                {/* {bannerList?.map((item: any, index: number) => (
+                    <img key={index} src={item?.mediaUrl} alt="" />
+                ))} */}
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/win22/banner/20-11-2023/WIN22_Banner_Galaxy_SlotMania(1).png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-01.png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-02.png" alt="" />
@@ -103,16 +107,22 @@ const HomePage = () => {
             <Row className="sponsored" justify="center">
                 <Col {...gridSetting}>
                     <div className="title">{t("sponsored")}</div>
-                    <Swiper spaceBetween={15} slidesPerView={providerSwiperShow} autoplay modules={[Autoplay]}>
+                    {/* <Swiper spaceBetween={15} slidesPerView={providerSwiperShow} autoplay modules={[Autoplay]}>
                         {sponsorList.map((items: any, index: number) => (
                             <SwiperSlide key={index}>
                                 <div className="sponsored-item">
-                                    {/* <img src={items.image} alt={items.gameCode} /> */}
-                                    {items.gameCode}
+                                    <img src={items.image} alt={items.gameCode} />
                                 </div>
                             </SwiperSlide>
                         ))}
-                    </Swiper>
+                    </Swiper> */}
+                    <div className="sponsored-content">
+                        {sponsorList?.map((items: any, index: number) => (
+                            <div key={index} className="sponsored-item">
+                                <img src={items.image} alt={items.gameCode} />
+                            </div>
+                        ))}
+                    </div>
                 </Col>
             </Row>
 

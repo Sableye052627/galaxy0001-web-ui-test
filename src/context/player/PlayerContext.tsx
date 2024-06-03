@@ -2,6 +2,8 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useState } from "re
 
 interface IPlayerType {
     srno: number;
+    platformSrno: number;
+    platformID: string;
     agentID: string;
     playerID: string;
     playerToken: string;

@@ -8,11 +8,11 @@ export const useHomePage = () => {
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
-    const { platformInfo, gpCategory, windowWidth } = apiContext;
+    const { windowWidth, platformInfo, gpCategory, bannerList } = apiContext;
 
     function handleRedirect(path: string) {
         navigate(`/play-game/${path?.toLocaleLowerCase()}`);
     }
 
-    return { t, platformInfo, gpCategory, windowWidth, handleRedirect };
+    return { t, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect };
 };

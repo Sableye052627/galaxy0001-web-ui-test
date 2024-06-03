@@ -5,6 +5,10 @@ import { gridSetting } from "../../../../component/main-layout/MainLayout";
 import { useWithdraw } from "./hook/useWithdraw";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { playerApi } from "../../../../service/CallApi";
+import { bankList } from "../../../../asset/Asset";
+
+const { Option } = Select;
 
 const Withdraw = () => {
     const { t, navigate, platformInfo, playerInfo } = useWithdraw();
@@ -27,21 +31,22 @@ const Withdraw = () => {
     }, []);
 
     async function getPlayerBank() {
-        // try {
-        //     const object = {
-        //         PlatformName: logoInfo?.platformName,
-        //         PlayerID: localStorage.getItem("PlayerID"),
-        //         PlayerToken: localStorage.getItem("PlayerToken"),
-        //     };
-        //     const result = await playerApi("/player-bank", object);
-        //     if (result.status) {
-        //         setPlayerBank(result.data);
-        //     }
-        // } catch (error) {
-        //     message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
-        //     history.push(-1);
-        // }
-        // setIsFirstLoad(false);
+        try {
+            const object = {
+                HostName: platformInfo?.platformName,
+                PlayerID: localStorage.getItem("PlayerID"),
+                PlayerToken: localStorage.getItem("PlayerToken"),
+            };
+            const result = await playerApi("bank-account/list", object);
+            if (result.status) {
+                setPlayerBank(result.data);
+            }
+        } catch (error) {
+            console.log(error);
+            // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+            // navigate(-1);
+        }
+        setIsFirstLoad(false);
     }
 
     function handleBank(item: any) {
@@ -107,25 +112,26 @@ const Withdraw = () => {
 
     async function handleAddBank(values: any) {
         setIsLoading(true);
-        // try {
-        //     const object = {
-        //         PlatformName: logoInfo?.platformName,
-        //         PlayerID: localStorage.getItem("PlayerID"),
-        //         PlayerToken: localStorage.getItem("PlayerToken"),
-        //         BankCode: values.bankCode,
-        //         BankAccountName: values.bankAccountName,
-        //         BankAccountNo: values.bankAccountNo.toString(),
-        //     };
-        //     const result = await playerApi("/add-bank", object);
-        //     if (result.status) {
-        //         message.success(result.message);
-        //         form2.resetFields();
-        //         setAddBank(false);
-        //         getPlayerBank();
-        //     }
-        // } catch (error) {
-        //     message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
-        // }
+        try {
+            const object = {
+                HostName: platformInfo?.platformName,
+                PlayerID: localStorage.getItem("PlayerID"),
+                PlayerToken: localStorage.getItem("PlayerToken"),
+                BankSrno: values.bankCode,
+                BankAccountNo: values.bankAccountNo.toString(),
+                BankAccountName: values.bankAccountName,
+            };
+            const result = await playerApi("bank-account/add", object);
+            if (result.status) {
+                message.success(result.message);
+                form2.resetFields();
+                setAddBank(false);
+                getPlayerBank();
+            }
+        } catch (error) {
+            console.log(error);
+            // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+        }
         setIsLoading(false);
     }
 
@@ -190,9 +196,9 @@ const Withdraw = () => {
                         <Form layout="vertical" onFinish={confirmAddBank} form={form2}>
                             <Form.Item label={t("bankCode")} name="bankCode" rules={[{ required: true, message: t("pleaseSelectBankCode") }]}>
                                 <Select placeholder={t("pleaseSelectBankCode")}>
-                                    {/* {bankList.map((items) => (
+                                    {bankList.map((items: any) => (
                                         <Option value={items.value}>{items.label}</Option>
-                                    ))} */}
+                                    ))}
                                 </Select>
                             </Form.Item>
                             <Form.Item

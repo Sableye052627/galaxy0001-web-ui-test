@@ -23,6 +23,14 @@ export async function getPlatformInfo(
     });
 }
 
+export async function getHomePage(hostname: string, setBannerList: Dispatch<SetStateAction<any>>, setGpList: Dispatch<SetStateAction<any>>) {
+    const object = { HostName: hostname };
+    await platformApi("/home-page", object).then((result) => {
+        setBannerList(result.data);
+        setGpList(result.data2);
+    });
+}
+
 export async function validateToken(hostname: string, setPlayerInfo: Dispatch<SetStateAction<any>>) {
     const object = { HostName: hostname, PlayerID: Cookies.get("PlayerID"), PlayerToken: Cookies.get("PlayerToken") };
     await playerApi("/validate-token", object).then((result) => {

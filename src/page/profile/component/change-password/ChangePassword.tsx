@@ -14,7 +14,7 @@ const ChangePassword = () => {
         setIsLoading(true);
         try {
             const object = {
-                // PlatformName: platformInfo?.platformName,
+                HostName: platformInfo?.platformName,
                 PlayerID: localStorage.getItem("PlayerID"),
                 PlayerToken: localStorage.getItem("PlayerToken"),
                 CurrentPassword: values.currentPassword,
@@ -26,6 +26,7 @@ const ChangePassword = () => {
                 form.resetFields();
             }
         } catch (error) {
+            console.log(error);
             //   message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
         setIsLoading(false);

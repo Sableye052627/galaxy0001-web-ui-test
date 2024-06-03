@@ -35,27 +35,28 @@ const Login = () => {
 
     async function handleLogin(values: any) {
         setIsLoading(true);
-        // try {
-        //     const object = {
-        //         // PlatformName: platformInfo?.platformName,
-        //         PlayerID: values.playerID,
-        //         Password: values.password,
-        //     };
-        //     const result = await playerApi("/player-login", object);
-        //     if (result.status) {
-        //         setPlayerInfo(result.data);
-        //         setGameCategory(result.data2);
-        //         setAgentContact(result.data?.agentContact);
+        try {
+            const object = {
+                HostName: platformInfo?.platformName,
+                PlayerID: values.playerID,
+                Password: values.password,
+            };
+            const result = await playerApi("/login", object);
+            if (result.status) {
+                setPlayerInfo(result.data);
+                // setGameCategory(result.data2);
+                // setAgentContact(result.data?.agentContact);
 
-        //         localStorage.setItem("PlayerID", result.data.playerID);
-        //         localStorage.setItem("PlayerToken", result.data.playerToken);
-        //         i18n.changeLanguage(result.data.lang);
+                localStorage.setItem("PlayerID", result.data.playerID);
+                localStorage.setItem("PlayerToken", result.data.playerToken);
+                // i18n.changeLanguage(result.data.lang);
 
-        //         setShow(true);
-        //     }
-        // } catch (error) {
-        //     message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
-        // }
+                setShow(true);
+            }
+        } catch (error) {
+            console.log(error);
+            // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+        }
         setIsLoading(false);
     }
 
