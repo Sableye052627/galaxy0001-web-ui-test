@@ -150,5 +150,7 @@
     "comingSoon": "即将到来",
     "transferAndPlay": "转账并游戏",
     "confirmTransferMsg": "转账后无法从游戏中提现",
-    "redirectToGameNow": "立即跳转到游戏"
+    "redirectToGameNow": "立即跳转到游戏",
+
+    "downloadGame": "下载游戏并继续"
 }

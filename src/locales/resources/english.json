@@ -150,5 +150,7 @@
     "comingSoon": "Coming Soon",
     "transferAndPlay": "Transfer And Play",
     "confirmTransferMsg": "Once transfer cannot withdraw from game",
-    "redirectToGameNow": "Redirect To Game Now"
+    "redirectToGameNow": "Redirect To Game Now",
+
+    "downloadGame": "Download the game to continue"
 }
