@@ -12,7 +12,7 @@ export const useWithdraw = () => {
     const { platformInfo } = apiContext;
 
     const playerContext = useContext(Player);
-    const { playerInfo } = playerContext;
+    const { playerInfo, hostname } = playerContext;
 
-    return { t, navigate, platformInfo, playerInfo };
+    return { t, navigate, platformInfo, playerInfo, hostname };
 };

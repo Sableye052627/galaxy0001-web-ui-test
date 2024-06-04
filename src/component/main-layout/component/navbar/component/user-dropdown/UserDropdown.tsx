@@ -1,6 +1,7 @@
 import "./user-dropdown.scss";
 import { useNavbar } from "../../hook/useNavbar";
 import { LogoutOutlined, HistoryOutlined, UserOutlined, LockOutlined, RocketOutlined, ImportOutlined, ExportOutlined } from "@ant-design/icons";
+import Cookies from "js-cookie";
 
 function UserDropdown() {
     const { t, navigate, platformInfo, setPlayerInfo } = useNavbar();
@@ -10,8 +11,8 @@ function UserDropdown() {
     }
 
     function handleLogOut() {
-        localStorage.removeItem("PlayerID");
-        localStorage.removeItem("PlayerToken");
+        Cookies.remove("PlayerID");
+        Cookies.remove("PlayerToken");
 
         setPlayerInfo(undefined);
         navigate("/");

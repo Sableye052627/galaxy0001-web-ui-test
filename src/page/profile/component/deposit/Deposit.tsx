@@ -8,9 +8,10 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { playerApi } from "../../../../service/CallApi";
 import { checkImage, previewImage } from "../../../../function/UploadFunction";
+import Cookies from "js-cookie";
 
 const Deposit = () => {
-    const { t, navigate, platformInfo, playerInfo } = useDeposit();
+    const { t, navigate, platformInfo, playerInfo, hostname } = useDeposit();
     const [form] = Form.useForm();
     const [firstLoad, setIsFirstLoad] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -63,9 +64,9 @@ const Deposit = () => {
     async function getAgentBank() {
         try {
             const object = {
-                // PlatformName: platformInfo?.platformName,
-                PlayerID: localStorage.getItem("PlayerID"),
-                PlayerToken: localStorage.getItem("PlayerToken"),
+                Hostname: hostname,
+                PlayerID: Cookies.get("PlayerID"),
+                PlayerToken: Cookies.get("PlayerToken"),
             };
             const result = await playerApi("/agent-bank", object);
             if (result.status) {

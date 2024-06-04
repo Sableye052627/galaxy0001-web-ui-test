@@ -5,6 +5,7 @@ import "./sm-drawer.scss";
 import { useSmDrawer } from "./hook/useSmDrawer";
 import { confirmWithdrawAll, formatNumber } from "../../../../../../function/Common";
 import { Dispatch, SetStateAction } from "react";
+import Cookies from "js-cookie";
 
 interface ISmDrawerProps {
     openMenu: boolean;
@@ -36,8 +37,8 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
 
     function handleLogInOut() {
         if (playerInfo) {
-            localStorage.removeItem("PlayerID");
-            localStorage.removeItem("PlayerToken");
+            Cookies.remove("PlayerID");
+            Cookies.remove("PlayerToken");
             setPlayerInfo(undefined);
             navigate("/");
 

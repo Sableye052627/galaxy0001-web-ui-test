@@ -7,16 +7,16 @@ import { useState } from "react";
 import { formatNumber } from "../../../../function/Common";
 
 const GameAccount = () => {
-    const { t, navigate, platformInfo, playerInfo } = useGameAccount();
+    const { t, navigate, platformInfo, playerInfo, hostname } = useGameAccount();
     const [isLoading, setIsLoading] = useState(false);
 
     async function handleCheck(record: any) {
         // setCurrentGp(record.srno);
         // try {
         //   const object = {
-        //     PlatformName: logoInfo?.platformName,
-        //     PlayerID: localStorage.getItem("PlayerID"),
-        //     PlayerToken: localStorage.getItem("PlayerToken"),
+        //     Hostname: hostname,
+        //     PlayerID: Cookies.get("PlayerID"),
+        //     PlayerToken: Cookies.get("PlayerToken"),
         //     GameCode: record.gameCode,
         //   };
         //   const result = await gameApi("/get-game-balance", object);
@@ -42,9 +42,9 @@ const GameAccount = () => {
         // setWithdrawGp(record.srno);
         // try {
         //   const object = {
-        //     PlatformName: logoInfo?.platformName,
-        //     PlayerID: localStorage.getItem("PlayerID"),
-        //     PlayerToken: localStorage.getItem("PlayerToken"),
+        //     Hostname: hostname,
+        //     PlayerID: Cookies.get("PlayerID"),
+        //     PlayerToken: Cookies.get("PlayerToken"),
         //     GameCode: record.gameCode,
         //     Amount: record.balance,
         //   };

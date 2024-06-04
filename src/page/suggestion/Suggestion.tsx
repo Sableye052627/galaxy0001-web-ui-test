@@ -4,9 +4,10 @@ import "./suggestion.scss";
 import { useState } from "react";
 import { playerApi } from "../../service/CallApi";
 import { useSuggestion } from "./hook/useSuggestion";
+import Cookies from "js-cookie";
 
 const Suggestion = () => {
-    const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo } = useSuggestion();
+    const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname } = useSuggestion();
 
     const [isLoading, setIsLoading] = useState(false);
     const [type, setType] = useState(1);
@@ -45,9 +46,9 @@ const Suggestion = () => {
         setIsLoading(true);
         try {
             const object = {
-                // PlatformName: platformInfo?.platformName,
-                PlayerID: localStorage.getItem("PlayerID"),
-                PlayerToken: localStorage.getItem("PlayerToken"),
+                HostName: hostname,
+                PlayerID: Cookies.get("PlayerID"),
+                PlayerToken: Cookies.get("PlayerToken"),
                 SuggestionType: type,
                 Message: userInput,
             };

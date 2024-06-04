@@ -1,0 +1,24 @@
+.gp-transfer-balance {
+    .gp-btn img {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+  
+    .ant-form label {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 700;
+    }
+  
+    .ant-form input[type="number"] {
+      background-color: rgba(255, 255, 255, 0.9);
+  
+      &:disabled {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  
+    .ant-btn-dangerous {
+      font-weight: 700;
+    }
+  }

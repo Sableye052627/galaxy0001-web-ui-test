@@ -17,7 +17,7 @@ const HomePage = () => {
 
     const [gameSwiperShow, setGameSwiperShow] = useState(5);
     const [providerSwiperShow, setProviderSwiperShow] = useState(10);
-    const [lang, setLang] = useState(false);
+    const [lang, setLang] = useState<boolean>(false);
 
     const currentLng = localStorage.getItem("i18nextLng");
     let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "ZH" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
@@ -116,13 +116,13 @@ const HomePage = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper> */}
-                    <div className="sponsored-content">
+                    <Marquee pauseOnHover={true} autoFill={true}>
                         {sponsorList?.map((items: any, index: number) => (
                             <div key={index} className="sponsored-item">
                                 <img src={items.image} alt={items.gameCode} />
                             </div>
                         ))}
-                    </div>
+                    </Marquee>
                 </Col>
             </Row>
 
@@ -179,7 +179,7 @@ const HomePage = () => {
                         {gpCategory?.map((items: any, index: number) => (
                             <div key={index} className="game-category-item">
                                 <img
-                                    src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${"SLOT"}.png`}
+                                    src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${items.category}.png`}
                                     alt={items.category}
                                 />
                             </div>

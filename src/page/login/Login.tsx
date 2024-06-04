@@ -5,14 +5,17 @@ import "./login.scss";
 import { useEffect, useState } from "react";
 import { playerApi } from "../../service/CallApi";
 import { gridSetting } from "../../component/main-layout/MainLayout";
+import { SuccessModal } from "./component/success-modal/SuccessModal";
+import Cookies from "js-cookie";
+import { LazyLoad } from "../loading/lazy-load/LazyLoad";
 
 const Login = () => {
-    const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo } = useLogin();
+    const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname } = useLogin();
 
-    const [isFirstLoad, setIsFirstLoad] = useState(true);
-    const [isLoading, setIsLoading] = useState(false);
-    const [banner, setBanner] = useState();
-    const [show, setShow] = useState(false);
+    const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    // const [banner, setBanner] = useState();
+    const [show, setShow] = useState<boolean>(false);
 
     useEffect(() => {
         if (playerInfo) {
@@ -37,18 +40,16 @@ const Login = () => {
         setIsLoading(true);
         try {
             const object = {
-                HostName: platformInfo?.platformName,
+                HostName: hostname,
                 PlayerID: values.playerID,
                 Password: values.password,
             };
             const result = await playerApi("/login", object);
             if (result.status) {
                 setPlayerInfo(result.data);
-                // setGameCategory(result.data2);
-                // setAgentContact(result.data?.agentContact);
 
-                localStorage.setItem("PlayerID", result.data.playerID);
-                localStorage.setItem("PlayerToken", result.data.playerToken);
+                Cookies.set("PlayerID", result.data.playerID);
+                Cookies.set("PlayerToken", result.data.playerToken);
                 // i18n.changeLanguage(result.data.lang);
 
                 setShow(true);
@@ -60,14 +61,14 @@ const Login = () => {
         setIsLoading(false);
     }
 
-    // if (isFirstLoad) {
-    //     return <LazyLoad />;
-    // }
+    if (isFirstLoad) {
+        return <LazyLoad />;
+    }
 
     return (
         <Row className="login" justify="center">
             <Col {...gridSetting}>
-                {/* <SuccessModal show={show} setShow={setShow} /> */}
+                <SuccessModal show={show} setShow={setShow} />
 
                 <Row className="header">
                     <Col xs={0} xl={24}>

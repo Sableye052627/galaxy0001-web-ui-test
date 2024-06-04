@@ -4,9 +4,10 @@ import "./change-password.scss";
 import { useChangePassword } from "./hook/useChangePassword";
 import { useState } from "react";
 import { playerApi } from "../../../../service/CallApi";
+import Cookies from "js-cookie";
 
 const ChangePassword = () => {
-    const { t, navigate, platformInfo, playerInfo } = useChangePassword();
+    const { t, navigate, platformInfo, playerInfo, hostname } = useChangePassword();
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -14,9 +15,9 @@ const ChangePassword = () => {
         setIsLoading(true);
         try {
             const object = {
-                HostName: platformInfo?.platformName,
-                PlayerID: localStorage.getItem("PlayerID"),
-                PlayerToken: localStorage.getItem("PlayerToken"),
+                HostName: hostname,
+                PlayerID: Cookies.get("PlayerID"),
+                PlayerToken: Cookies.get("PlayerToken"),
                 CurrentPassword: values.currentPassword,
                 NewPassword: values.newPassword,
             };

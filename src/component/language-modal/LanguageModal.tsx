@@ -6,6 +6,7 @@ import { playerApi } from "../../service/CallApi";
 import { Modal, message } from "antd";
 import { useLanguageModal } from "./hook/useLanguageModal";
 import { Dispatch, SetStateAction } from "react";
+import Cookies from "js-cookie";
 
 interface ILanguageModalProps {
     lang: boolean;
@@ -39,8 +40,8 @@ const LanguageModal = ({ lang, setLang }: ILanguageModalProps) => {
         try {
             const object = {
                 PlatformName: platformInfo?.platformName,
-                PlayerID: localStorage.getItem("PlayerID"),
-                PlayerToken: localStorage.getItem("PlayerToken"),
+                PlayerID: Cookies.get("PlayerID"),
+                PlayerToken: Cookies.get("PlayerToken"),
                 Lang: lang,
             };
             const result = await playerApi("/update-lang", object);

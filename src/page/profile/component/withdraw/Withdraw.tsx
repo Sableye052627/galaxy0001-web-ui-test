@@ -7,11 +7,12 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { playerApi } from "../../../../service/CallApi";
 import { bankList } from "../../../../asset/Asset";
+import Cookies from "js-cookie";
 
 const { Option } = Select;
 
 const Withdraw = () => {
-    const { t, navigate, platformInfo, playerInfo } = useWithdraw();
+    const { t, navigate, platformInfo, playerInfo, hostname } = useWithdraw();
     const [form] = Form.useForm();
     const [form2] = Form.useForm();
 
@@ -33,9 +34,9 @@ const Withdraw = () => {
     async function getPlayerBank() {
         try {
             const object = {
-                HostName: platformInfo?.platformName,
-                PlayerID: localStorage.getItem("PlayerID"),
-                PlayerToken: localStorage.getItem("PlayerToken"),
+                HostName: hostname,
+                PlayerID: Cookies.get("PlayerID"),
+                PlayerToken: Cookies.get("PlayerToken"),
             };
             const result = await playerApi("bank-account/list", object);
             if (result.status) {
@@ -73,9 +74,9 @@ const Withdraw = () => {
         setIsLoading(true);
         // try {
         //     const object = {
-        //         PlatformName: logoInfo?.platformName,
-        //         PlayerID: localStorage.getItem("PlayerID"),
-        //         PlayerToken: localStorage.getItem("PlayerToken"),
+        //     HostName: hostname,
+        //     PlayerID: Cookies.get("PlayerID"),
+        //     PlayerToken: Cookies.get("PlayerToken"),
         //         BankSrno: bank,
         //         Currency: "MYR",
         //         Amount: values.amount,
@@ -114,9 +115,9 @@ const Withdraw = () => {
         setIsLoading(true);
         try {
             const object = {
-                HostName: platformInfo?.platformName,
-                PlayerID: localStorage.getItem("PlayerID"),
-                PlayerToken: localStorage.getItem("PlayerToken"),
+                HostName: hostname,
+                PlayerID: Cookies.get("PlayerID"),
+                PlayerToken: Cookies.get("PlayerToken"),
                 BankSrno: values.bankCode,
                 BankAccountNo: values.bankAccountNo.toString(),
                 BankAccountName: values.bankAccountName,

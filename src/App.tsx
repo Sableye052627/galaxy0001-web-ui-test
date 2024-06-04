@@ -5,6 +5,8 @@ import GameLobby from "./page/game-lobby/GameLobby";
 import Profile from "./page/profile/Profile";
 import Login from "./page/login/Login";
 import Suggestion from "./page/suggestion/Suggestion";
+import GameMenu from "./page/game-menu/GameMenu";
+import GameTransfer from "./page/game-transfer/GameTransfer";
 
 function App() {
     const router = createBrowserRouter([
@@ -23,11 +25,16 @@ function App() {
                     path: "/play-game/:category",
                     element: <GameLobby />,
                 },
-                // {
-                //   path: "/play-game/:category/:gameCode",
-                //   element: GameMenu,
-                //   hidden: !playerInfo,
-                // },
+                {
+                    path: "/game-menu/:category/:gameCode",
+                    element: <GameMenu />,
+                    //   hidden: !playerInfo,
+                },
+                {
+                    path: "/game-transfer/:category/:gameCode/:gameID?",
+                    element: <GameTransfer />,
+                    //   hidden: !playerInfo,
+                },
                 {
                     path: "/suggestion",
                     element: <Suggestion />,

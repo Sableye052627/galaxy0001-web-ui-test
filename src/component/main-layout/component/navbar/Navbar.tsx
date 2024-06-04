@@ -1,5 +1,5 @@
 import { useNavbar } from "./hook/useNavbar";
-import { Col, Popover, Row, Tooltip } from "antd";
+import { Col, Dropdown, Popover, Row, Tooltip } from "antd";
 import { WalletOutlined, LoginOutlined, UserOutlined, CaretDownOutlined, MenuOutlined, TranslationOutlined } from "@ant-design/icons";
 
 import "./navbar.scss";
@@ -14,7 +14,7 @@ const Navbar = () => {
     const { t, navigate, platformInfo, windowWidth, playerInfo } = useNavbar();
 
     const [openMenu, setOpenMenu] = useState(false);
-    const [lang, setLang] = useState(false);
+    const [lang, setLang] = useState<boolean>(false);
 
     function handleRedirect(path: string) {
         navigate(path);

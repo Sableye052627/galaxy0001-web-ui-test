@@ -8,7 +8,7 @@ import LanguageModal from "../../../language-modal/LanguageModal";
 
 const Footer = () => {
     const { t, navigate, platformInfo, windowWidth } = useFooter();
-    const [lang, setLang] = useState(false);
+    const [lang, setLang] = useState<boolean>(false);
 
     return (
         <Row className="footer" justify="center">

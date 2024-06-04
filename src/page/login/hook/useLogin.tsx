@@ -12,7 +12,7 @@ export const useLogin = () => {
     const { platformInfo, windowWidth } = apiContext;
 
     const playerContext = useContext(Player);
-    const { playerInfo, setPlayerInfo } = playerContext;
+    const { playerInfo, setPlayerInfo, hostname } = playerContext;
 
-    return { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo };
+    return { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname };
 };

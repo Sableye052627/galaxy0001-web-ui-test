@@ -28,9 +28,26 @@
         }
     }
 
-    .btn-menu {
-        @extend .flex-layout;
-        gap: 8px;
+    .wallet-player {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .wallet {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            color: var(--secondary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 6px;
+            cursor: pointer;
+
+            .wallet-balance {
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
 
         .btn-info {
             @extend .flex-layout;
