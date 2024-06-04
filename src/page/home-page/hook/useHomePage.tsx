@@ -4,7 +4,7 @@ import { Api } from "../../../context/ApiContext";
 import { useNavigate } from "react-router-dom";
 
 export const useHomePage = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
@@ -14,5 +14,5 @@ export const useHomePage = () => {
         navigate(`/play-game/${path?.toLocaleLowerCase()}`);
     }
 
-    return { t, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect };
+    return { t, i18n, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect };
 };

@@ -2,7 +2,15 @@ import { Carousel, Col, Row } from "antd";
 import "./home-page.scss";
 import { useHomePage } from "./hook/useHomePage";
 import { gridSetting } from "../../component/main-layout/MainLayout";
-import { NotificationOutlined, MobileOutlined, LockOutlined, CreditCardOutlined, PlayCircleOutlined, FireOutlined } from "@ant-design/icons";
+import {
+    NotificationOutlined,
+    TranslationOutlined,
+    MobileOutlined,
+    LockOutlined,
+    CreditCardOutlined,
+    PlayCircleOutlined,
+    FireOutlined,
+} from "@ant-design/icons";
 
 import Marquee from "react-fast-marquee";
 import { Parallax, Background } from "react-parallax";
@@ -13,13 +21,13 @@ import LanguageModal from "../../component/language-modal/LanguageModal";
 import { sponsorList } from "../../asset/Asset";
 
 const HomePage = () => {
-    const { t, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect } = useHomePage();
+    const { t, i18n, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect } = useHomePage();
 
     const [gameSwiperShow, setGameSwiperShow] = useState(5);
     const [providerSwiperShow, setProviderSwiperShow] = useState(10);
     const [lang, setLang] = useState<boolean>(false);
 
-    const currentLng = localStorage.getItem("i18nextLng");
+    const currentLng = i18n.language;
     let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "ZH" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
 
     useEffect(() => {
@@ -60,7 +68,7 @@ const HomePage = () => {
                         <Marquee gradient={false}>{t("marqueeText")}</Marquee>
 
                         <LanguageModal lang={lang} setLang={setLang} />
-                        {/* <BsTranslate style={{ fontSize: 20, cursor: "pointer" }} onClick={() => setLang(!lang)} /> */}
+                        <TranslationOutlined style={{ fontSize: 20, cursor: "pointer" }} onClick={() => setLang(!lang)} />
                     </div>
                 </Col>
             </Row>

@@ -5,7 +5,7 @@ import { Api } from "../../../context/ApiContext";
 import { Player } from "../../../context/player/PlayerContext";
 
 export const useLogin = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
@@ -14,5 +14,5 @@ export const useLogin = () => {
     const playerContext = useContext(Player);
     const { playerInfo, setPlayerInfo, hostname } = playerContext;
 
-    return { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname };
+    return { t, i18n, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname };
 };

@@ -14,9 +14,9 @@ interface ILanguageModalProps {
 }
 
 const LanguageModal = ({ lang, setLang }: ILanguageModalProps) => {
-    const { t, navigate, platformInfo, windowWidth, playerInfo } = useLanguageModal();
+    const { t, i18n, navigate, platformInfo, windowWidth, playerInfo, hostname } = useLanguageModal();
 
-    const currentLng = localStorage.getItem("i18nextLng");
+    const currentLng = i18n.language;
     let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "ZH" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
 
     const modalSetting = {
@@ -32,26 +32,27 @@ const LanguageModal = ({ lang, setLang }: ILanguageModalProps) => {
 
     async function handleLang(lang: string) {
         if (!playerInfo) {
-            // i18n.changeLanguage(lang);
+            i18n.changeLanguage(lang);
             setLang(false);
             return;
         }
 
         try {
             const object = {
-                PlatformName: platformInfo?.platformName,
+                Hostname: hostname,
                 PlayerID: Cookies.get("PlayerID"),
                 PlayerToken: Cookies.get("PlayerToken"),
-                Lang: lang,
+                Language: lang,
             };
-            const result = await playerApi("/update-lang", object);
+            const result = await playerApi("/update-language", object);
             if (result.status) {
                 message.success(result.message);
             }
         } catch (error) {
+            console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
-        // i18n.changeLanguage(lang);
+        i18n.changeLanguage(lang);
         setLang(false);
     }
 

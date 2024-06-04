@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
 
 const Login = () => {
-    const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname } = useLogin();
+    const { t, i18n, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname } = useLogin();
 
     const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -50,7 +50,7 @@ const Login = () => {
 
                 Cookies.set("PlayerID", result.data.playerID);
                 Cookies.set("PlayerToken", result.data.playerToken);
-                // i18n.changeLanguage(result.data.lang);
+                i18n.changeLanguage(result.data.lang);
 
                 setShow(true);
             }
