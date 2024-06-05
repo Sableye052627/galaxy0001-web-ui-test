@@ -29,7 +29,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
 
     return (
         <Modal {...modalSetting}>
-            {`${t("loginSuccessMsg", { domainName: platformInfo?.platformName }) + playerInfo?.playerID}.`}
+            {`${t("loginSuccessMsg", { domainName: platformInfo?.platformName }) + " " + playerInfo?.playerID}.`}
             <div className="btn-close">
                 <button onClick={() => handleClose()}>{t("close")}</button>
             </div>
