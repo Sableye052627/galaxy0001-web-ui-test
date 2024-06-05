@@ -9,7 +9,7 @@ interface ISuccessModalProps {
 }
 
 export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
-    const { t, navigate, playerInfo, hostname } = useSuccessModal();
+    const { t, navigate, playerInfo, platformInfo } = useSuccessModal();
 
     const modalSetting = {
         className: "login-modal",
