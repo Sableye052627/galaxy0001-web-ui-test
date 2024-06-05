@@ -1,7 +1,7 @@
 import ApiBaseUrl from "./ApiBaseUrl";
 
 // const hostname = window.location.hostname;
-// const api1 = hostname === "localhost" ? "https://localhost:19013/api" : hostname === "webh5.danger.asia" ? "webh5-api.danger.asia" : `https://ui-api/${hostname}/api`;
+// const api1 = hostname === "localhost" ? "https://localhost:44303/api" : hostname === "webh5-bo.danger.asia" ? "webh5-bo-api.danger.asia" : `https://bo-api.${hostname.split("portal.")[1]}/api`;
 
 const api1 = process.env.REACT_APP_API_BASE_URL as string;
 
