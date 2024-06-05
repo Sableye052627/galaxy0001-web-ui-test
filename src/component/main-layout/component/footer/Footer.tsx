@@ -16,7 +16,7 @@ const Footer = () => {
                 <Row className="footer-item" gutter={[0, 20]} hidden={windowWidth < 576}>
                     <Col xs={24} sm={12} lg={8}>
                         <div className="download-app">
-                            <div className="title">{t("downloadApp")}</div>
+                            <div className="title">{t("downloadApp", { domainName: platformInfo?.platformName })}</div>
                             {/* <Row className="content">
                                 {downloadApp.map((items) => (
                                     <Col key={items.key} xs={11} sm={11} lg={6} xl={8}>

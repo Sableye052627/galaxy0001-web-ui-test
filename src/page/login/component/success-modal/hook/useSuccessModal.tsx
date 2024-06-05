@@ -8,7 +8,7 @@ export const useSuccessModal = () => {
     const navigate = useNavigate();
 
     const playerContext = useContext(Player);
-    const { playerInfo } = playerContext;
+    const { playerInfo, hostname } = playerContext;
 
-    return { t, navigate, playerInfo };
+    return { t, navigate, playerInfo, hostname };
 };

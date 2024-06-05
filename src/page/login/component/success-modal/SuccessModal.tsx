@@ -9,7 +9,7 @@ interface ISuccessModalProps {
 }
 
 export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
-    const { t, navigate, playerInfo } = useSuccessModal();
+    const { t, navigate, playerInfo, hostname } = useSuccessModal();
 
     const modalSetting = {
         className: "login-modal",
@@ -29,7 +29,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
 
     return (
         <Modal {...modalSetting}>
-            {`${t("loginSuccessMsg") + playerInfo?.playerID}.`}
+            {`${t("loginSuccessMsg", { domainName: platformInfo?.platformName }) + playerInfo?.playerID}.`}
             <div className="btn-close">
                 <button onClick={() => handleClose()}>{t("close")}</button>
             </div>

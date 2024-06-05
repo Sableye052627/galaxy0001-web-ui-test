@@ -110,7 +110,7 @@ const Login = () => {
                             </Carousel> */}
 
                             <hr />
-                            <div className="description">{t("aboutUsDesc")}</div>
+                            <div className="description">{t("aboutUsDesc", { domainName: platformInfo?.platformName })}</div>
                         </Card>
                     </Col>
                 </Row>

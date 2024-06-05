@@ -239,7 +239,7 @@ const Deposit = () => {
                         <li className="item">{t("depositDesc3")}</li>
                         <li className="item">{t("depositDesc4")}</li>
                         <li className="item">{t("depositDesc5")}</li>
-                        <li className="item">{t("depositDesc6")}</li>
+                        <li className="item">{t("depositDesc6", { domainName: platformInfo?.platformName })}</li>
                     </ul>
                 </div>
             </Col>
