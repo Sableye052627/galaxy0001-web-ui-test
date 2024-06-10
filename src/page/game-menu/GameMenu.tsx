@@ -18,13 +18,13 @@ interface IGame {
 
 const GameMenu = () => {
     const { t, navigate, hostname } = useGameMenu();
-    const { category, gameCode } = useParams();
+    const { category, srno } = useParams();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [gameList, setGameList] = useState<IGame[] | []>([]);
 
     useEffect(() => {
         getGameInfo();
-    }, [category, gameCode]);
+    }, [category, srno]);
 
     async function getGameInfo() {
         setIsLoading(true);
@@ -34,7 +34,7 @@ const GameMenu = () => {
                 PlayerID: Cookies.get("PlayerID"),
                 PlayerToken: Cookies.get("PlayerToken"),
                 Category: category,
-                GameCode: gameCode,
+                AgentGpSrno: Number(srno),
             };
             const result = await theOneApi("/get-game-list", object);
             if (result.status) {
@@ -50,7 +50,7 @@ const GameMenu = () => {
     }
 
     function handleRedirect(items: any) {
-        navigate(`/game-transfer/${category}/${gameCode}/${items.gameID}`);
+        navigate(`/game-transfer/${category}/${srno}/${items.gameID}`);
     }
 
     if (isLoading) {
@@ -73,6 +73,9 @@ const GameMenu = () => {
                         );
                     })}
                 </Row>
+
+                {/* {game?.isTransfer && <GpTransferBalance game={game} />}
+                {!game?.isApp && <GpGameList gameList={gameList} />} */}
             </Col>
         </Row>
     );

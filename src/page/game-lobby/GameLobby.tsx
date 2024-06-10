@@ -20,11 +20,16 @@ interface IApiData {
     status: number;
 }
 
+interface ICatBanner {}
+
 const GameLobby = () => {
     const { t, navigate, hostname } = useGameLobby();
     const { category } = useParams();
+
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const [apiData, setApiData] = useState<IApiData[] | []>([]);
+    const [catBanner, setCatBanner] = useState<ICatBanner | undefined>(undefined);
 
     useEffect(() => {
         getGameProviderList();
@@ -42,6 +47,7 @@ const GameLobby = () => {
             const result = await gameProviderApi("/get-list", object);
             if (result) {
                 setApiData(result.data);
+                setCatBanner(result.data2);
             }
         } catch (error) {
             console.log(error);
@@ -54,9 +60,9 @@ const GameLobby = () => {
         // if (item.status === 1 || (playerInfo?.agentSrno === 18 && item.status === 2)) {
         if (item.status === 1) {
             if (item.getGameList) {
-                navigate(`/game-menu/${category}/${item.gameCode}`);
+                navigate(`/game-menu/${category}/${item.srno}`);
             } else {
-                navigate(`/game-transfer/${category}/${item.gameCode}`);
+                navigate(`/game-transfer/${category}/${item.srno}`);
             }
         } else {
             message.info(t("gameUnderMaintenance"));
@@ -70,42 +76,23 @@ const GameLobby = () => {
     return (
         <div className="game-lobby">
             <div className="banner-img">
-                {/* <img src={catInfo?.banner} alt={catInfo?.srno} /> */}
-                <img src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/game-banner/${category}.png`} alt="" />
+                {/* <img src={catBanner?.bannerImage} alt={catBanner?.srno} /> */}
+                <img src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/game-banner/${category?.toUpperCase()}.png`} alt="" />
             </div>
             <div className="neon-hr" />
             <Row className="game-provider" justify="center">
                 <Col {...gridSetting}>
                     <Row gutter={[20, 20]} className="gp-card-wrapper">
-                        {apiData?.map((items: IApiData, index: number) => {
-                            if (items.status === 1) {
-                                return (
-                                    <Col key={index} xs={12} sm={8} xl={6}>
-                                        <div className="gp-card active" onClick={() => handleRedirect(items)}>
-                                            <img src={items.btnImage} alt={items.gameCode} />
-                                        </div>
-                                    </Col>
-                                );
-                            }
-
-                            if (items.status === 2) {
-                                return (
-                                    <Col key={index} xs={12} sm={8} xl={6}>
-                                        <div className="gp-card testing" onClick={() => handleRedirect(items)}>
-                                            <img src={items.btnImage} alt={items.gameCode} />
-                                        </div>
-                                    </Col>
-                                );
-                            }
-
-                            return (
-                                <Col key={index} xs={12} sm={8} xl={6}>
-                                    <div className="gp-card inactive" onClick={() => handleRedirect(items)}>
-                                        <img src={items.btnImage} alt={items.gameCode} />
-                                    </div>
-                                </Col>
-                            );
-                        })}
+                        {apiData?.map((items: IApiData, index: number) => (
+                            <Col key={index} xs={12} sm={8} xl={6}>
+                                <div
+                                    className={`gp-card ${items.status === 1 ? "active" : items.status === 2 ? "testing" : "inactive"}`}
+                                    onClick={() => handleRedirect(items)}
+                                >
+                                    <img src={items.btnImage} alt={items.gameCode} />
+                                </div>
+                            </Col>
+                        ))}
                     </Row>
                 </Col>
             </Row>

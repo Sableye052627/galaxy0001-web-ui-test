@@ -24,6 +24,18 @@ interface IGameDetail {
     status: number;
 }
 
+interface IGpList {
+    srno: number;
+    gameName: string;
+    gameCode: string;
+    type: string;
+    getGameList: number;
+    logoImage: string;
+    bannerImage: string;
+    btnImage: string;
+    status: number;
+}
+
 interface IGameDownload {
     iosDownloadUrl: string;
     androidDownloadUrl: string;
@@ -34,7 +46,7 @@ interface IGameDownload {
 }
 const GameTransfer = () => {
     const { t, navigate, playerInfo, setPlayerInfo, hostname } = useGameTransfer();
-    const { category, gameCode, gameID } = useParams();
+    const { category, srno, gameID } = useParams();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const initialValue = {
@@ -42,12 +54,13 @@ const GameTransfer = () => {
     };
 
     const [gameDetail, setGameDetail] = useState<IGameDetail | undefined>(undefined);
+    const [gpList, setGpList] = useState<[IGpList] | undefined>(undefined);
     const [gameDownload, setGameDownload] = useState<IGameDownload | undefined>(undefined);
     const [showDownload, setShowDownload] = useState<boolean>(false);
 
     useEffect(() => {
         getGameInfo();
-    }, [category, gameCode]);
+    }, [category, srno]);
 
     async function getGameInfo() {
         setIsLoading(true);
@@ -57,12 +70,13 @@ const GameTransfer = () => {
                 PlayerID: Cookies.get("PlayerID"),
                 PlayerToken: Cookies.get("PlayerToken"),
                 Category: category,
-                GameCode: gameCode,
+                AgentGpSrno: Number(srno),
             };
             const result = await gameProviderApi("/get-detail", object);
             if (result.status) {
                 setGameDetail(result.data);
-                message.error(result.message);
+                setGpList(result.data2);
+                // message.error(result.message);
             }
         } catch (error) {
             console.log(error);
@@ -78,10 +92,11 @@ const GameTransfer = () => {
                 Hostname: hostname,
                 PlayerID: Cookies.get("PlayerID"),
                 PlayerToken: Cookies.get("PlayerToken"),
-                GameCode: gameCode,
+                AgentGpSrno: Number(srno),
                 GameID: gameID,
                 Category: category,
                 Amount: values.amount,
+                CallBackUrl: window.location.href,
             };
             const result = await theOneApi("/game-loading", object);
             if (result.status) {
@@ -121,44 +136,71 @@ const GameTransfer = () => {
         });
     }
 
+    function handleRedirect(item: IGpList) {
+        if (item.status === 1) {
+            if (item.getGameList) {
+                navigate(`/game-menu/${category}/${item.srno}`);
+            } else {
+                navigate(`/game-transfer/${category}/${item.srno}`);
+            }
+        } else {
+            message.info(t("gameUnderMaintenance"));
+        }
+    }
+
     return (
-        <div className="gp-transfer-balance">
-            <Spin spinning={isLoading}>
-                <Row justify="center">
-                    <Col xs={24} sm={18} md={14} lg={12} xl={11} xxl={10}>
-                        <div className="gp-btn">
-                            <img src={gameDetail?.btnImage} alt={gameDetail?.gameName} />
-                        </div>
+        <Row className="gp-transfer-balance" justify="center">
+            <Col {...gridSetting}>
+                <Spin spinning={isLoading}>
+                    <Row className="game-provider-menu" gutter={[16, 10]}>
+                        {gpList?.map((items: IGpList, index: number) => {
+                            return (
+                                <Col key={index} xs={12} sm={8} md={6} xl={4}>
+                                    <div className="item" onClick={() => handleRedirect(items)}>
+                                        <div className="game-img">
+                                            <img src={items.logoImage} alt={items.gameCode} loading="lazy" />
+                                        </div>
+                                    </div>
+                                </Col>
+                            );
+                        })}
+                    </Row>
+                    <Row justify="center">
+                        <Col xs={24} sm={18} md={14} lg={12} xl={11} xxl={10}>
+                            <div className="gp-btn">
+                                <img src={gameDetail?.bannerImage} alt={gameDetail?.gameName} />
+                            </div>
 
-                        <Form layout="vertical" initialValues={initialValue} onFinish={handleTransfer}>
-                            <Form.Item
-                                label={t("amount")}
-                                name="amount"
-                                rules={[
-                                    { required: true, message: t("pleaseInsertAmount") },
-                                    {
-                                        type: "number",
-                                        min: 0,
-                                        max: playerInfo?.wallet1,
-                                        message: "Amount must between 0.00 and " + formatNumber(playerInfo?.wallet1),
-                                    },
-                                ]}
-                            >
-                                <InputNumber precision={2} size="large" style={{ width: "100%" }} controls={false} />
-                            </Form.Item>
+                            <Form layout="vertical" initialValues={initialValue} onFinish={handleTransfer}>
+                                <Form.Item
+                                    label={t("amount")}
+                                    name="amount"
+                                    rules={[
+                                        { required: true, message: t("pleaseInsertAmount") },
+                                        {
+                                            type: "number",
+                                            min: 0,
+                                            max: playerInfo?.wallet1,
+                                            message: "Amount must between 0.00 and " + formatNumber(playerInfo?.wallet1),
+                                        },
+                                    ]}
+                                >
+                                    <InputNumber precision={2} size="large" style={{ width: "100%" }} controls={false} />
+                                </Form.Item>
 
-                            <Form.Item>
-                                <Button block size="large" danger type="primary" htmlType="submit">
-                                    {t("transferAndPlay")}
-                                </Button>
-                            </Form.Item>
-                        </Form>
-                    </Col>
-                </Row>
+                                <Form.Item>
+                                    <Button block size="large" danger type="primary" htmlType="submit">
+                                        {t("transferAndPlay")}
+                                    </Button>
+                                </Form.Item>
+                            </Form>
+                        </Col>
+                    </Row>
 
-                {showDownload && <GameDownloadModal showDownload={showDownload} setShowDownload={setShowDownload} gameDownload={gameDownload} />}
-            </Spin>
-        </div>
+                    {showDownload && <GameDownloadModal showDownload={showDownload} setShowDownload={setShowDownload} gameDownload={gameDownload} />}
+                </Spin>
+            </Col>
+        </Row>
     );
 };
 

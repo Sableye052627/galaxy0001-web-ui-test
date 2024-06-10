@@ -26,12 +26,12 @@ function App() {
                     element: <GameLobby />,
                 },
                 {
-                    path: "/game-menu/:category/:gameCode",
+                    path: "/game-menu/:category/:srno",
                     element: <GameMenu />,
                     //   hidden: !playerInfo,
                 },
                 {
-                    path: "/game-transfer/:category/:gameCode/:gameID?",
+                    path: "/game-transfer/:category/:srno/:gameID?",
                     element: <GameTransfer />,
                     //   hidden: !playerInfo,
                 },

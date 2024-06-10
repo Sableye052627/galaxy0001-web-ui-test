@@ -12,7 +12,7 @@ export const useGameAccount = () => {
     const { platformInfo } = apiContext;
 
     const playerContext = useContext(Player);
-    const { playerInfo, hostname } = playerContext;
+    const { playerInfo, setPlayerInfo, hostname } = playerContext;
 
-    return { t, navigate, platformInfo, playerInfo, hostname };
+    return { t, navigate, platformInfo, playerInfo, setPlayerInfo, hostname };
 };
