@@ -45,7 +45,7 @@ interface IGameDownload {
     gameLoginPassword: string;
 }
 const GameTransfer = () => {
-    const { t, navigate, playerInfo, setPlayerInfo, hostname } = useGameTransfer();
+    const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname } = useGameTransfer();
     const { category, srno, gameID } = useParams();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -131,7 +131,7 @@ const GameTransfer = () => {
                 window.location.assign(url);
                 return;
             }
-            validateToken(hostname, setPlayerInfo);
+            validateToken(hostname, setPlayerInfo, setAgentInfo);
             navigate(`/play-game/${category}`);
         });
     }

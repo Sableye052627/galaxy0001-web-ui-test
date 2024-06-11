@@ -50,15 +50,15 @@ const HomePage = () => {
     return (
         <div id="home-page">
             <Carousel autoplay dots={false}>
-                {/* {bannerList?.map((item: any, index: number) => (
+                {bannerList?.map((item: any, index: number) => (
                     <img key={index} src={item?.mediaUrl} alt="" />
-                ))} */}
-                <img src="https://game-platform.sgp1.digitaloceanspaces.com/win22/banner/20-11-2023/WIN22_Banner_Galaxy_SlotMania(1).png" alt="" />
+                ))}
+                {/* <img src="https://game-platform.sgp1.digitaloceanspaces.com/win22/banner/20-11-2023/WIN22_Banner_Galaxy_SlotMania(1).png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-01.png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-02.png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-03.png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/undefined-WIN22_Banner-04.png" alt="" />
-                <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-05.png" alt="" />
+                <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-05.png" alt="" /> */}
             </Carousel>
             <div className="neon-hr" />
             <Row justify="center">
@@ -187,7 +187,7 @@ const HomePage = () => {
                         {gpCategory?.map((items: any, index: number) => (
                             <div key={index} className="game-category-item">
                                 <img
-                                    src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${items.category}.png`}
+                                    src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${items.category.toLowerCase()}.png`}
                                     alt={items.category}
                                 />
                             </div>

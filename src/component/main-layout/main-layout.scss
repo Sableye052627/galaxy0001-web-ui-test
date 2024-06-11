@@ -94,6 +94,7 @@ img {
 
             .items {
                 transition: 0.5s;
+                font-size: 12px;
 
                 :is(&:hover, &:active) {
                     color: var(--secondary-color);

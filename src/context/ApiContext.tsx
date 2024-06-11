@@ -91,7 +91,7 @@ interface IApiContextProps {
 }
 const ApiContext = ({ children }: IApiContextProps) => {
     const playerContext = useContext(Player);
-    const { setPlayerInfo, hostname } = playerContext;
+    const { setPlayerInfo, setAgentInfo, hostname } = playerContext;
 
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
@@ -106,7 +106,7 @@ const ApiContext = ({ children }: IApiContextProps) => {
     }, []);
 
     async function handleFirstLoad() {
-        const api1 = validateToken(hostname, setPlayerInfo);
+        const api1 = validateToken(hostname, setPlayerInfo, setAgentInfo);
         const api2 = getPlatformInfo(hostname, setPlatformInfo, setGpCategory);
         const api3 = getHomePage(hostname, setBannerList, setGpList);
 

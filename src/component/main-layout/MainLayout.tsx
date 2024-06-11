@@ -10,20 +10,20 @@ import { useMainLayout } from "./hook/useMainLayout";
 export const gridSetting = { xxl: 18, xs: 23 };
 
 const MainLayout = () => {
-    const { t, navigate, platformInfo, windowWidth } = useMainLayout();
+    const { t, navigate, platformInfo, agentInfo, windowWidth } = useMainLayout();
 
-    const agentContact = [
-        {
-            srno: 1,
-            contactType: "Whatsapp",
-            url: "asd",
-        },
-        {
-            srno: 2,
-            contactType: "Telegram",
-            url: "asd",
-        },
-    ];
+    // const agentContact = [
+    //     {
+    //         srno: 1,
+    //         contactType: "Whatsapp",
+    //         url: "asd",
+    //     },
+    //     {
+    //         srno: 2,
+    //         contactType: "Telegram",
+    //         url: "asd",
+    //     },
+    // ];
     return (
         <div id="main-layout">
             <Navbar />
@@ -37,11 +37,11 @@ const MainLayout = () => {
 
             <Footer />
 
-            <div className="contact-us-float" hidden={!agentContact || agentContact[0] === undefined}>
+            <div className="contact-us-float" hidden={!agentInfo || agentInfo[0] === undefined}>
                 <div className="content">
-                    {agentContact?.map((items, index) => (
-                        <div className="items" key={index} onClick={() => window.open(items.url)}>
-                            {/* {platformInfo?.platformName?.toUpperCase()} @ {items?.contactType?.toUpperCase()} */}
+                    {agentInfo?.map((items: any, index: number) => (
+                        <div className="items" key={index} onClick={() => window.open(items.redirectUrl)}>
+                            {platformInfo?.platformName?.toUpperCase()} @ {items?.contactType?.toUpperCase()}
                         </div>
                     ))}
                 </div>

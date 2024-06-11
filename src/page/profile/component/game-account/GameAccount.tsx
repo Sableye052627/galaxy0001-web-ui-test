@@ -78,10 +78,18 @@ const GameAccount = () => {
             };
             const result = await theOneApi("/get-balance", object);
             if (result.status) {
-                apiData.filter((item: any) => {
+                // let tmp = apiData;
+                // tmp.filter((item: any) => {
+                //     if (item.srno === record.srno) {
+                //         item.balance = result.data.balance;
+                //         item.isCheck = true;
+                //     }
+                // });
+                // setApiData(tmp);
+                apiData.filter(function (item) {
                     if (item.srno === record.srno) {
                         item.balance = result.data.balance;
-                        item.isCheck = result.data.isCheck;
+                        item.isCheck = true;
                     }
                 });
             }
@@ -103,13 +111,27 @@ const GameAccount = () => {
                 Hostname: hostname,
                 PlayerID: Cookies.get("PlayerID"),
                 PlayerToken: Cookies.get("PlayerToken"),
-                GameCode: record.gameCode,
-                Amount: record.balance,
+                AgentGpSrno: record.srno,
+                Category: record.category,
             };
             const result = await theOneApi("/withdraw-balance", object);
             if (result.status) {
                 setPlayerInfo(result.data);
-                apiData.filter((item: any) => {
+                // apiData.filter((item: any) => {
+                //     if (item.srno === record.srno) {
+                //         item.balance = 0;
+                //         item.isCheck = false;
+                //     }
+                // });
+                // let tmp = apiData;
+                // tmp.filter((item: any) => {
+                //     if (item.srno === record.srno) {
+                //         item.balance = 0;
+                //         item.isCheck = false;
+                //     }
+                // });
+                // setApiData(tmp);
+                apiData.filter(function (item) {
                     if (item.srno === record.srno) {
                         item.balance = 0;
                         item.isCheck = false;

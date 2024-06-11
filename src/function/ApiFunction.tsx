@@ -31,10 +31,11 @@ export async function getHomePage(hostname: string, setBannerList: Dispatch<SetS
     });
 }
 
-export async function validateToken(hostname: string, setPlayerInfo: Dispatch<SetStateAction<any>>) {
+export async function validateToken(hostname: string, setPlayerInfo: Dispatch<SetStateAction<any>>, setAgentInfo: Dispatch<SetStateAction<any>>) {
     const object = { HostName: hostname, PlayerID: Cookies.get("PlayerID"), PlayerToken: Cookies.get("PlayerToken") };
     await playerApi("/validate-token", object).then((result) => {
         setPlayerInfo(result.data);
+        setAgentInfo(result.data2);
     });
 }
 

@@ -12,7 +12,7 @@ export const useGameTransfer = () => {
     const { platformInfo } = apiContext;
 
     const playerContext = useContext(Player);
-    const { playerInfo, setPlayerInfo, hostname } = playerContext;
+    const { playerInfo, setPlayerInfo, setAgentInfo, hostname } = playerContext;
 
-    return { t, navigate, platformInfo, playerInfo, setPlayerInfo, hostname };
+    return { t, navigate, platformInfo, playerInfo, setPlayerInfo, setAgentInfo, hostname };
 };
