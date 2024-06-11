@@ -7,7 +7,23 @@ import { formatNumber } from "../../../../function/Common";
 import { playerApi, theOneApi } from "../../../../service/CallApi";
 import Cookies from "js-cookie";
 
-interface IApiData {}
+interface IApiData {
+    category: string;
+    gameCode: string;
+    gameLoginID: string;
+    gameLoginPassword: string;
+    srno: number;
+    balance: number;
+    isCheck: boolean;
+    updateBy: string;
+    updateDate: Date;
+}
+interface IApiDataPagination {
+    currentPage: number;
+    perPage: number;
+    total: number;
+    totalPage: number;
+}
 
 interface ICurrentGp {}
 interface IWithdrawGp {}
@@ -18,14 +34,15 @@ const GameAccount = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const [apiData, setApiData] = useState<IApiData[] | []>([]);
+    const [apiDataPagination, setApiDataPagination] = useState<IApiDataPagination | undefined>(undefined);
     const [currentGp, setCurrentGp] = useState<ICurrentGp | undefined>(undefined);
     const [withdrawGp, setWithdrawGp] = useState<IWithdrawGp | undefined>(undefined);
 
     useEffect(() => {
-        getPlayerGameAcc();
+        getPlayerGameAcc(1, 10);
     }, []);
 
-    async function getPlayerGameAcc() {
+    async function getPlayerGameAcc(page = 1, pageSize = 10) {
         try {
             const object = {
                 Hostname: hostname,
@@ -33,10 +50,13 @@ const GameAccount = () => {
                 PlayerToken: Cookies.get("PlayerToken"),
                 Category: "all",
                 GameCode: "all",
+                Page: page,
+                PageSize: pageSize,
             };
             const result = await playerApi("/get-game-account", object);
             if (result.status) {
                 setApiData(result.data);
+                setApiDataPagination(result.data3);
             }
         } catch (error) {
             console.log(error);
@@ -52,7 +72,9 @@ const GameAccount = () => {
                 Hostname: hostname,
                 PlayerID: Cookies.get("PlayerID"),
                 PlayerToken: Cookies.get("PlayerToken"),
-                GameCode: record.gameCode,
+                Category: record.category.split("/")[0],
+                AgentGpSrno: record.srno,
+                GameLoginID: record.gameLoginID,
             };
             const result = await theOneApi("/get-balance", object);
             if (result.status) {
@@ -110,8 +132,8 @@ const GameAccount = () => {
             },
         },
         {
-            title: t("gameName"),
-            dataIndex: "displayName",
+            title: t("gameCode"),
+            dataIndex: "gameCode",
             ellipsis: true,
             render: (text: string) => text.toUpperCase(),
         },
@@ -124,20 +146,20 @@ const GameAccount = () => {
             title: t("balance"),
             dataIndex: "balance",
             ellipsis: true,
-            render: (record: any) => (record.isCheck ? formatNumber(record.balance) : "-"),
+            render: (record: any) => (record?.isCheck ? formatNumber(record.balance) : "-"),
         },
         {
             title: t("action"),
             ellipsis: true,
             render: (record: any) => (
                 <Space>
-                    <Button ghost disabled={record.isCheck} loading={currentGp === record.srno} onClick={() => handleCheck(record)}>
+                    <Button ghost disabled={record?.isCheck} loading={currentGp === record.srno} onClick={() => handleCheck(record)}>
                         {t("checkBalance")}
                     </Button>
 
                     <Button
                         ghost
-                        disabled={!record.isCheck || record.balance <= 0}
+                        disabled={!record?.isCheck || record?.balance <= 0}
                         loading={withdrawGp === record.srno}
                         onClick={() => handleWithdraw(record)}
                     >
@@ -151,7 +173,7 @@ const GameAccount = () => {
     return (
         <div className="game-account">
             <Spin spinning={isLoading}>
-                <Table columns={columns} rowKey="srno" scroll={{ x: true }} />
+                <Table dataSource={apiData} columns={columns} rowKey="srno" scroll={{ x: true }} />
             </Spin>
         </div>
     );
