@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { gameProviderApi } from "../../service/CallApi";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
+import { getPlatformInfo } from "../../function/ApiFunction";
 interface IApiData {
     srno: number;
     gameName: string;
@@ -20,16 +21,13 @@ interface IApiData {
     status: number;
 }
 
-interface ICatBanner {}
-
 const GameLobby = () => {
-    const { t, navigate, hostname } = useGameLobby();
+    const { t, navigate, platformInfo, hostname } = useGameLobby();
     const { category } = useParams();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const [apiData, setApiData] = useState<IApiData[] | []>([]);
-    const [catBanner, setCatBanner] = useState<ICatBanner | undefined>(undefined);
 
     useEffect(() => {
         getGameProviderList();
@@ -47,11 +45,9 @@ const GameLobby = () => {
             const result = await gameProviderApi("/get-list", object);
             if (result) {
                 setApiData(result.data);
-                setCatBanner(result.data2);
             }
-        } catch (error) {
-            console.log(error);
-            // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+        } catch (error: any) {
+            message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
         setIsLoading(false);
     }
@@ -76,8 +72,10 @@ const GameLobby = () => {
     return (
         <div className="game-lobby">
             <div className="banner-img">
-                {/* <img src={catBanner?.bannerImage} alt={catBanner?.srno} /> */}
-                <img src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/game-banner/${category?.toUpperCase()}.png`} alt="" />
+                <img
+                    src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/game-banner/${category?.toUpperCase()}.png`}
+                    alt=""
+                />
             </div>
             <div className="neon-hr" />
             <Row className="game-provider" justify="center">

@@ -42,7 +42,7 @@ const GameMenu = () => {
 
                 // message.error(result.message);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }

@@ -58,7 +58,7 @@ const GameAccount = () => {
                 setApiData(result.data);
                 setApiDataPagination(result.data3);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
@@ -78,14 +78,6 @@ const GameAccount = () => {
             };
             const result = await theOneApi("/get-balance", object);
             if (result.status) {
-                // let tmp = apiData;
-                // tmp.filter((item: any) => {
-                //     if (item.srno === record.srno) {
-                //         item.balance = result.data.balance;
-                //         item.isCheck = true;
-                //     }
-                // });
-                // setApiData(tmp);
                 apiData.filter(function (item) {
                     if (item.srno === record.srno) {
                         item.balance = result.data.balance;
@@ -93,7 +85,7 @@ const GameAccount = () => {
                     }
                 });
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
@@ -117,20 +109,6 @@ const GameAccount = () => {
             const result = await theOneApi("/withdraw-balance", object);
             if (result.status) {
                 setPlayerInfo(result.data);
-                // apiData.filter((item: any) => {
-                //     if (item.srno === record.srno) {
-                //         item.balance = 0;
-                //         item.isCheck = false;
-                //     }
-                // });
-                // let tmp = apiData;
-                // tmp.filter((item: any) => {
-                //     if (item.srno === record.srno) {
-                //         item.balance = 0;
-                //         item.isCheck = false;
-                //     }
-                // });
-                // setApiData(tmp);
                 apiData.filter(function (item) {
                     if (item.srno === record.srno) {
                         item.balance = 0;
@@ -138,7 +116,7 @@ const GameAccount = () => {
                     }
                 });
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }

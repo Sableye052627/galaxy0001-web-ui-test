@@ -78,7 +78,7 @@ const GameTransfer = () => {
                 setGpList(result.data2);
                 // message.error(result.message);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
@@ -112,7 +112,7 @@ const GameTransfer = () => {
                     confirmRedirect(result.data.pcUrl);
                 }
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }

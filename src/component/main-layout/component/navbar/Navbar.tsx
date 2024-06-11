@@ -60,7 +60,7 @@ const Navbar = () => {
                 setPlayerInfo(result.data);
                 Swal.close();
             }
-        } catch (error) {}
+        } catch (error: any) {}
     }
 
     const renderNoLogin = () => (

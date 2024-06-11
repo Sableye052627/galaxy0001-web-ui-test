@@ -49,7 +49,7 @@ export async function withdrawAllBalance(setPlayerInfo: any) {
             setPlayerInfo(result.data);
             Swal.close();
         }
-    } catch (error) {}
+    } catch (error: any) {}
 }
 
 export function isMobile() {

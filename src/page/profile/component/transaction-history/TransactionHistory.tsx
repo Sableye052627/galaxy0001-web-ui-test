@@ -53,7 +53,7 @@ const TransactionHistory = () => {
                 setApiData(result.data);
                 setApiDataPagination(result.data3);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }

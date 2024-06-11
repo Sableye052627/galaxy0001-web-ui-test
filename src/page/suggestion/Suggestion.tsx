@@ -58,7 +58,7 @@ const Suggestion = () => {
                 setType(1);
                 setUserInput(undefined);
             }
-        } catch (error) {
+        } catch (error: any) {
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
         setIsLoading(false);

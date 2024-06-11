@@ -43,7 +43,7 @@ const Withdraw = () => {
             if (result.status) {
                 setPlayerBank(result.data);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
             // navigate(-1);
@@ -92,7 +92,7 @@ const Withdraw = () => {
         //         form.setFieldValue("bankAccountName", "");
         //         form.resetFields();
         //     }
-        // } catch (error) {
+        // } catch (error: any) {
         //     console.log(error);
         //     // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         // }
@@ -131,7 +131,7 @@ const Withdraw = () => {
                 setAddBank(false);
                 getPlayerBank();
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }

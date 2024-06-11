@@ -73,7 +73,7 @@ const Deposit = () => {
                 setAgent(result.data);
                 setAgentBank(result.data2);
             }
-        } catch (error) {
+        } catch (error: any) {
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
             navigate(-1);
         }
