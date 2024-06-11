@@ -1,5 +1,5 @@
 import { useNavbar } from "./hook/useNavbar";
-import { Col, Dropdown, Popover, Row, Tooltip } from "antd";
+import { Col, Popover, Row, Tooltip } from "antd";
 import { WalletOutlined, LoginOutlined, UserOutlined, CaretDownOutlined, MenuOutlined, TranslationOutlined } from "@ant-design/icons";
 
 import "./navbar.scss";
@@ -9,15 +9,58 @@ import { formatNumber } from "../../../../function/Common";
 import { useState } from "react";
 import SmDrawer from "./component/sm-drawer/SmDrawer";
 import LanguageModal from "../../../language-modal/LanguageModal";
+import Swal from "sweetalert2";
+import Cookies from "js-cookie";
+import { theOneApi } from "../../../../service/CallApi";
 
 const Navbar = () => {
-    const { t, navigate, platformInfo, windowWidth, playerInfo } = useNavbar();
+    const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname } = useNavbar();
 
     const [openMenu, setOpenMenu] = useState(false);
     const [lang, setLang] = useState<boolean>(false);
 
     function handleRedirect(path: string) {
         navigate(path);
+    }
+
+    function confirmWithdrawAll() {
+        Swal.fire({
+            text: "Confirm withdraw all balance",
+            icon: "info",
+            showCancelButton: true,
+            color: "#fff",
+            background: "#434343",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                withdrawAllBalance();
+            }
+        });
+    }
+
+    async function withdrawAllBalance() {
+        Swal.fire({
+            text: "Withdrawal In Progress",
+            didOpen: () => Swal.showLoading(),
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            allowOutsideClick: false,
+            color: "#fff",
+            background: "#434343",
+        });
+        try {
+            const object = {
+                Hostname: hostname,
+                PlayerID: Cookies.get("PlayerID"),
+                PlayerToken: Cookies.get("PlayerToken"),
+                Category: "all",
+                AgentGpSrno: 0,
+            };
+            const result = await theOneApi("/withdraw-balance", object);
+            if (result.status) {
+                setPlayerInfo(result.data);
+                Swal.close();
+            }
+        } catch (error) {}
     }
 
     const renderNoLogin = () => (
@@ -30,8 +73,8 @@ const Navbar = () => {
     const renderLogin = () => (
         <div className="wallet-player">
             <Tooltip title={t("withdrawAllBalance")}>
-                {/* <div className="wallet" onClick={() => confirmWithdrawAll(setPlayerInfo)}> */}
-                <div className="wallet">
+                <div className="wallet" onClick={() => confirmWithdrawAll()}>
+                    {/* <div className="wallet"> */}
                     <WalletOutlined style={{ fontSize: 22 }} />
                     <div className="wallet-balance">{formatNumber(playerInfo?.wallet1)}</div>
                 </div>

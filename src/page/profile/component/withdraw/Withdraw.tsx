@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { playerApi } from "../../../../service/CallApi";
 import { bankList } from "../../../../asset/Asset";
 import Cookies from "js-cookie";
+import { LazyLoad } from "../../../loading/lazy-load/LazyLoad";
 
 const { Option } = Select;
 
@@ -74,9 +75,9 @@ const Withdraw = () => {
         setIsLoading(true);
         // try {
         //     const object = {
-        //     HostName: hostname,
-        //     PlayerID: Cookies.get("PlayerID"),
-        //     PlayerToken: Cookies.get("PlayerToken"),
+        //         HostName: hostname,
+        //         PlayerID: Cookies.get("PlayerID"),
+        //         PlayerToken: Cookies.get("PlayerToken"),
         //         BankSrno: bank,
         //         Currency: "MYR",
         //         Amount: values.amount,
@@ -92,7 +93,8 @@ const Withdraw = () => {
         //         form.resetFields();
         //     }
         // } catch (error) {
-        //     message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+        //     console.log(error);
+        //     // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         // }
         setIsLoading(false);
     }
@@ -134,6 +136,10 @@ const Withdraw = () => {
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
         setIsLoading(false);
+    }
+
+    if (isFirstLoad) {
+        return <LazyLoad />;
     }
 
     return (
