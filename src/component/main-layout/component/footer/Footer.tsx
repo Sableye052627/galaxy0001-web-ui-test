@@ -5,9 +5,10 @@ import "./footer.scss";
 import { gridSetting } from "../../MainLayout";
 import { useState } from "react";
 import LanguageModal from "../../../language-modal/LanguageModal";
+import { downloadApp } from "../../../../asset/Asset";
 
 const Footer = () => {
-    const { t, navigate, platformInfo, windowWidth } = useFooter();
+    const { t, navigate, platformInfo, windowWidth, gpCategory, agentInfo } = useFooter();
     const [lang, setLang] = useState<boolean>(false);
 
     return (
@@ -17,32 +18,32 @@ const Footer = () => {
                     <Col xs={24} sm={12} lg={8}>
                         <div className="download-app">
                             <div className="title">{t("downloadApp", { domainName: platformInfo?.platformName })}</div>
-                            {/* <Row className="content">
+                            <Row className="content">
                                 {downloadApp.map((items) => (
                                     <Col key={items.key} xs={11} sm={11} lg={6} xl={8}>
-                                        <div className="download-app-btn" disabled={items.disabled}>
+                                        <div className="download-app-btn">
                                             <img src={items.url} alt={items.key} />
                                         </div>
                                     </Col>
                                 ))}
-                            </Row> */}
+                            </Row>
                         </div>
                     </Col>
 
                     <Col xs={24} sm={12} lg={6} xl={8}>
                         <div className="contact-us">
                             <div className="title">{t("contactUs")}</div>
-                            {/* <div className="content">
-                                {agentContact?.map((items, index) => (
-                                    <div key={index} className="item" onClick={() => window.open(items.url)}>
+                            <div className="content">
+                                {agentInfo?.map((items, index) => (
+                                    <div key={index} className="item" onClick={() => window.open(items.redirectUrl)}>
                                         <span>{`${
-                                            t(items.contactType) + logoInfo?.platformName?.toUpperCase()
+                                            t(items.contactType) + platformInfo?.platformName?.toUpperCase()
                                         } @ ${items?.contactType?.toUpperCase()}`}</span>
                                     </div>
                                 ))}
 
-                                {(!agentContact || agentContact[0] === undefined) && <div className="item">-</div>}
-                            </div> */}
+                                {(!agentInfo || agentInfo[0] === undefined) && <div className="item">-</div>}
+                            </div>
                         </div>
                     </Col>
 
@@ -50,15 +51,15 @@ const Footer = () => {
                         <div className="product-info">
                             <div className="product">
                                 <div className="title">{t("product")}</div>
-                                {/* <div className="content">
-                                    {gameCategory?.map((items, index) => (
+                                <div className="content">
+                                    {gpCategory?.map((items, index) => (
                                         <div key={index} className="item">
-                                            {t(items.title)}
+                                            {t(items.category)}
                                         </div>
                                     ))}
 
-                                    {gameCategory[0] === undefined && <div className="item">-</div>}
-                                </div> */}
+                                    {gpCategory[0] === undefined && <div className="item">-</div>}
+                                </div>
                             </div>
 
                             <div className="info">

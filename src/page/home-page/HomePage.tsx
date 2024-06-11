@@ -46,13 +46,15 @@ const HomePage = () => {
     }, [windowWidth]);
 
     // const sponsorList = [{ gameCode: "VP" }];
-    const poster = [{ title: "asd" }];
+    // const poster = [{ title: "asd" }];
     return (
         <div id="home-page">
             <Carousel autoplay dots={false}>
-                {bannerList?.map((item: any, index: number) => (
-                    <img key={index} src={item?.mediaUrl} alt="" />
-                ))}
+                {bannerList
+                    ?.filter((item) => item.advertisingType === "banner")
+                    .map((item: any, index: number) => (
+                        <img key={index} src={item?.mediaUrl} alt="" />
+                    ))}
                 {/* <img src="https://game-platform.sgp1.digitaloceanspaces.com/win22/banner/20-11-2023/WIN22_Banner_Galaxy_SlotMania(1).png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-01.png" alt="" />
                 <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-02.png" alt="" />
@@ -124,13 +126,6 @@ const HomePage = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    {/* <Marquee pauseOnHover={true} autoFill={true}>
-            {sponsorList?.map((items: any, index: number) => (
-              <div key={index} className="sponsored-item">
-                <img src={items.image} alt={items.gameCode} />
-              </div>
-            ))}
-          </Marquee> */}
                 </Col>
             </Row>
 
@@ -171,28 +166,20 @@ const HomePage = () => {
                     <div className="title" hidden={gpCategory[0] === undefined}>
                         {t("typesOfTheBestOnlineCasinoGames")}
                     </div>
-                    {/* <Swiper spaceBetween={15} slidesPerView={gameSwiperShow} autoplay modules={[Autoplay]}>
+                    <Swiper spaceBetween={15} slidesPerView={gameSwiperShow} autoplay modules={[Autoplay]}>
                         {gpCategory?.map((items: any, index: number) => (
                             <SwiperSlide key={index}>
                                 <div className="game-category-item">
                                     <img
-                                        src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
+                                        src={`https://game-platform.sgp1.digitaloceanspaces.com/${
+                                            platformInfo?.uniqueID
+                                        }/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
                                         alt={items.category}
                                     />
                                 </div>
                             </SwiperSlide>
                         ))}
-                    </Swiper> */}
-                    <div className="game-category-content">
-                        {gpCategory?.map((items: any, index: number) => (
-                            <div key={index} className="game-category-item">
-                                <img
-                                    src={`https://game-platform.sgp1.digitaloceanspaces.com/win22/home-game-btn/${items.category.toLowerCase()}.png`}
-                                    alt={items.category}
-                                />
-                            </div>
-                        ))}
-                    </div>
+                    </Swiper>
                 </Col>
             </Row>
 
@@ -220,12 +207,11 @@ const HomePage = () => {
                                 </div>
 
                                 <Carousel autoplay dots={false}>
-                                    {poster?.map((items: any, index: number) => (
-                                        <div key={index} className="poster-img">
-                                            {/* <img src={items.image} alt={items.title} /> */}
-                                            {items.title}
-                                        </div>
-                                    ))}
+                                    {bannerList
+                                        ?.filter((item) => item.advertisingType === "poster")
+                                        .map((item: any, index: number) => (
+                                            <img key={index} src={item?.mediaUrl} alt="" />
+                                        ))}
                                 </Carousel>
                             </div>
                         </Col>
