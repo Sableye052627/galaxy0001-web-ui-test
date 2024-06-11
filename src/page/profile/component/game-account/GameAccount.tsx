@@ -154,7 +154,7 @@ const GameAccount = () => {
             },
         },
         {
-            title: t("gameCode"),
+            title: t("gameName"),
             dataIndex: "gameCode",
             ellipsis: true,
             render: (text: string) => text.toUpperCase(),
