@@ -33,11 +33,11 @@ const NavbarSec = () => {
                                 className={`item ${pathname[2] === items.category.toLocaleLowerCase()}`}
                                 onClick={() => handleRedirect(items.category)}
                             >
-                                <img
+                                {/* <img
                                     src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
                                     alt={items.category}
-                                />
-                                {/* {t(items.category.toLocaleLowerCase())} */}
+                                /> */}
+                                {t(items.category.toLocaleLowerCase())}
                             </div>
                         </Col>
                     ))}
