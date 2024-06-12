@@ -5,7 +5,11 @@
     width: 100%;
     background: var(--header-color);
 
-    .logo {
+    .btn {
+        color: var(--secondary-color);
+    }
+
+    .navbar-logo {
         @extend .flex-layout;
         width: 100%;
         max-height: 85px;

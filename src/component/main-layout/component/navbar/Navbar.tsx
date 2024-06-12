@@ -93,8 +93,8 @@ const Navbar = () => {
         <Row className="navbar" justify="center" align="middle">
             <Col {...gridSetting}>
                 <Row justify="space-between" align="middle">
-                    <Col sm={0}>
-                        <div className="btn-drawer" onClick={() => setOpenMenu(!openMenu)}>
+                    <Col>
+                        <div className="btn" onClick={() => setOpenMenu(!openMenu)}>
                             <MenuOutlined />
                         </div>
                     </Col>
@@ -104,8 +104,8 @@ const Navbar = () => {
                         </div>
                     </Col>
 
-                    <Col sm={0}>
-                        <div className="btn-translate" onClick={() => setLang(!lang)}>
+                    <Col>
+                        <div className="btn" onClick={() => setLang(!lang)}>
                             <TranslationOutlined />
                         </div>
                     </Col>
