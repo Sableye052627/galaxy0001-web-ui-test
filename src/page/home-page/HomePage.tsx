@@ -55,12 +55,6 @@ const HomePage = () => {
                     .map((item: any, index: number) => (
                         <img key={index} src={item?.mediaUrl} alt="" />
                     ))}
-                {/* <img src="https://game-platform.sgp1.digitaloceanspaces.com/win22/banner/20-11-2023/WIN22_Banner_Galaxy_SlotMania(1).png" alt="" />
-                <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-01.png" alt="" />
-                <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-02.png" alt="" />
-                <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-03.png" alt="" />
-                <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/undefined-WIN22_Banner-04.png" alt="" />
-                <img src="https://game-platform.sgp1.digitaloceanspaces.com/asset/banner/04-11-2022/w00-WIN22_Banner-05.png" alt="" /> */}
             </Carousel>
             <div className="neon-hr" />
             <Row justify="center">
@@ -105,8 +99,11 @@ const HomePage = () => {
                         {gpCategory?.map((items: any, index: number) => (
                             <Col key={index} xs={6}>
                                 <div className="sm-menu-item" onClick={() => handleRedirect(items.category)}>
-                                    {/* <img src={items.icon} alt={items.title} /> */}
-                                    {t(items.category)}
+                                    <img
+                                        src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
+                                        alt={items.category}
+                                    />
+                                    {/* {t(items.category)} */}
                                 </div>
                             </Col>
                         ))}

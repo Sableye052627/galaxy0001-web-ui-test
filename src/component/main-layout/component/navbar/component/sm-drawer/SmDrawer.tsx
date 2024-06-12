@@ -84,8 +84,11 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                 {gpCategory?.map((items: any, index: number) => (
                     <Col xs={8} key={index}>
                         <div className={`item ${pathname[2] === items.category.toLocaleLowerCase()}`} onClick={() => handleRedirect(items.category)}>
-                            {/* <img src={items.icon} alt={items.title} /> */}
-                            {t(items.category.toLocaleLowerCase())}
+                            <img
+                                src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
+                                alt={items.category}
+                            />
+                            {/* {t(items.category.toLocaleLowerCase())} */}
                         </div>
                     </Col>
                 ))}

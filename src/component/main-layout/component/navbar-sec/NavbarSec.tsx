@@ -5,7 +5,7 @@ import "./navbar-sec.scss";
 import { gridSetting } from "../../MainLayout";
 
 const NavbarSec = () => {
-    const { t, navigate, gpCategory } = useNavbarSec();
+    const { t, navigate, platformInfo, gpCategory } = useNavbarSec();
     const pathname = window.location.pathname.split("/");
 
     function handleRedirect(path: string) {
@@ -33,8 +33,11 @@ const NavbarSec = () => {
                                 className={`item ${pathname[2] === items.category.toLocaleLowerCase()}`}
                                 onClick={() => handleRedirect(items.category)}
                             >
-                                {/* <img src={items.icon} alt={items.title} /> */}
-                                {t(items.category.toLocaleLowerCase())}
+                                <img
+                                    src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
+                                    alt={items.category}
+                                />
+                                {/* {t(items.category.toLocaleLowerCase())} */}
                             </div>
                         </Col>
                     ))}
