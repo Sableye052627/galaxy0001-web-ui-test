@@ -108,8 +108,9 @@ const GameTransfer = () => {
                 } else {
                     if (isMobile()) {
                         confirmRedirect(result.data.mobileUrl);
+                    } else {
+                        confirmRedirect(result.data.pcUrl);
                     }
-                    confirmRedirect(result.data.pcUrl);
                 }
             }
         } catch (error: any) {

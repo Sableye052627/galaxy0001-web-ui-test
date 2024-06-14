@@ -85,7 +85,9 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                     <Col xs={8} key={index}>
                         <div className={`item ${pathname[2] === items.category.toLocaleLowerCase()}`} onClick={() => handleRedirect(items.category)}>
                             <img
-                                src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
+                                src={`https://game-platform.sgp1.digitaloceanspaces.com/${
+                                    platformInfo?.uniqueID
+                                }/navbar-game-icon/${items.category.toUpperCase()}.png`}
                                 alt={items.category}
                             />
                             {/* {t(items.category.toLocaleLowerCase())} */}
