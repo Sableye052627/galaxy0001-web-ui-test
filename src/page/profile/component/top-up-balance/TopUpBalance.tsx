@@ -117,6 +117,7 @@ const TopUpBalance = () => {
                     <ul className="content">
                         <li className="item">{t("depositDesc1")}</li>
                         <li className="item">{t("depositDesc4")}</li>
+                        <li className="item">{t("depositDesc7")}</li>
                     </ul>
                 </div>
             </Col>

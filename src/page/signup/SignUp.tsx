@@ -5,7 +5,9 @@ import "./signup.scss";
 import { useEffect, useState } from "react";
 import { playerApi } from "../../service/CallApi";
 import { gridSetting } from "../../component/main-layout/MainLayout";
+import { SuccessModal } from "./component/success-modal/SuccessModal";
 import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
 
 const SignUp = () => {
@@ -38,13 +40,47 @@ const SignUp = () => {
   async function handleSignUp(values: any) {
     setIsLoading(true);
     try {
-      const object = {
-        HostName: hostname,
-        PlayerID: values.playerID,
-        Password: values.password,
-      };
-      const result = await playerApi("/signup", object);
-      if (result.status) {
+
+      if(values.password == values.confirmedPassword){
+
+        const object = {
+          HostName: hostname,
+          PlayerID: values.playerID,
+          PlayerName: values.fullName,
+          PhoneNo: values.phone,
+          Email: values.email,
+          Password: values.password,
+          ReferralID: values.referralID
+        };
+        const result = await playerApi("/self-register", object);
+        if (result.status) {
+  
+          Swal.fire({
+              text: t("signUpSuccessMsg"),
+              icon: "success",
+              showCancelButton: false,
+              color: "#fff",
+              background: "#434343",
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  navigate("/login");
+              }
+          });
+          //setShow(true);
+        }
+      }
+      else{
+  
+          Swal.fire({
+              text: t("passwordNotMatch"),
+              icon: "warning",
+              showCancelButton: false,
+              color: "#fff",
+              background: "#434343",
+          }).then((result) => {
+              if (result.isConfirmed) {
+              }
+          });
       }
     } catch (error: any) {
       console.log(error);
@@ -60,7 +96,7 @@ const SignUp = () => {
   return (
     <Row className="signup" justify="center">
       <Col {...gridSetting}>
-        {/* <SuccessModal show={show} setShow={setShow} /> */}
+        <SuccessModal show={show} setShow={setShow} />
 
         <Row className="header">
         <Col xs={24} sm={16} md={14} lg={12} xl={12}>

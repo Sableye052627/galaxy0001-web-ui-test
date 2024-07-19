@@ -46,6 +46,9 @@
     "loginSuccess": "登录成功",
     "loginSuccessMsg": "欢迎来到{{domainName}}",
     "close": "关闭",
+    "signupSuccess": "注册成功",
+    "signUpSuccessMsg": "注册成功，请继续登录",
+    "passwordNotMatch": "密码不匹配",
 
     "marqueeText": "{{domainName}}不仅提供您通过浏览器玩您喜爱的在线赌博游戏的机会，还提供使用移动应用程序玩游戏的机会。这是我们为用户提供的一种便捷方法，使他们能够轻松访问平台上提供的各种服务。无论您是Android或iOS移动设备的用户，此应用程序都可以兼容任何设备。",
 

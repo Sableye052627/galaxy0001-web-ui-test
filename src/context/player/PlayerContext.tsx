@@ -44,8 +44,8 @@ interface IPlayerContextProps {
 const PlayerContext = ({ children }: IPlayerContextProps) => {
     const [playerInfo, setPlayerInfo] = useState<IPlayerType | undefined>(undefined);
     const [agentInfo, setAgentInfo] = useState<[IAgentType] | undefined>(undefined);
-    const hostname =
-        window.location.hostname === "localhost" || window.location.hostname === "webh5.danger.asia" ? "danger.asia" : window.location.hostname;
+    const hostname = "bmw77club.com"
+        //window.location.hostname === "localhost" || window.location.hostname === "webh5.danger.asia" ? "danger.asia" : window.location.hostname;
 
     const values: IPlayerContextType = { playerInfo, setPlayerInfo, agentInfo, setAgentInfo, hostname };
     return <Player.Provider value={values}>{children}</Player.Provider>;

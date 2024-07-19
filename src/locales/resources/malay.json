@@ -47,6 +47,10 @@
     "loginSuccess": "LOG MASUK BERJAYA",
     "loginSuccessMsg": "Selamat datang ke {{domainName}}",
     "close": "TUTUP",
+    
+    "signupSuccess": "DAFTAR BERJAYA",
+    "signUpSuccessMsg": "Pendaftaran berjaya, Sila teruskan untuk log masuk",
+    "passwordNotMatch": "Kata laluan tidak sepadan",
 
     "marqueeText": "{{domainName}} bukan sahaja menawarkan anda peluang untuk bermain permainan judi kegemaran anda menggunakan pelayar web anda tetapi juga menawarkan anda bermain permainan menggunakan aplikasi mudah alih. Ini adalah pendekatan mudah yang dibawa oleh kami kepada pengguna supaya mereka boleh mengakses pelbagai perkhidmatan yang ditawarkan dalam platform dengan mudah. Sama ada anda adalah pengguna peranti mudah alih Android atau iOS, aplikasi ini akan serasi untuk mana-mana peranti.",
 

@@ -94,14 +94,11 @@ const Login = () => {
                       {t("login")}
                     </Button>
                   </Form.Item>
-
-                  {/*
                   <Form.Item>
                     <Button block size="large" type="default" className="signup" onClick={() => navigate("/signup")}>
                       {t("signUp")}
                     </Button>
                   </Form.Item>
-                  */}
                 </Form>
               </Card>
             </Spin>

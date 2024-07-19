@@ -48,6 +48,10 @@
     "loginSuccessMsg": "Welcome to {{domainName}}",
     "close": "CLOSE",
 
+    "signupSuccess": "REGISTER SUCCESS",
+    "signUpSuccessMsg": "Register success, Please proceed to login",
+    "passwordNotMatch": "Passwords do not match",
+
     "marqueeText": "{{domainName}} doesn't only offer you the opportunity to play your favorite online gambling games using your web browser but offers you to play the games using the mobile app. This is an easy approach brought by us to the users in order for them to easily access various services offered in the platform. Be it that you are a user of an Android or iOS mobile device, this application will be compatible for any devices.",
 
     "trustedOnlineCasinoMalaysia": "TRUSTED ONLINE CASINO MALAYSIA - {{domainName}}",
@@ -130,6 +134,7 @@
     "depositDesc4": "Please confirm the transfer is successful before submitting the deposit application to avoid deposit delay.",
     "depositDesc5": "Please include a leaflet with every deposit application so that your request can be passed more quickly.",
     "depositDesc6": "For cash deposit transactions, please write 'for {{domainName}} only' on the receipt with a pen each time, and then upload the receipt after submitting the application.",
+    "depositDesc7": "If your wallet does not update to show the new balance after making a deposit, please try refreshing the page.",
 
     "bankCode": "Bank Code",
     "haventRegisterWithdrawalBankYet": "Haven't Registered Withdrawal Bank Account Yet !",
