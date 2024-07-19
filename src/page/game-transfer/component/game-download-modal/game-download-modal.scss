@@ -1,3 +1,5 @@
+@import "../../../../component/main-layout/main-layout.scss";
+
 .game-dowanload-modal {
     .ant-modal-content {
         padding: 0;
@@ -29,6 +31,14 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 16px;
             font-weight: 700;
+
+            .custom-label {
+                color: var(--primary-color);
+            }
+
+            .ant-input {
+                color: rgba(255, 255, 255, 0.8);
+            }
 
             .btn-close {
                 display: flex;

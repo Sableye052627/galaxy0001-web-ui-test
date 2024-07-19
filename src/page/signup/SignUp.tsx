@@ -1,16 +1,15 @@
-import { useLogin } from "./hook/useLogin";
+import { useSignUp } from "./hook/useSignUp";
 import { Button, Card, Carousel, Col, Form, Input, Row, Spin, message } from "antd";
 
-import "./login.scss";
+import "./signup.scss";
 import { useEffect, useState } from "react";
 import { playerApi } from "../../service/CallApi";
 import { gridSetting } from "../../component/main-layout/MainLayout";
-import { SuccessModal } from "./component/success-modal/SuccessModal";
 import Cookies from "js-cookie";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
 
-const Login = () => {
-  const { t, i18n, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, setAgentInfo, hostname } = useLogin();
+const SignUp = () => {
+  const { t, i18n, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, setAgentInfo, hostname } = useSignUp();
 
   const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -36,7 +35,7 @@ const Login = () => {
     setIsFirstLoad(false);
   }
 
-  async function handleLogin(values: any) {
+  async function handleSignUp(values: any) {
     setIsLoading(true);
     try {
       const object = {
@@ -44,16 +43,8 @@ const Login = () => {
         PlayerID: values.playerID,
         Password: values.password,
       };
-      const result = await playerApi("/login", object);
+      const result = await playerApi("/signup", object);
       if (result.status) {
-        setPlayerInfo(result.data);
-        setAgentInfo(result.data2);
-
-        Cookies.set("PlayerID", result.data.playerID);
-        Cookies.set("PlayerToken", result.data.playerToken);
-        i18n.changeLanguage(result.data.lang);
-
-        setShow(true);
       }
     } catch (error: any) {
       console.log(error);
@@ -67,59 +58,58 @@ const Login = () => {
   }
 
   return (
-    <Row className="login" justify="center">
+    <Row className="signup" justify="center">
       <Col {...gridSetting}>
-        <SuccessModal show={show} setShow={setShow} />
+        {/* <SuccessModal show={show} setShow={setShow} /> */}
 
         <Row className="header">
-          <Col xs={0} xl={24}>
-            {t("login")}
+        <Col xs={24} sm={16} md={14} lg={12} xl={12}>
+            {t("signUp")}
           </Col>
         </Row>
 
         <Row className="content" justify="center" gutter={[16, 10]}>
-          <Col xs={24} sm={16} md={14} lg={11} xl={8}>
+          <Col xs={24} sm={16} md={14} lg={12} xl={12}>
             <Spin spinning={isLoading}>
               <Card>
-                <Form layout="vertical" onFinish={handleLogin}>
+                <Form layout="vertical" onFinish={handleSignUp}>
+
                   <Form.Item label={t("playerID")} name="playerID" rules={[{ required: true, message: t("pleaseInsertPlayerID") }]}>
+                    <Input />
+                  </Form.Item>
+                    
+                  <Form.Item label={t("fullName")} name="fullName" rules={[{ required: true, message: t("pleaseInsertYourFullName") }]}>
+                    <Input />
+                  </Form.Item>
+                    
+                  <Form.Item label={t("phone")} name="phone" rules={[{ required: true, message: t("pleaseInsertPhoneNumber") }]}>
+                    <Input />
+                  </Form.Item>
+                    
+                  <Form.Item label={t("email")} name="email" rules={[{ required: true, message: t("pleaseInsertPhoneNumber") }]}>
                     <Input />
                   </Form.Item>
 
                   <Form.Item label={t("password")} name="password" rules={[{ required: true, message: t("pleaseInsertPassword") }]}>
                     <Input.Password />
                   </Form.Item>
+
+                  <Form.Item label={t("confirmedPassword")} name="confirmedPassword" rules={[{ required: true, message: t("pleaseInsertConfirmedPassword") }]}>
+                    <Input.Password />
+                  </Form.Item>
+                    
+                  <Form.Item label={t("referralID")} name="referralID" rules={[{ required: false }]}>
+                    <Input />
+                  </Form.Item>
+                  
                   <Form.Item>
                     <Button block size="large" type="primary" htmlType="submit">
-                      {t("login")}
+                        {t("signUp")}
                     </Button>
                   </Form.Item>
-
-                  {/*
-                  <Form.Item>
-                    <Button block size="large" type="default" className="signup" onClick={() => navigate("/signup")}>
-                      {t("signUp")}
-                    </Button>
-                  </Form.Item>
-                  */}
                 </Form>
               </Card>
             </Spin>
-          </Col>
-
-          <Col xs={0} xl={16}>
-            <Card>
-              {/* <Carousel autoplay dots={false}>
-                                {banner?.map((items: any, index: number) => (
-                                    <div key={index} className="banner-img">
-                                        <img src={items.image} alt={items.title} />
-                                    </div>
-                                ))}
-                            </Carousel> */}
-
-              <hr />
-              <div className="description">{t("aboutUsDesc", { domainName: platformInfo?.platformName })}</div>
-            </Card>
           </Col>
         </Row>
       </Col>
@@ -127,4 +117,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

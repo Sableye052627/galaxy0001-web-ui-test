@@ -59,11 +59,11 @@ export const GameDownloadModal = ({ showDownload, setShowDownload, gameDownload 
                 <Row justify="center">
                     <Col xs={24}>
                         <Form layout="vertical" initialValues={gameDownload}>
-                            <Form.Item label={t("gameLoginID")} name="gameLoginID">
+                            <Form.Item label={<span className="custom-label">{t("gameLoginID")}</span>} name="gameLoginID">
                                 <Input disabled size="large" />
                             </Form.Item>
 
-                            <Form.Item label={t("gamePassword")} name="gamePassword">
+                            <Form.Item label={<span className="custom-label">{t("gamePassword")}</span>} name="gameLoginPassword">
                                 <Input disabled size="large" />
                             </Form.Item>
                         </Form>

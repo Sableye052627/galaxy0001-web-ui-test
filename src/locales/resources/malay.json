@@ -7,6 +7,7 @@
     "bahasa": "BAHASA",
 
     "login": "LOG MASUK",
+    "signUp": "DAFTAR",
     "language": "Bahasa",
 
     "home": "LAMAN UTAMA",
@@ -32,6 +33,16 @@
     "pleaseInsertPlayerID": "Sila masukkan ID pemain",
     "password": "Kata Laluan",
     "pleaseInsertPassword": "Sila masukkan kata laluan",
+
+    "fullName": "Nama Penuh",
+    "pleaseInsertYourFullName": "Sila masukkan nama penuh anda",
+    "phone": "Nombor Telefon",
+    "pleaseInsertPhoneNumber": "Sila masukkan nombor telefon",
+    "email": "E-mel",
+    "pleaseInsertEmail": "Sila masukkan alamat e-mel",
+    "confirmedPassword": "Sahkan Kata Laluan",
+    "pleaseInsertConfirmedPassword": "Sila masukkan kata laluan yang disahkan",
+    "referralID": "ID Rujukan (Pilihan)",
 
     "loginSuccess": "LOG MASUK BERJAYA",
     "loginSuccessMsg": "Selamat datang ke {{domainName}}",
@@ -70,6 +81,7 @@
     "myProfile": "Profil Saya",
     "changePassword": "Tukar Kata Laluan",
     "changeLanguage": "Tukar Bahasa",
+    "topUpBalance": "Baki Deposit",
     "deposit": "Deposit",
     "withdraw": "Pengeluaran",
     "transactionHistory": "Sejarah Transaksi",
@@ -122,6 +134,8 @@
     "bankCode": "Kod Bank",
     "haventRegisterWithdrawalBankYet": "Belum Mendaftar Akaun Bank Pengeluaran!",
     "confirmToWithdrawBalance": "Sahkan untuk mengeluarkan baki",
+    "withdrawBalance": "Keluarkan Semua baki",
+    "topup": "Tambah Baki",
 
     "addBankDesc1": "Belum Mempunyai Bank Pengeluaran Anda Sendiri?",
     "addBankDesc2": "Ingin Menambah Bank Pengeluaran Lain?",

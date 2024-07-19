@@ -37,7 +37,7 @@ const NavbarSec = () => {
                                     src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
                                     alt={items.category}
                                 /> */}
-                                {t(items.category.toLocaleLowerCase())}
+                                {t(items.category.toLocaleLowerCase())} 
                             </div>
                         </Col>
                     ))}

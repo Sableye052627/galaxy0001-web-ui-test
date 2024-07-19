@@ -5,6 +5,7 @@ import { WalletOutlined, LoginOutlined, UserOutlined, CaretDownOutlined, MenuOut
 import "./navbar.scss";
 import { gridSetting } from "../../MainLayout";
 import UserDropdown from "./component/user-dropdown/UserDropdown";
+import WalletDropdown from "./component/wallet-dropdown/WalletDropdown";
 import { formatNumber } from "../../../../function/Common";
 import { useState } from "react";
 import SmDrawer from "./component/sm-drawer/SmDrawer";
@@ -25,7 +26,7 @@ const Navbar = () => {
 
     function confirmWithdrawAll() {
         Swal.fire({
-            text: "Confirm withdraw all balance",
+            text: t("confirmToWithdrawBalance"),
             icon: "info",
             showCancelButton: true,
             color: "#fff",
@@ -72,13 +73,21 @@ const Navbar = () => {
 
     const renderLogin = () => (
         <div className="wallet-player">
+            {/*
             <Tooltip title={t("withdrawAllBalance")}>
                 <div className="wallet" onClick={() => confirmWithdrawAll()}>
-                    {/* <div className="wallet"> */}
+                    {/* <div className="wallet"> 
                     <WalletOutlined style={{ fontSize: 22 }} />
                     <div className="wallet-balance">{formatNumber(playerInfo?.wallet1)}</div>
                 </div>
-            </Tooltip>
+            </Tooltip>*/}
+            <Popover overlayInnerStyle={{ padding: 0 }} placement="bottomRight" trigger="hover" arrow={false} content={<WalletDropdown withdrawAllBalance={confirmWithdrawAll} />}>
+                <div className="btn-info">
+                    <WalletOutlined style={{ fontSize: 22 }} />
+                    <div className="wallet-balance">{formatNumber(playerInfo?.wallet1)}</div>
+                    <CaretDownOutlined />
+                </div>
+            </Popover>
             <Popover overlayInnerStyle={{ padding: 0 }} placement="bottomRight" trigger="hover" arrow={false} content={<UserDropdown />}>
                 <div className="btn-info">
                     <UserOutlined />

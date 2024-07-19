@@ -1,6 +1,4 @@
-@import "../../component/main-layout/main-layout.scss";
-
-.login {
+.signup {
     padding: 20px 0;
 
     .header {
@@ -40,18 +38,15 @@
             color: rgba(255, 255, 255, 0.8);
             font-weight: 700;
         }
-
+    
         .signup {
-          color: gold !important;
-          border: 2px solid var(--primary-color) !important;
-          background-color: transparent !important;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+            color: gold !important;
+            border: 2px solid gold !important;
+            background-color: transparent !important;
         }
 
         .signup:hover {
-            background-color: var(--primary-color) !important;
+            background-color: gold !important;
             color: white !important;
           }
     }

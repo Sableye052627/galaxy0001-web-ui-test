@@ -4,6 +4,7 @@ import MainLayout from "./component/main-layout/MainLayout";
 import GameLobby from "./page/game-lobby/GameLobby";
 import Profile from "./page/profile/Profile";
 import Login from "./page/login/Login";
+import SignUp from "./page/signup/SignUp";
 import Suggestion from "./page/suggestion/Suggestion";
 import GameMenu from "./page/game-menu/GameMenu";
 import GameTransfer from "./page/game-transfer/GameTransfer";
@@ -20,6 +21,10 @@ function App() {
                 {
                     path: "/login",
                     element: <Login />,
+                },
+                {
+                    path: "/signup",
+                    element: <SignUp />,
                 },
                 {
                     path: "/play-game/:category",

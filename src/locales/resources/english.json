@@ -7,6 +7,7 @@
     "bahasa": "BAHASA",
 
     "login": "LOGIN",
+    "signUp": "REGISTER",
     "language": "Language",
 
     "home": "HOME",
@@ -32,6 +33,16 @@
     "pleaseInsertPlayerID": "Please insert player ID",
     "password": "Password",
     "pleaseInsertPassword": "Please insert password",
+
+    "fullName": "Full Name",
+    "pleaseInsertYourFullName": "Please insert your full name",
+    "phone": "Phone Number",
+    "pleaseInsertPhoneNumber": "Please insert phone number",
+    "email": "Email",
+    "pleaseInsertEmail": "Please insert email address",
+    "confirmedPassword": "Confirmed Password",
+    "pleaseInsertConfirmedPassword": "Please insert confirmed password",
+    "referralID": "Referral ID (Optional)",
 
     "loginSuccess": "LOGIN SUCCESS",
     "loginSuccessMsg": "Welcome to {{domainName}}",
@@ -70,6 +81,7 @@
     "myProfile": "My Profile",
     "changePassword": "Change Password",
     "changeLanguage": "Change Language",
+    "topUpBalance": "Deposit Balance",
     "deposit": "Deposit",
     "withdraw": "Withdraw",
     "transactionHistory": "Transaction History",
@@ -122,6 +134,8 @@
     "bankCode": "Bank Code",
     "haventRegisterWithdrawalBankYet": "Haven't Registered Withdrawal Bank Account Yet !",
     "confirmToWithdrawBalance": "Confirm to withdraw balance",
+    "withdrawBalance": "withdraw All balance",
+    "topup": "Top Up Balance",
 
     "addBankDesc1": "Don't Have Your Own Withdrawal Bank Yet ?",
     "addBankDesc2": "Want To Add Another Withdrawal Bank ?",

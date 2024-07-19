@@ -7,6 +7,7 @@
     "bahasa": "马来语",
 
     "login": "登录",
+    "signUp": "注册",
     "language": "语言",
 
     "home": "首页",
@@ -32,6 +33,15 @@
     "pleaseInsertPlayerID": "请输入玩家ID",
     "password": "密码",
     "pleaseInsertPassword": "请输入密码",
+    "fullName": "全名",
+    "pleaseInsertYourFullName": "请输入您的全名",
+    "phone": "电话号码",
+    "pleaseInsertPhoneNumber": "请输入电话号码",
+    "email": "电子邮件",
+    "pleaseInsertEmail": "请输入电子邮件地址",
+    "confirmedPassword": "确认密码",
+    "pleaseInsertConfirmedPassword": "请输入确认密码",
+    "referralID": "推荐码（可选）",
 
     "loginSuccess": "登录成功",
     "loginSuccessMsg": "欢迎来到{{domainName}}",
@@ -70,6 +80,7 @@
     "myProfile": "我的资料",
     "changePassword": "更改密码",
     "changeLanguage": "更改语言",
+    "topUpBalance": "存款余额",
     "deposit": "存款",
     "withdraw": "提现",
     "transactionHistory": "交易记录",
@@ -122,6 +133,8 @@
     "bankCode": "银行代码",
     "haventRegisterWithdrawalBankYet": "尚未注册提现银行账户！",
     "confirmToWithdrawBalance": "确认提现余额",
+    "withdrawBalance": "提取所有余额",
+    "topup": "充值余额",
 
     "addBankDesc1": "还没有自己的提现银行？",
     "addBankDesc2": "想要添加另一提现银行？",

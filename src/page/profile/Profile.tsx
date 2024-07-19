@@ -6,6 +6,7 @@ import { gridSetting } from "../../component/main-layout/MainLayout";
 import { useParams } from "react-router-dom";
 import MyProfile from "./component/my-profile/MyProfile";
 import ChangePassword from "./component/change-password/ChangePassword";
+import TopUpBalance from "./component/top-up-balance/TopUpBalance";
 import Deposit from "./component/deposit/Deposit";
 import Withdraw from "./component/withdraw/Withdraw";
 import TransactionHistory from "./component/transaction-history/TransactionHistory";
@@ -23,6 +24,10 @@ const Profile = () => {
         {
             key: "change-password",
             label: "changePassword",
+        },
+        {
+            key: "top-up-balance",
+            label: "topUpBalance",
         },
         {
             key: "deposit-balance",
@@ -83,6 +88,7 @@ const Profile = () => {
                         {key === "my-profile" && <MyProfile />}
                         {/* {key === "change-password" && <ChangePassword banner={banner} />} */}
                         {key === "change-password" && <ChangePassword />}
+                        {key === "top-up-balance" && <TopUpBalance />}
                         {key === "deposit-balance" && <Deposit />}
                         {key === "withdraw-balance" && <Withdraw />}
                         {key === "transaction-history" && <TransactionHistory />}

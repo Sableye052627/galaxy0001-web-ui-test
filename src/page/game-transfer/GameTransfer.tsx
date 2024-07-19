@@ -160,6 +160,7 @@ const GameTransfer = () => {
                                     <div className="item" onClick={() => handleRedirect(items)}>
                                         <div className="game-img">
                                             <img src={items.logoImage} alt={items.gameCode} loading="lazy" />
+                                            <span className="text-behind">{items.gameName}</span> 
                                         </div>
                                     </div>
                                 </Col>

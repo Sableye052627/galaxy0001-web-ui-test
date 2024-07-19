@@ -17,7 +17,7 @@ const LanguageModal = ({ lang, setLang }: ILanguageModalProps) => {
     const { t, i18n, navigate, platformInfo, windowWidth, playerInfo, hostname } = useLanguageModal();
 
     const currentLng = i18n.language;
-    let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "ZH" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
+    let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "CN" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
 
     const modalSetting = {
         className: "language-modal",
@@ -62,11 +62,11 @@ const LanguageModal = ({ lang, setLang }: ILanguageModalProps) => {
                 {t("english")}
             </div>
 
-            <div className={`item ${language === "mandarin"}`} onClick={() => handleLang("ZH")}>
+            <div className={`item ${language === "mandarin"}`} onClick={() => handleLang("CN")}>
                 {t("mandarin")}
             </div>
 
-            <div className={`item ${language === "bahasa"}`} onClick={() => handleLang("BM")}>
+            <div className={`item ${language === "bahasa"}`} onClick={() => handleLang("MY")}>
                 {t("bahasa")}
             </div>
         </Modal>

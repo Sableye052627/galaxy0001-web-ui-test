@@ -114,6 +114,13 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                 </div>
 
                 <div
+                    className={`item ${pathname[1] === "player-info" && pathname[2] === "top-up-balance"}`}
+                    onClick={() => handleRedirect2("/player-info/top-up-balance")}
+                >
+                    {t("topUpBalance")}
+                </div>
+
+                <div
                     className={`item ${pathname[1] === "player-info" && pathname[2] === "deposit-balance"}`}
                     onClick={() => handleRedirect2("/player-info/deposit-balance")}
                     hidden={platformInfo?.cdM_Deposit === 0}
