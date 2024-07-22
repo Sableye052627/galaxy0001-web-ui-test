@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Api } from "../../../context/ApiContext";
 import { useNavigate } from "react-router-dom";
-import { Player } from "../../../context/player/PlayerContext";
+import { Api } from "../../../../../context/ApiContext";
+import { Player } from "../../../../../context/player/PlayerContext";
 
-export const useHomePage = () => {
+export const useGameCat = () => {
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
 
@@ -15,9 +15,8 @@ export const useHomePage = () => {
     const { hostname } = playerContext;
 
     function handleRedirect(path: string) {
-        console.log("xxx")
         navigate(`/play-game/${path?.toLocaleLowerCase()}`);
     }
 
-    return { t, i18n, navigate, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect, hostname };
+    return { t, i18n, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect, hostname };
 };

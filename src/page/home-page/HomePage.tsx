@@ -13,15 +13,18 @@ import {
 } from "@ant-design/icons";
 
 import Marquee from "react-fast-marquee";
-import { Parallax, Background } from "react-parallax";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import LanguageModal from "../../component/language-modal/LanguageModal";
-import { sponsorList } from "../../asset/Asset";
+import GameCat from "./component/gameCat/GameCat";
+import GameList from "./component/gameList/GameList";
 
 const HomePage = () => {
-    const { t, i18n, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect, hostname } = useHomePage();
+    const { t, i18n, navigate, windowWidth, platformInfo, bannerList, handleRedirect, hostname } = useHomePage();
+
+    const { category } = useParams();
+    const location = useLocation();
 
     const [gameSwiperShow, setGameSwiperShow] = useState(5);
     const [providerSwiperShow, setProviderSwiperShow] = useState(10);
@@ -43,12 +46,18 @@ const HomePage = () => {
                 }
             }
         }
+
+        if(location.pathname == "/"){
+            console.log(location.pathname)
+            navigate("/play-game/live");
+        }
     }, [windowWidth]);
 
     // const sponsorList = [{ gameCode: "VP" }];
     // const poster = [{ title: "asd" }];
     return (
         <div id="home-page">
+            {/*
             <Carousel autoplay dots={false}>
                 {bannerList
                     ?.filter((item) => item.advertisingType === "banner")
@@ -56,6 +65,7 @@ const HomePage = () => {
                         <img key={index} src={item?.mediaUrl} alt="" />
                     ))}
             </Carousel>
+            */}
             <div className="neon-hr" />
             <Row justify="center">
                 <Col {...gridSetting}>
@@ -69,6 +79,7 @@ const HomePage = () => {
                 </Col>
             </Row>
             <div className="neon-hr" />
+            {/*
             <Row className="about-us" justify="center">
                 <Col {...gridSetting}>
                     <div className="title">{t("trustedOnlineCasinoMalaysia", { domainName: platformInfo?.platformName })}</div>
@@ -80,37 +91,21 @@ const HomePage = () => {
                             ? platformInfo?.descriptionCN
                             : platformInfo?.descriptionEN}
                     </div>
-                    {/* <div dangerouslySetInnerHTML={{ __html: platformInfo?.descriptionEN }} /> */}
                 </Col>
-            </Row>
+            </Row>*/}
 
-            {windowWidth <= 991 && (
-                <Parallax blur={2} strength={500} className="sm-menu">
-                    <Background className="custom-bg">
-                        <div
-                            style={{
-                                height: 500,
-                                width: windowWidth,
-                                backgroundImage: "url('https://game-platform.sgp1.digitaloceanspaces.com/win22/sm-home-menu-bg.png')",
-                            }}
-                        />
-                    </Background>
-                    <Row gutter={[16, 16]} justify="center">
-                        {gpCategory?.map((items: any, index: number) => (
-                            <Col key={index} xs={6}>
-                                <div className="sm-menu-item" onClick={() => handleRedirect(items.category)}>
-                                    <img
-                                        src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
-                                        alt={items.category}
-                                    />
-                                    {/* {t(items.category)} */}
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
-                </Parallax>
-            )}
+            <div className="lb-main-container">
+                <div className="lb-game-cat-container">
+                    <GameCat />
+                </div>
+                <div className="lb-sub-container">  
+                    <div className="lb-game-container">
+                        <GameList />
+                    </div>
+                </div>
+            </div>
 
+            {/*
             <Row className="sponsored" justify="center">
                 <Col {...gridSetting}>
                     <div className="title">{t("sponsored")}</div>
@@ -215,6 +210,7 @@ const HomePage = () => {
                     </Row>
                 </Col>
             </Row>
+            */}
         </div>
     );
 };

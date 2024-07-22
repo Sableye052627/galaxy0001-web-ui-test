@@ -77,7 +77,7 @@ const Footer = () => {
                         </div>
                     </Col>
                 </Row>
-
+                {/* 
                 <Row className="footer-item" style={{ marginTop: 50 }} hidden={windowWidth < 576}>
                     <Col xl={8}>
                         <div className="payment-method">
@@ -89,7 +89,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </Col>
-                </Row>
+                </Row>*/}
 
                 <div className="footer-remark">COPYRIGHT © {platformInfo?.accountPrefix?.toUpperCase()} 2022. ALL RIGHTS RESERVED</div>
             </Col>

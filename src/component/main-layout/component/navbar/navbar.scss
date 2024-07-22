@@ -1,72 +1,206 @@
-@import "../../main-layout.scss";
-
-.navbar {
-    height: 90px;
+.v-header-container {
     width: 100%;
-    background: var(--header-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
 
-    .btn {
-        color: var(--secondary-color);
-    }
-
-    .navbar-logo {
-        @extend .flex-layout;
+    .logo-container {
         width: 100%;
-        max-height: 85px;
-        cursor: pointer;
-    }
-
-    .btn-login {
-        @extend .flex-layout;
-        @extend .bold-font;
-        padding: 12px;
-        color: var(--secondary-color);
-        border: 2px solid var(--primary-color);
-        border-radius: 8px;
-        transition: all 0.5s;
-        cursor: pointer;
-        gap: 5px;
-
-        :is(&:hover, &:active) {
-            filter: brightness(2);
-        }
-    }
-
-    .wallet-player {
+        height: 50%;
         display: flex;
+        justify-content: center;
         align-items: center;
-        gap: 10px;
+        background: linear-gradient(to right, #4a0100, #ce0100, #ce0100, #4a0100);
+        cursor: pointer;
 
-        .wallet {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            color: var(--secondary-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 6px;
+        .logo-img {
+            height: 100%;
+            aspect-ratio: 3/1;
             cursor: pointer;
+        }
+    }
 
-            .wallet-balance {
-                font-size: 16px;
-                font-weight: 700;
+    .menu-container {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .player-btn-container {
+            height: 60%;
+            aspect-ratio: 3/1;
+            cursor: pointer;
+            position: relative;
+
+            .player-btn-img {
+                height: 100%;
+                aspect-ratio: 3/1;
+            }
+            .player-text {
+                color: gold;
+                position: absolute;
+                top: 50%;
+                left: 60%;
+                transform: translate(-50%, -50%);
             }
         }
 
-        .btn-info {
-            @extend .flex-layout;
-            @extend .bold-font;
-            padding: 12px;
-            color: var(--secondary-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 8px;
-            transition: all 0.5s;
+        .balance-btn-container {
+            height: 60%;
+            aspect-ratio: 3/1;
             cursor: pointer;
-            gap: 5px;
+            position: relative;
 
-            :is(&:hover, &:active) {
-                filter: brightness(2);
+            .balance-btn-img {
+                height: 100%;
+                aspect-ratio: 3/1;
+            }
+
+            .balance-text {
+                color: gold;
+                position: absolute;
+                top: 50%;
+                left: 40%;
+                transform: translate(-50%, -50%);
             }
         }
+        .refresh-text-container {
+            height: 60%;
+            aspect-ratio: 2/1;
+            cursor: pointer;
+
+            .refresh-text-img {
+                height: 100%;
+                aspect-ratio: 2/1;
+            }
+        }
+        .refresh-btn-container {
+            height: 60%;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+
+            .refresh-btn-img {
+                height: 100%;
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+}
+
+.h-header-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //background: linear-gradient(to right, #4a0100, #ce0100, #ce0100, #4a0100);
+    background-image: url('https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/hearderbackground/headerbackground.png');
+    background-size: cover; /* Ensures the background image covers the entire container */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: center; /* Centers the background image */
+
+    .empty-container{
+        width: 5%;
+    }
+
+    .half-empty-container{
+        width: 2.5%;
+    }
+
+    .balance-container {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        display: block; 
+        margin: auto; 
+        cursor: pointer;
+
+        .balance-btn-container {
+            height: 60%;
+            aspect-ratio: 4/1;
+            position: relative;
+
+            .balance-btn-img {
+                height: 100%;
+                aspect-ratio: 4/1;
+            }
+            .balance-text {
+                color: gold;
+                position: absolute;
+                top: 50%;
+                left: 60%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .logo-container {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logo-img {
+            height: 100%;
+            aspect-ratio: 3/1;
+        }
+    }
+
+    .menu-container {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .player-btn-container {
+            height: 60%;
+            aspect-ratio: 4/1;
+            position: relative;
+
+            .player-btn-img {
+                height: 100%;
+                aspect-ratio: 4/1;
+            }
+            .player-text {
+                color: gold;
+                position: absolute;
+                top: 50%;
+                left: 60%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .setting-btn-container {
+            height: 40%; /* Adjust this value to make the container smaller */
+            aspect-ratio: 1/1;
+            cursor: pointer;
+        }
+        
+        .setting-btn-img {
+            width: 70%;
+            aspect-ratio: 1/1; 
+            cursor: pointer;
+        }
+    }
+}
+
+.btn-login {
+    padding: 12px;
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    transition: all 0.5s;
+    cursor: pointer;
+    gap: 5px;
+
+    :is(&:hover, &:active) {
+        filter: brightness(2);
     }
 }

@@ -12,45 +12,42 @@ import GameTransfer from "./page/game-transfer/GameTransfer";
 function App() {
     const router = createBrowserRouter([
         {
+            path: "/",
             element: <MainLayout />,
             children: [
                 {
-                    path: "/",
+                    path: "",
                     element: <HomePage />,
                 },
                 {
-                    path: "/login",
-                    element: <Login />,
-                },
-                {
-                    path: "/signup",
+                    path: "signup",
                     element: <SignUp />,
                 },
                 {
-                    path: "/play-game/:category",
-                    element: <GameLobby />,
+                    path: "play-game/:category",
+                    element: <HomePage />,
                 },
                 {
-                    path: "/game-menu/:category/:srno",
+                    path: "game-menu/:category/:srno",
                     element: <GameMenu />,
-                    //   hidden: !playerInfo,
                 },
                 {
-                    path: "/game-transfer/:category/:srno/:gameID?",
+                    path: "game-transfer/:category/:srno/:gameID?",
                     element: <GameTransfer />,
-                    //   hidden: !playerInfo,
                 },
                 {
-                    path: "/suggestion",
+                    path: "suggestion",
                     element: <Suggestion />,
-                    //   hidden: !playerInfo,
                 },
                 {
-                    path: "/player-info/:key",
+                    path: "player-info/:key",
                     element: <Profile />,
-                    //   hidden: !playerInfo,
                 },
             ],
+        },
+        {
+            path: "/login",
+            element: <Login />,
         },
     ]);
     return <RouterProvider router={router} />;

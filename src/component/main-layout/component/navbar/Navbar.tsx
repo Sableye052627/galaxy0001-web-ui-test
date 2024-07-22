@@ -71,61 +71,62 @@ const Navbar = () => {
         </div>
     );
 
-    const renderLogin = () => (
-        <div className="wallet-player">
-            {/*
-            <Tooltip title={t("withdrawAllBalance")}>
-                <div className="wallet" onClick={() => confirmWithdrawAll()}>
-                    {/* <div className="wallet"> 
-                    <WalletOutlined style={{ fontSize: 22 }} />
-                    <div className="wallet-balance">{formatNumber(playerInfo?.wallet1)}</div>
-                </div>
-            </Tooltip>*/}
-            <Popover overlayInnerStyle={{ padding: 0 }} placement="bottomRight" trigger="hover" arrow={false} content={<WalletDropdown withdrawAllBalance={confirmWithdrawAll} />}>
-                <div className="btn-info">
-                    <WalletOutlined style={{ fontSize: 22 }} />
-                    <div className="wallet-balance">{formatNumber(playerInfo?.wallet1)}</div>
-                    <CaretDownOutlined />
-                </div>
-            </Popover>
-            <Popover overlayInnerStyle={{ padding: 0 }} placement="bottomRight" trigger="hover" arrow={false} content={<UserDropdown />}>
-                <div className="btn-info">
-                    <UserOutlined />
-                    <div className="player-id">{playerInfo?.playerID}</div>
-                    <CaretDownOutlined />
-                </div>
-            </Popover>
+    const renderLoginBalance = () => (
+        <div className="balance-btn-container">
+            <img className="balance-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
+            <p className="balance-text">{formatNumber(playerInfo?.wallet1)}</p>
         </div>
     );
 
+    const renderLoginPlayer = () => (
+        <div className="player-btn-container">
+            <img className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/playerbutton/playerbutton.png" alt="" />
+            <p className="player-text">{playerInfo?.playerID}</p>
+        </div>
+    );
+
+    const renderLoginSetting = () => (
+        <Popover 
+            overlayInnerStyle={{ padding: 0 }} 
+            placement="bottomRight" 
+            trigger="click"
+            arrow={false} 
+            content={<UserDropdown />}
+        >
+        <img 
+            className="setting-btn-img" 
+            src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/menubutton/menu%20button.png" 
+            alt="" 
+            style={{ cursor: 'pointer' }} 
+        />
+        </Popover>
+    );
+
     return (
-        <Row className="navbar" justify="center" align="middle">
-            <Col {...gridSetting}>
-                <Row justify="space-between" align="middle">
-                    <Col sm={0}>
-                        <div className="btn" onClick={() => setOpenMenu(!openMenu)}>
-                            <MenuOutlined />
-                        </div>
-                    </Col>
-                    <Col xs={6} md={4} lg={3} xxl={2}>
-                        <div className="navbar-logo" onClick={() => handleRedirect("/")}>
-                            <img src={platformInfo?.logoImage} alt={platformInfo?.uniqueID} />
-                        </div>
-                    </Col>
-
-                    <Col sm={0}>
-                        <div className="btn" onClick={() => setLang(!lang)}>
-                            <TranslationOutlined />
-                        </div>
-                    </Col>
-
-                    <Col hidden={windowWidth <= 576}>{playerInfo ? renderLogin() : renderNoLogin()}</Col>
-                </Row>
-
-                <SmDrawer openMenu={openMenu} setOpenMenu={setOpenMenu} />
-                <LanguageModal lang={lang} setLang={setLang} />
-            </Col>
-        </Row>
+        <div className="h-header-container">
+            <div className="half-empty-container">
+            </div>
+            <div className="balance-container">
+                {playerInfo ? renderLoginBalance() : null}
+            </div>
+            <div className="empty-container">
+            </div>
+            <div className="half-empty-container">
+            </div>
+            <div className="logo-container">
+                <img className="logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" style={{ cursor: 'pointer' }}  onClick={() => handleRedirect("/play-game/live")} />
+            </div>
+            <div className="empty-container">
+            </div>
+            <div className="menu-container">
+                {playerInfo ? renderLoginPlayer()  : null}
+            </div>
+            <div className="empty-container">
+                {playerInfo ? renderLoginSetting() : null}
+            </div>
+            <div className="half-empty-container">
+            </div>
+        </div>  
     );
 };
 

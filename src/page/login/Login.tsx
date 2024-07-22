@@ -1,10 +1,10 @@
 import { useLogin } from "./hook/useLogin";
 import { Button, Card, Carousel, Col, Form, Input, Row, Spin, message } from "antd";
 
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import "./login.scss";
 import { useEffect, useState } from "react";
 import { playerApi } from "../../service/CallApi";
-import { gridSetting } from "../../component/main-layout/MainLayout";
 import { SuccessModal } from "./component/success-modal/SuccessModal";
 import Cookies from "js-cookie";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
@@ -67,60 +67,53 @@ const Login = () => {
   }
 
   return (
-    <Row className="login" justify="center">
-      <Col {...gridSetting}>
-        <SuccessModal show={show} setShow={setShow} />
-
-        <Row className="header">
-          <Col xs={0} xl={24}>
-            {t("login")}
-          </Col>
-        </Row>
-
-        <Row className="content" justify="center" gutter={[16, 10]}>
-          <Col xs={24} sm={16} md={14} lg={11} xl={8}>
-            <Spin spinning={isLoading}>
-              <Card>
-                <Form layout="vertical" onFinish={handleLogin}>
-                  <Form.Item label={t("playerID")} name="playerID" rules={[{ required: true, message: t("pleaseInsertPlayerID") }]}>
-                    <Input />
-                  </Form.Item>
-
-                  <Form.Item label={t("password")} name="password" rules={[{ required: true, message: t("pleaseInsertPassword") }]}>
-                    <Input.Password />
-                  </Form.Item>
-                  <Form.Item>
-                    <Button block size="large" type="primary" htmlType="submit">
-                      {t("login")}
-                    </Button>
-                  </Form.Item>
-                  <Form.Item>
-                    <Button block size="large" type="default" className="signup" onClick={() => navigate("/signup")}>
-                      {t("signUp")}
-                    </Button>
-                  </Form.Item>
-                </Form>
-              </Card>
-            </Spin>
-          </Col>
-
-          <Col xs={0} xl={16}>
-            <Card>
-              {/* <Carousel autoplay dots={false}>
-                                {banner?.map((items: any, index: number) => (
-                                    <div key={index} className="banner-img">
-                                        <img src={items.image} alt={items.title} />
-                                    </div>
-                                ))}
-                            </Carousel> */}
-
-              <hr />
-              <div className="description">{t("aboutUsDesc", { domainName: platformInfo?.platformName })}</div>
-            </Card>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
+    <div
+        className="layout-container"
+        style={{
+            backgroundImage: `url(https://game-platform.sgp1.digitaloceanspaces.com/bwg/h-bg.png)`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+        }}
+    >
+    <SuccessModal show={show} setShow={setShow} />
+    <div
+        className="login-container"
+        style={{
+            backgroundImage: `url(https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginbackground/loginbg.png)`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+        }}
+    >
+        <div className="login-logo">
+            <img className="login-logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" />
+        </div>
+        <div className="login-wrapper">
+            <Form className="login-form" layout="vertical" onFinish={handleLogin}>
+                <Row justify="center" align="middle">
+                    <Col xs={24}>
+                        <Form.Item name="playerID">
+                            <Input prefix={<UserOutlined />} placeholder="Player ID" size="large" />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24}>
+                        <Form.Item name="password">
+                            <Input.Password prefix={<LockOutlined />} placeholder="Password" size="large" />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={12}>
+                        <Form.Item>
+                            <Button block htmlType="submit" type="primary" size="large" shape="round">
+                                LOGIN
+                            </Button>
+                        </Form.Item>
+                    </Col>
+                </Row>
+            </Form>
+        </div>
+    </div>
+    </div>
   );
 };
 

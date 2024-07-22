@@ -6,6 +6,7 @@ import { gameApi, platformApi, playerApi } from "../service/CallApi";
 export async function getPlatformInfo(hostname: string, setPlatformInfo: Dispatch<SetStateAction<any>>, setGpCategory: Dispatch<SetStateAction<any>>, setAgentInfo: Dispatch<SetStateAction<any>>) {
   const object = { HostName: hostname };
   await platformApi("/get-info", object).then((result) => {
+    result.data.platformName = "Galaxy0001"
     setPlatformInfo(result.data);
     setGpCategory(result.data2);
     setAgentInfo((prev: any) => (prev ? prev : result.data3));

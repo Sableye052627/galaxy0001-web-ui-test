@@ -1,6 +1,6 @@
 import "./user-dropdown.scss";
 import { useNavbar } from "../../hook/useNavbar";
-import { LogoutOutlined, HistoryOutlined, UserOutlined, LockOutlined, RocketOutlined, ImportOutlined, ExportOutlined } from "@ant-design/icons";
+import { LogoutOutlined, HistoryOutlined, ReloadOutlined, UserOutlined, LockOutlined, RocketOutlined, ImportOutlined, ExportOutlined } from "@ant-design/icons";
 import Cookies from "js-cookie";
 
 function UserDropdown() {
@@ -15,7 +15,7 @@ function UserDropdown() {
         Cookies.remove("PlayerToken");
 
         setPlayerInfo(undefined);
-        navigate("/");
+        navigate("/login");
     }
 
     return (
@@ -43,6 +43,11 @@ function UserDropdown() {
             </div>
 
             <hr />
+            
+            <div className="item" onClick={() => handleRedirect("top-up-balance")}>
+                <ReloadOutlined />
+                {t("topUpBalance")}
+            </div>
 
             <div className="item" onClick={() => handleRedirect("transaction-history")}>
                 <HistoryOutlined />

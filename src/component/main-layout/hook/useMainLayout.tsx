@@ -12,7 +12,7 @@ export const useMainLayout = () => {
     const { platformInfo, windowWidth } = apiContext;
 
     const playerContext = useContext(Player);
-    const { agentInfo } = playerContext;
+    const { playerInfo, agentInfo } = playerContext;
 
-    return { t, navigate, platformInfo, windowWidth, agentInfo };
+    return { t, navigate, platformInfo, windowWidth, playerInfo, agentInfo };
 };

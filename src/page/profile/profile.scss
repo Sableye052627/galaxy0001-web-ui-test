@@ -63,3 +63,30 @@
     //   }
     // }
 }
+
+
+.navbar-sec {
+    padding: 10px 0;
+    color: #fff;
+
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        font-weight: 700;
+        transition: 0.5s;
+        filter: brightness(0.8);
+        cursor: pointer;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        :is(&:hover, &.true) {
+            filter: brightness(1);
+            color: var(--secondary-color);
+        }
+    }
+}

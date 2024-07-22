@@ -1,58 +1,96 @@
-@import "../../component/main-layout/main-layout.scss";
+.layout-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 
-.login {
-    padding: 20px 0;
-
-    .header {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 18px;
-        font-weight: 800;
+    ::-webkit-scrollbar {
+        display: none;
     }
+    
 
-    .content {
-        margin-top: 15px;
-
-        .ant-card {
-            background-color: #141414;
-            border: none;
-
-            .ant-form label {
-                color: rgba(255, 255, 255, 0.8);
-            }
-
-            hr {
-                margin: 20px 0;
-                border: 1px solid var(--primary-color);
-            }
-        }
-
-        .banner-img {
-            border-radius: 6px;
-            overflow: hidden;
-
-            img {
-                width: 100%;
-                max-height: 500px;
-            }
-        }
-
-        .description {
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 700;
-        }
-
-        .signup {
-          color: gold !important;
-          border: 2px solid var(--primary-color) !important;
-          background-color: transparent !important;
+    .login-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      
+        .login-logo {
+          width: calc(100% / 3);
+          height: calc(100% / 3);
+          max-height: 200px;
           display: flex;
-          align-items: center;
           justify-content: center;
-        }
-
-        .signup:hover {
-            background-color: var(--primary-color) !important;
-            color: white !important;
+          align-items: center;
+      
+          .login-logo-img {
+            height: calc(100%);
+            aspect-ratio: 1/1;
           }
-    }
+        }
+      
+        .login-wrapper {
+          width: calc(100% / 3 * 2);
+          max-width: 600px;
+          height: calc(100% / 3 * 2);
+          max-height: 300px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border: 2px solid #c81d1d;
+          border-radius: 14px;
+          gap: 20px;
+          background: radial-gradient(#5f0000, #300000);
+      
+          .login-form {
+            width: 80%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      
+            .ant-input-affix-wrapper {
+              background: linear-gradient(to right, #300000, #5f0000, #300000);
+              border-radius: 0;
+              border: 0;
+              border: 2px solid #c81d1d;
+      
+              .ant-input-prefix {
+                color: #ddd;
+              }
+      
+              &.ant-input-affix-wrapper-focused {
+                box-shadow: none;
+              }
+      
+              .ant-input-suffix {
+                span {
+                  color: #ddd;
+                }
+              }
+            }
+      
+            .ant-input {
+              color: #ddd;
+      
+              &::placeholder {
+                color: #ddd;
+              }
+            }
+      
+            .ant-btn {
+              border: 0;
+              background: linear-gradient(to bottom, #e00000, #4c0000);
+              color: white;
+              font-family: "KrossNeueGrotesk-Heavy";
+            }
+          }
+        }
+      }
+  
 }

@@ -24,13 +24,13 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
 
     function handleClose() {
         setShow(false);
-        navigate("/");
+        navigate("/play-game/live");
     }
 
     return (
         <Modal {...modalSetting}>
             {`${t("loginSuccessMsg", { domainName: platformInfo?.platformName }) + " " + playerInfo?.playerID}.`}
-            <div className="btn-close">
+            <div className="btn-close-red">
                 <button onClick={() => handleClose()}>{t("close")}</button>
             </div>
         </Modal>

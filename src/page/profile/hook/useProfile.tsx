@@ -8,7 +8,7 @@ export const useProfile = () => {
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
-    const { platformInfo, windowWidth } = apiContext;
+    const { platformInfo, windowWidth, gpCategory } = apiContext;
 
-    return { t, navigate, platformInfo, windowWidth };
+    return { t, navigate, platformInfo, windowWidth, gpCategory };
 };
