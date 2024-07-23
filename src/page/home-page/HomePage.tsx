@@ -19,9 +19,10 @@ import { Autoplay } from "swiper/modules";
 import LanguageModal from "../../component/language-modal/LanguageModal";
 import GameCat from "./component/gameCat/GameCat";
 import GameList from "./component/gameList/GameList";
+import Footer from "./component/footer/Footer";
 
 const HomePage = () => {
-    const { t, i18n, navigate, windowWidth, platformInfo, bannerList, handleRedirect, hostname } = useHomePage();
+    const { t, i18n, navigate, windowWidth, platformInfo, isVertical } = useHomePage();
 
     const { category } = useParams();
     const location = useLocation();
@@ -51,12 +52,14 @@ const HomePage = () => {
             console.log(location.pathname)
             navigate("/play-game/live");
         }
+
     }, [windowWidth]);
 
     // const sponsorList = [{ gameCode: "VP" }];
     // const poster = [{ title: "asd" }];
     return (
         <div id="home-page">
+
             {/*
             <Carousel autoplay dots={false}>
                 {bannerList
@@ -66,6 +69,7 @@ const HomePage = () => {
                     ))}
             </Carousel>
             */}
+
             <div className="neon-hr" />
             <Row justify="center">
                 <Col {...gridSetting}>
@@ -79,6 +83,7 @@ const HomePage = () => {
                 </Col>
             </Row>
             <div className="neon-hr" />
+            
             {/*
             <Row className="about-us" justify="center">
                 <Col {...gridSetting}>
@@ -93,17 +98,34 @@ const HomePage = () => {
                     </div>
                 </Col>
             </Row>*/}
-
-            <div className="lb-main-container">
-                <div className="lb-game-cat-container">
-                    <GameCat />
-                </div>
-                <div className="lb-sub-container">  
+            {isVertical ? (
+                <div className="v-lobby-container">
+                    <br></br>
+                    <div className="lb-footer-container">
+                        <Footer />
+                    </div>
+                    <div className="lb-game-cat-container">
+                        <GameCat />
+                    </div>
                     <div className="lb-game-container">
                         <GameList />
                     </div>
                 </div>
-            </div>
+                ) : (
+                    <div className="h-lobby-container">
+                        <div className="lb-main-container">
+                            <div className="lb-game-cat-container">
+                                <GameCat />
+                            </div>
+                            <div className="lb-sub-container">  
+                                <div className="lb-game-container">
+                                    <GameList />
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                )
+            }
 
             {/*
             <Row className="sponsored" justify="center">

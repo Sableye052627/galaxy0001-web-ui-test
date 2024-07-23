@@ -63,6 +63,9 @@ interface IGpList {
 interface IApiContextType {
   windowWidth: number;
   setWindowWidth: Dispatch<SetStateAction<number>>;
+  windowHeight: number;
+  setWindowHeight: Dispatch<SetStateAction<number>>;
+  isVertical: boolean;
   platformInfo: IPlatformType | undefined;
   setPlatformInfo: Dispatch<SetStateAction<IPlatformType | undefined>>;
   gpCategory: IGpCategoryType[] | [];
@@ -75,6 +78,9 @@ interface IApiContextType {
 const initApiContext: IApiContextType = {
   windowWidth: window.innerWidth,
   setWindowWidth: () => {},
+  windowHeight: window.innerHeight,
+  setWindowHeight: () => {},
+  isVertical: false,
   platformInfo: undefined,
   setPlatformInfo: () => {},
   gpCategory: [],
@@ -95,6 +101,8 @@ const ApiContext = ({ children }: IApiContextProps) => {
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [isVertical, setIsVertical] = useState(false);
 
   const [platformInfo, setPlatformInfo] = useState<IPlatformType | undefined>(undefined);
   const [gpCategory, setGpCategory] = useState<IGpCategoryType[] | []>([]);
@@ -104,6 +112,20 @@ const ApiContext = ({ children }: IApiContextProps) => {
   useEffect(() => {
     handleFirstLoad();
   }, []);
+
+  useEffect(() => {
+      function handleWindowWidth() {
+          setWindowWidth(window.innerWidth);
+          setWindowHeight(window.innerHeight);
+          setIsVertical(windowWidth <= windowHeight);
+      }
+      handleWindowWidth();
+      window.addEventListener("resize", handleWindowWidth);
+
+      return () => {
+          window.removeEventListener("resize", handleWindowWidth);
+      };
+  }, [windowWidth]);
 
   async function handleFirstLoad() {
     const api1 = validateToken(hostname, setPlayerInfo, setAgentInfo);
@@ -121,6 +143,9 @@ const ApiContext = ({ children }: IApiContextProps) => {
   const values: IApiContextType = {
     windowWidth,
     setWindowWidth,
+    windowHeight,
+    setWindowHeight,
+    isVertical,
     platformInfo,
     setPlatformInfo,
     gpCategory,

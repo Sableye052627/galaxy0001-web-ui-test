@@ -24,7 +24,7 @@ interface IApiData {
 
 const GameList = () => {
     const navigate = useNavigate();
-    const { t, i18n, windowWidth, platformInfo, gpCategory, bannerList, hostname } = useGameList();
+    const { t, hostname, isVertical } = useGameList();
 
     const { category } = useParams();
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -72,7 +72,7 @@ const GameList = () => {
     }
 
     return (
-        <div className={`h-game-container`}>
+        <div className={`${isVertical ? "v" : "h"}-game-container`}>
             <div className="game-wrapper">
                 {apiData?.map((items: IApiData, index: number) => (
                     <div key={index} className="game" onClick={() => handleRedirect(items)}>

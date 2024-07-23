@@ -9,10 +9,10 @@ export const useMainLayout = () => {
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
-    const { platformInfo, windowWidth } = apiContext;
+    const { platformInfo, isVertical } = apiContext;
 
     const playerContext = useContext(Player);
     const { playerInfo, agentInfo } = playerContext;
 
-    return { t, navigate, platformInfo, windowWidth, playerInfo, agentInfo };
+    return { t, navigate, platformInfo, playerInfo, isVertical };
 };

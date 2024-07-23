@@ -7,10 +7,10 @@ import { downloadApp } from "../../../../asset/Asset";
 
 const GameCat = () => {
     const navigate = useNavigate();
-    const { t, i18n, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect, hostname } = useGameCat();
+    const { t, platformInfo, gpCategory, isVertical, handleRedirect } = useGameCat();
 
     return (
-        <div className={`h-game-cat-container`}>
+        <div className={`${isVertical ? "v" : "h"}-game-cat-container`}>
             <div className="cat-title">
                 <img className="cat-img" src="https://game-platform.sgp1.digitaloceanspaces.com/bwg/common/category.png" alt="" />
             </div>

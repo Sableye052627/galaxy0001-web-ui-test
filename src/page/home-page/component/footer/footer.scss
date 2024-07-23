@@ -1,0 +1,55 @@
+.footer-container {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ft-suggestion-container {
+        height: 90%;
+        aspect-ratio: 1.5/1;
+        cursor: pointer;
+
+        .ft-suggestion-img {
+            height: 100%;
+            aspect-ratio: 1.5/1;
+        }
+
+        &.true {
+            display: none;
+        }
+    }
+    .ft-jackpot-container {
+        height: 90%;
+        aspect-ratio: 2.5/1;
+        cursor: pointer;
+        position: relative;
+
+        .ft-jackpot-img {
+            height: 100%;
+            aspect-ratio: 2.5/1;
+        }
+
+        .ft-jackpot-text {
+            color: gold;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .ft-transaction-container {
+        height: 90%;
+        aspect-ratio: 1.5/1;
+        cursor: pointer;
+
+        .ft-transaction-img {
+            height: 100%;
+            aspect-ratio: 1.5/1;
+        }
+
+        &.true {
+            display: none;
+        }
+    }
+}

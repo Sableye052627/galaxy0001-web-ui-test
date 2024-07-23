@@ -9,14 +9,11 @@ export const useGameCat = () => {
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
-    const { windowWidth, platformInfo, gpCategory, bannerList } = apiContext;
-
-    const playerContext = useContext(Player);
-    const { hostname } = playerContext;
+    const { isVertical, platformInfo, gpCategory } = apiContext;
 
     function handleRedirect(path: string) {
         navigate(`/play-game/${path?.toLocaleLowerCase()}`);
     }
 
-    return { t, i18n, windowWidth, platformInfo, gpCategory, bannerList, handleRedirect, hostname };
+    return { t, handleRedirect, isVertical, platformInfo, gpCategory };
 };

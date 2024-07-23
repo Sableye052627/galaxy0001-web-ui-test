@@ -15,7 +15,7 @@ import Cookies from "js-cookie";
 import { theOneApi } from "../../../../service/CallApi";
 
 const Navbar = () => {
-    const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname } = useNavbar();
+    const { t, navigate, playerInfo, setPlayerInfo, hostname, isVertical } = useNavbar();
 
     const [openMenu, setOpenMenu] = useState(false);
     const [lang, setLang] = useState<boolean>(false);
@@ -71,6 +71,17 @@ const Navbar = () => {
         </div>
     );
 
+    const renderVertical = () => (
+        <div className="btn" onClick={() => setOpenMenu(!openMenu)}>
+        <img 
+            className="setting-btn-img" 
+            src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/menubutton/menu%20button.png" 
+            alt="" 
+            style={{ cursor: 'pointer', width: '25%' }} 
+        />
+        </div>
+    );
+
     const renderLoginBalance = () => (
         <div className="balance-btn-container">
             <img className="balance-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
@@ -107,7 +118,7 @@ const Navbar = () => {
             <div className="half-empty-container">
             </div>
             <div className="balance-container">
-                {playerInfo ? renderLoginBalance() : null}
+                {playerInfo && !isVertical ? renderLoginBalance() : renderVertical()}
             </div>
             <div className="empty-container">
             </div>
@@ -119,13 +130,14 @@ const Navbar = () => {
             <div className="empty-container">
             </div>
             <div className="menu-container">
-                {playerInfo ? renderLoginPlayer()  : null}
+                {playerInfo && !isVertical ? renderLoginPlayer()  : null}
             </div>
             <div className="empty-container">
-                {playerInfo ? renderLoginSetting() : null}
+                {playerInfo && !isVertical ? renderLoginSetting() : null}
             </div>
             <div className="half-empty-container">
             </div>
+            <SmDrawer openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>  
     );
 };

@@ -11,7 +11,7 @@ import { useMainLayout } from "./hook/useMainLayout";
 export const gridSetting = { xxl: 18, xs: 23 };
 
 const MainLayout = () => {
-    const { t, navigate, playerInfo, agentInfo, windowWidth } = useMainLayout();
+    const { t, navigate, playerInfo, isVertical } = useMainLayout();
 
     useEffect(() => {
       if (!playerInfo) {
@@ -24,7 +24,9 @@ const MainLayout = () => {
         <div id="main-layout">
             <Navbar />
             <Outlet />
-            <Footer />
+            {!isVertical && (
+              <Footer />
+            )}
         </div>
     );
 };
