@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { PhoneOutlined } from "@ant-design/icons";
+import { HomeFilled, SettingFilled, FileFilled } from "@ant-design/icons";
 
 import "./main-layout.scss";
 import { useEffect, useState } from "react";
@@ -24,8 +24,15 @@ const MainLayout = () => {
         <div id="main-layout">
             <Navbar />
             <Outlet />
-            {!isVertical && (
+            {!isVertical ? (
               <Footer />
+            ) : (
+
+              <div className="tab-bar">
+                <div className="tab"><FileFilled  style={{ fontSize: '150%'}} onClick={() => navigate("/suggestion")}/></div>
+                <div className="tab" ><HomeFilled  style={{ fontSize: '150%'}} onClick={() => navigate("/play-game/live")}/></div>
+                <div className="tab" ><SettingFilled  style={{ fontSize: '150%'}} /></div>
+              </div>  
             )}
         </div>
     );

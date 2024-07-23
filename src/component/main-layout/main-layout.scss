@@ -56,6 +56,26 @@ img {
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     background-position: center; /* Centers the background image */
 
+    .tab-bar {
+      display: flex;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #4a0100;
+      color: var(--primary-color);
+      text-align: center;
+      height: 60px; /* Increased height */
+    }
+
+    .tab {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .neon-hr {
         background: var(--primary-color);
         border: 1px solid var(--primary-color);
