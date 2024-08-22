@@ -56,7 +56,7 @@ const Profile = () => {
     }
 
     function handleRedirect2(path: string) {
-        navigate(`/play-game/${path?.toLocaleLowerCase()}`);
+        navigate(`/select-game/${path?.toLocaleLowerCase()}`);
     }
 
     function handleRedirect3(path: string) {

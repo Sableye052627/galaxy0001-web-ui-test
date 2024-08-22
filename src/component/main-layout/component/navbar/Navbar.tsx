@@ -72,27 +72,54 @@ const Navbar = () => {
     );
 
     const renderVertical = () => (
-        <div className="btn" onClick={() => setOpenMenu(!openMenu)}>
+        <div 
+            className="btn" 
+            style={{ 
+                marginLeft: '10%', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between' 
+            }}>
+
         <img 
             className="setting-btn-img" 
             src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/menubutton/menu%20button.png" 
             alt="" 
-            style={{ cursor: 'pointer', width: '25%' }} 
+            style={{ cursor: 'pointer', width: '40%' }} 
+            onClick={() => setOpenMenu(!openMenu)}
         />
+        <img style={{marginLeft:'10%'}} src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
+        <p style={{color: "gold", position: "absolute", marginTop: '2.75%', marginLeft:'21.5%', fontSize:'x-small'}}>{formatNumber(playerInfo?.wallet1)}</p>
         </div>
     );
 
-    const renderLoginBalance = () => (
-        <div className="balance-btn-container">
-            <img className="balance-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
-            <p className="balance-text">{formatNumber(playerInfo?.wallet1)}</p>
+    const renderHorizontal = () => (
+        <div style={{ marginRight:'10%'}} className="player-btn-container">
+            <img className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
+            <p className="player-text">{formatNumber(playerInfo?.wallet1)}</p>
         </div>
     );
 
     const renderLoginPlayer = () => (
-        <div className="player-btn-container">
-            <img className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/playerbutton/playerbutton.png" alt="" />
-            <p className="player-text">{playerInfo?.playerID}</p>
+        <div 
+        style={{ 
+            marginLeft: '10%', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between' 
+        }} 
+        className="player-btn-container">
+            <img  style={{ marginLeft: isVertical ? '-4%' : '6%' }} className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/playerbutton/playerbutton.png" alt="" />
+            <p  className="player-text">{playerInfo?.playerID}</p>
+            {!isVertical && (
+            <img 
+                className="setting-btn-img" 
+                src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/menubutton/menu%20button.png" 
+                alt="" 
+                style={{ cursor: 'pointer', width: '40%', marginRight:'30%' }} 
+                onClick={() => setOpenMenu(!openMenu)}
+            />
+            )}
         </div>
     );
 
@@ -114,28 +141,15 @@ const Navbar = () => {
     );
 
     return (
-        <div className="h-header-container">
-            <div className="half-empty-container">
-            </div>
-            <div className="balance-container">
-                {playerInfo && !isVertical ? renderLoginBalance() : renderVertical()}
-            </div>
-            <div className="empty-container">
-            </div>
-            <div className="half-empty-container">
+    <div className={`${isVertical ? "v" : "h"}-header-container`}>
+            <div className="menu-container">            
+                {playerInfo && !isVertical && renderHorizontal()}   
             </div>
             <div className="logo-container">
-                <img className="logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" style={{ cursor: 'pointer' }}  onClick={() => handleRedirect("/play-game/live")} />
-            </div>
-            <div className="empty-container">
+                <img className="logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" style={{ cursor: 'pointer' }}  onClick={() => handleRedirect("/select-game/live")} />
             </div>
             <div className="menu-container">
-                {playerInfo && !isVertical ? renderLoginPlayer()  : null}
-            </div>
-            <div className="empty-container">
-                {playerInfo && !isVertical ? renderLoginSetting() : null}
-            </div>
-            <div className="half-empty-container">
+            {playerInfo && !isVertical && renderLoginPlayer() }
             </div>
             <SmDrawer openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>  

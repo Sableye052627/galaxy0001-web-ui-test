@@ -9,7 +9,7 @@ const NavbarSec = () => {
     const pathname = window.location.pathname.split("/");
 
     function handleRedirect(path: string) {
-        navigate(`/play-game/${path?.toLocaleLowerCase()}`);
+        navigate(`/select-game/${path?.toLocaleLowerCase()}`);
     }
 
     function handleRedirect2(path: string) {

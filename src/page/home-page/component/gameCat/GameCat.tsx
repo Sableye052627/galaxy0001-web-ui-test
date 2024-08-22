@@ -16,10 +16,17 @@ const GameCat = () => {
             </div>
             {gpCategory?.map((items: any, index: number) => (
                                 <div className="cat">
+                                    {/* 
                                     <img
                                         src={`https://game-platform.sgp1.digitaloceanspaces.com/${
                                             platformInfo?.uniqueID
                                         }/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
+                                        alt={items.category}
+                                        onClick={() => handleRedirect(items.category)}
+                                    />
+                                    */}
+                                    <img
+                                        src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
                                         alt={items.category}
                                         onClick={() => handleRedirect(items.category)}
                                     />

@@ -11,7 +11,7 @@ export const useHomePage = () => {
     const { windowWidth, platformInfo, gpCategory, isVertical } = apiContext;
 
     function handleRedirect(path: string) {
-        navigate(`/play-game/${path?.toLocaleLowerCase()}`);
+        navigate(`/select-game/${path?.toLocaleLowerCase()}`);
     }
 
     return { t, i18n, navigate, windowWidth, platformInfo, gpCategory, isVertical };

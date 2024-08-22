@@ -24,7 +24,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
 
     function handleClose() {
         setShow(false);
-        navigate("/play-game/live");
+        navigate("/select-game/live");
     }
 
     return (

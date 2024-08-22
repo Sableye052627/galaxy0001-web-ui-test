@@ -133,7 +133,7 @@ const GameTransfer = () => {
                 return;
             }
             validateToken(hostname, setPlayerInfo, setAgentInfo);
-            navigate(`/play-game/${category}`);
+            navigate(`/select-game/${category}`);
         });
     }
 
@@ -147,6 +147,10 @@ const GameTransfer = () => {
         } else {
             message.info(t("gameUnderMaintenance"));
         }
+    }
+
+    function handleRedirectBack() {
+        navigate(`/select-game/${category}`);
     }
 
     return (
@@ -193,6 +197,9 @@ const GameTransfer = () => {
                                 <Form.Item>
                                     <Button block size="large" danger type="primary" htmlType="submit">
                                         {t("transferAndPlay")}
+                                    </Button>
+                                    <Button style={{marginTop:"20px"}} block size="large" type="primary" onClick={handleRedirectBack}>
+                                        {t("back")}
                                     </Button>
                                 </Form.Item>
                             </Form>

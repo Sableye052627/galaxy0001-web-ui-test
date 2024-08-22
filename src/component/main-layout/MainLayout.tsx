@@ -30,7 +30,7 @@ const MainLayout = () => {
 
               <div className="tab-bar">
                 <div className="tab"><FileFilled  style={{ fontSize: '150%'}} onClick={() => navigate("/suggestion")}/></div>
-                <div className="tab" ><HomeFilled  style={{ fontSize: '150%'}} onClick={() => navigate("/play-game/live")}/></div>
+                <div className="tab" ><HomeFilled  style={{ fontSize: '150%'}} onClick={() => navigate("/select-game/live")}/></div>
                 <div className="tab" ><SettingFilled  style={{ fontSize: '150%'}} /></div>
               </div>  
             )}

@@ -2,43 +2,43 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-
+    //background: linear-gradient(to right, #4a0100, #ce0100, #ce0100, #4a0100);
+    background-image: url('https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/hearderbackground/headerbackground.png');
+    background-size: cover; /* Ensures the background image covers the entire container */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: center; /* Centers the background image */
+    
     .logo-container {
         width: 100%;
-        height: 50%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to right, #4a0100, #ce0100, #ce0100, #4a0100);
-        cursor: pointer;
 
         .logo-img {
             height: 100%;
-            aspect-ratio: 3/1;
-            cursor: pointer;
+            aspect-ratio: 2.5/1;
         }
     }
 
     .menu-container {
-        width: 100%;
-        height: 50%;
+        width: 50%;
+        height: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
 
         .player-btn-container {
             height: 60%;
-            aspect-ratio: 3/1;
-            cursor: pointer;
+            aspect-ratio: 2/1;
             position: relative;
+            right:10%;
 
             .player-btn-img {
                 height: 100%;
-                aspect-ratio: 3/1;
+                aspect-ratio: 2/1;    
             }
             .player-text {
                 color: gold;
@@ -46,48 +46,34 @@
                 top: 50%;
                 left: 60%;
                 transform: translate(-50%, -50%);
+                font-size: x-small;
             }
         }
-
-        .balance-btn-container {
-            height: 60%;
-            aspect-ratio: 3/1;
-            cursor: pointer;
-            position: relative;
-
-            .balance-btn-img {
-                height: 100%;
-                aspect-ratio: 3/1;
-            }
-
-            .balance-text {
-                color: gold;
-                position: absolute;
-                top: 50%;
-                left: 40%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        .refresh-text-container {
-            height: 60%;
-            aspect-ratio: 2/1;
-            cursor: pointer;
-
-            .refresh-text-img {
-                height: 100%;
-                aspect-ratio: 2/1;
-            }
-        }
-        .refresh-btn-container {
-            height: 60%;
+        .setting-btn-container {
+            height: 40%; /* Adjust this value to make the container smaller */
             aspect-ratio: 1/1;
             cursor: pointer;
-
-            .refresh-btn-img {
-                height: 100%;
-                aspect-ratio: 1/1;
-            }
         }
+        
+        .setting-btn-img {
+            width: 40%;
+            aspect-ratio: 1/1; 
+            cursor: pointer;
+        }
+    }
+}
+
+.btn-login {
+    padding: 12px;
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    transition: all 0.5s;
+    cursor: pointer;
+    gap: 5px;
+
+    :is(&:hover, &:active) {
+        filter: brightness(2);
     }
 }
 
@@ -103,43 +89,6 @@
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     background-position: center; /* Centers the background image */
 
-    .empty-container{
-        width: 5%;
-    }
-
-    .half-empty-container{
-        width: 2.5%;
-    }
-
-    .balance-container {
-        width: 25%;
-        height: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        display: block; 
-        margin: auto; 
-        cursor: pointer;
-
-        .balance-btn-container {
-            height: 60%;
-            aspect-ratio: 4/1;
-            position: relative;
-
-            .balance-btn-img {
-                height: 100%;
-                aspect-ratio: 4/1;
-            }
-            .balance-text {
-                color: gold;
-                position: absolute;
-                top: 50%;
-                left: 60%;
-                transform: translate(-50%, -50%);
-            }
-        }
-    }
-
     .logo-container {
         width: 30%;
         height: 100%;
@@ -154,7 +103,7 @@
     }
 
     .menu-container {
-        width: 25%;
+        width: 30%;
         height: 100%;
         display: flex;
         justify-content: space-around;
@@ -162,7 +111,7 @@
 
         .player-btn-container {
             height: 60%;
-            aspect-ratio: 4/1;
+            aspect-ratio: 5/1;
             position: relative;
 
             .player-btn-img {
@@ -173,8 +122,9 @@
                 color: gold;
                 position: absolute;
                 top: 50%;
-                left: 60%;
-                transform: translate(-50%, -50%);
+                left: 55%;
+                transform: translate(-50%, -50%); 
+                
             }
         }
         .setting-btn-container {
@@ -184,7 +134,7 @@
         }
         
         .setting-btn-img {
-            width: 70%;
+            width: 40%;
             aspect-ratio: 1/1; 
             cursor: pointer;
         }

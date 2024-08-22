@@ -8,6 +8,7 @@ import SignUp from "./page/signup/SignUp";
 import Suggestion from "./page/suggestion/Suggestion";
 import GameMenu from "./page/game-menu/GameMenu";
 import GameTransfer from "./page/game-transfer/GameTransfer";
+import PlayGame from "./page/play-game/PlayGame";   
 
 function App() {
     const router = createBrowserRouter([
@@ -24,7 +25,7 @@ function App() {
                     element: <SignUp />,
                 },
                 {
-                    path: "play-game/:category",
+                    path: "select-game/:category",
                     element: <HomePage />,
                 },
                 {
@@ -34,6 +35,10 @@ function App() {
                 {
                     path: "game-transfer/:category/:srno/:gameID?",
                     element: <GameTransfer />,
+                },
+                {
+                    path: "play-game",
+                    element: <PlayGame />,
                 },
                 {
                     path: "suggestion",

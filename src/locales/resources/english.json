@@ -171,5 +171,6 @@
     "confirmTransferMsg": "Once transfer cannot withdraw from game",
     "redirectToGameNow": "Redirect To Game Now",
 
-    "downloadGame": "Download the game to continue"
+    "downloadGame": "Download the game to continue",
+    "back":"Back"
 }

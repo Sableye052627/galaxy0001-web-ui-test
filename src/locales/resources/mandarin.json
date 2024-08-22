@@ -168,5 +168,6 @@
     "confirmTransferMsg": "转账后无法从游戏中提现",
     "redirectToGameNow": "立即跳转到游戏",
 
-    "downloadGame": "下载游戏并继续"
+    "downloadGame": "下载游戏并继续",
+    "back":"返回"
 }

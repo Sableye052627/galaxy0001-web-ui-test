@@ -1,39 +1,23 @@
 import { Carousel, Col, Row } from "antd";
 import "./home-page.scss";
 import { useHomePage } from "./hook/useHomePage";
-import { gridSetting } from "../../component/main-layout/MainLayout";
-import {
-    NotificationOutlined,
-    TranslationOutlined,
-    MobileOutlined,
-    LockOutlined,
-    CreditCardOutlined,
-    PlayCircleOutlined,
-    FireOutlined,
-} from "@ant-design/icons";
-
-import Marquee from "react-fast-marquee";
 import { useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
-import LanguageModal from "../../component/language-modal/LanguageModal";
 import GameCat from "./component/gameCat/GameCat";
 import GameList from "./component/gameList/GameList";
-import Footer from "./component/footer/Footer";
+import Jackpot from "./component/jackpot/Jackpot";
+import Marquee from "./component/marquee/Marquee";
 
 const HomePage = () => {
-    const { t, i18n, navigate, windowWidth, platformInfo, isVertical } = useHomePage();
+    const { t, i18n, navigate, windowWidth, isVertical } = useHomePage();
 
     const { category } = useParams();
     const location = useLocation();
 
     const [gameSwiperShow, setGameSwiperShow] = useState(5);
     const [providerSwiperShow, setProviderSwiperShow] = useState(10);
-    const [lang, setLang] = useState<boolean>(false);
-
-    const currentLng = i18n.language;
-    let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "CN" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
-
+    
     useEffect(() => {
         if (windowWidth < 992) {
             setGameSwiperShow(4);
@@ -50,59 +34,18 @@ const HomePage = () => {
 
         if(location.pathname == "/"){
             console.log(location.pathname)
-            navigate("/play-game/live");
+            navigate("/select-game/live");
         }
 
     }, [windowWidth]);
 
-    // const sponsorList = [{ gameCode: "VP" }];
-    // const poster = [{ title: "asd" }];
     return (
         <div id="home-page">
-
-            {/*
-            <Carousel autoplay dots={false}>
-                {bannerList
-                    ?.filter((item) => item.advertisingType === "banner")
-                    .map((item: any, index: number) => (
-                        <img key={index} src={item?.mediaUrl} alt="" />
-                    ))}
-            </Carousel>
-            */}
-
-            <div className="neon-hr" />
-            <Row justify="center">
-                <Col {...gridSetting}>
-                    <div className="marquee">
-                        <NotificationOutlined />
-                        <Marquee gradient={false}>{t("marqueeText", { domainName: platformInfo?.platformName })}</Marquee>
-
-                        <LanguageModal lang={lang} setLang={setLang} />
-                        <TranslationOutlined style={{ fontSize: 20, cursor: "pointer" }} onClick={() => setLang(!lang)} />
-                    </div>
-                </Col>
-            </Row>
-            <div className="neon-hr" />
             
-            {/*
-            <Row className="about-us" justify="center">
-                <Col {...gridSetting}>
-                    <div className="title">{t("trustedOnlineCasinoMalaysia", { domainName: platformInfo?.platformName })}</div>
-
-                    <div className="desc">
-                        {language === "bahasa"
-                            ? platformInfo?.descriptionMY
-                            : language === "mandarin"
-                            ? platformInfo?.descriptionCN
-                            : platformInfo?.descriptionEN}
-                    </div>
-                </Col>
-            </Row>*/}
             {isVertical ? (
                 <div className="v-lobby-container">
-                    <br></br>
-                    <div className="lb-footer-container">
-                        <Footer />
+                    <div className="lb-marquee-container">
+                        <Marquee />
                     </div>
                     <div className="lb-game-cat-container">
                         <GameCat />

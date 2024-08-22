@@ -12,7 +12,7 @@ export const useGameCat = () => {
     const { isVertical, platformInfo, gpCategory } = apiContext;
 
     function handleRedirect(path: string) {
-        navigate(`/play-game/${path?.toLocaleLowerCase()}`);
+        navigate(`/select-game/${path?.toLocaleLowerCase()}`);
     }
 
     return { t, handleRedirect, isVertical, platformInfo, gpCategory };

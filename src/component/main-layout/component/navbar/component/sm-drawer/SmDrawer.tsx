@@ -26,7 +26,7 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
     };
 
     function handleRedirect(item: string) {
-        navigate(`/play-game/${item}`);
+        navigate(`/select-game/${item}`);
         setOpenMenu(false);
     }
 
