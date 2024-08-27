@@ -134,6 +134,7 @@ const Profile = () => {
 
             <Row className="profile" justify="center">
                 <Col {...gridSetting}>
+                    {/* 
                     <div className="profile-menu">
                         {profileMenuItems.map((items) => (
                             <div key={items.key} className={`item ${key === items.key}`}>
@@ -141,7 +142,8 @@ const Profile = () => {
                             </div>
                         ))}
                     </div>
-
+                     */}
+                     
                     <div className="content">
                         {key === "my-profile" && <MyProfile />}
                         {/* {key === "change-password" && <ChangePassword banner={banner} />} */}

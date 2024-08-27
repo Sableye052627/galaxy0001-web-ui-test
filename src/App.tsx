@@ -9,6 +9,7 @@ import Suggestion from "./page/suggestion/Suggestion";
 import GameMenu from "./page/game-menu/GameMenu";
 import GameTransfer from "./page/game-transfer/GameTransfer";
 import PlayGame from "./page/play-game/PlayGame";   
+import GameLayout from "./component/game-layout/GameLayout"
 
 function App() {
     const router = createBrowserRouter([
@@ -53,6 +54,10 @@ function App() {
         {
             path: "/login",
             element: <Login />,
+        },
+        {
+            path: "/start-game",
+            element: <GameLayout />,
         },
     ]);
     return <RouterProvider router={router} />;

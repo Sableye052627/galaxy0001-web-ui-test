@@ -93,9 +93,9 @@ const TopUpBalance = () => {
 
                         <Form layout="vertical" form={form} onFinish={confirmMsg}>
 
-                                <Form.Item label={t("amount")} name="amount" rules={[{ required: true, message: t("pleaseInsertAmount") }]}>
-                                    <InputNumber controls={false} style={{ width: "100%" }} />
-                                </Form.Item>
+                            <Form.Item label={t("amount")} name="amount" rules={[{ required: true, message: t("pleaseInsertAmount") }]}>
+                                <InputNumber controls={false} style={{ width: "100%" }} />
+                            </Form.Item>
 
                             <Form.Item>
                                 <Button block size="large" type="primary" htmlType="submit">

@@ -8,6 +8,7 @@ import GameCat from "./component/gameCat/GameCat";
 import GameList from "./component/gameList/GameList";
 import Jackpot from "./component/jackpot/Jackpot";
 import Marquee from "./component/marquee/Marquee";
+import HMarquee from "./component/h-marquee/H-Marquee";
 
 const HomePage = () => {
     const { t, i18n, navigate, windowWidth, isVertical } = useHomePage();
@@ -61,12 +62,18 @@ const HomePage = () => {
                                 <GameCat />
                             </div>
                             <div className="lb-sub-container">  
+                                <div className="lb-marquee-container"> 
+                                    <HMarquee />
+                                </div>
+                                <div className="lb-jackpot-container">
+                                    <Jackpot />
+                                </div>
                                 <div className="lb-game-container">
                                     <GameList />
                                 </div>
-                                </div>
                             </div>
                         </div>
+                    </div>
                 )
             }
 

@@ -14,17 +14,9 @@ const GameCat = () => {
             <div className="cat-title">
                 <img className="cat-img" src="https://game-platform.sgp1.digitaloceanspaces.com/bwg/common/category.png" alt="" />
             </div>
+            {/* 
             {gpCategory?.map((items: any, index: number) => (
                                 <div className="cat">
-                                    {/* 
-                                    <img
-                                        src={`https://game-platform.sgp1.digitaloceanspaces.com/${
-                                            platformInfo?.uniqueID
-                                        }/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
-                                        alt={items.category}
-                                        onClick={() => handleRedirect(items.category)}
-                                    />
-                                    */}
                                     <img
                                         src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/${items.category.toLocaleUpperCase()}.png`}
                                         alt={items.category}
@@ -32,6 +24,35 @@ const GameCat = () => {
                                     />
                                 </div>
             ))}
+            */}
+            <div className="cat">
+                <img
+                    src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/LIVE.png`}
+                    alt="Live"
+                    onClick={() => handleRedirect("Live")}
+                 />
+            </div>
+            <div className="cat">
+                <img
+                    src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/LOTTERY.png`}
+                    alt="Lottery"
+                    onClick={() => handleRedirect("Lottery")}
+                 />
+            </div>
+            <div className="cat">
+                <img
+                    src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/SLOT.png`}
+                    alt="Slot"
+                    onClick={() => handleRedirect("Slot")}
+                 />
+            </div>
+            <div className="cat">
+                <img
+                    src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/SPORT.png`}
+                    alt="Sport"
+                    onClick={() => handleRedirect("Sport")}
+                 />
+            </div>
         </div>
     );
 };

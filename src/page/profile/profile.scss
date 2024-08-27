@@ -67,7 +67,8 @@
 
 .navbar-sec {
     padding: 10px 0;
-    color: #fff;
+    color: var(--secondary-color);
+    background-color: black;
 
     .item {
         display: flex;

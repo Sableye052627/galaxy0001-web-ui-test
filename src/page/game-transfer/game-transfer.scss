@@ -41,6 +41,16 @@
         }
     }
 
+    .gp-btn-v{
+        width:70%;
+        margin: auto;
+    }
+
+    .gp-btn-h{
+        width:100%;
+        margin: auto;
+    }
+
     .gp-btn img {
         margin-bottom: 15px;
         width: 100%;
@@ -49,6 +59,11 @@
     .ant-form label {
         color: rgba(255, 255, 255, 0.8);
         font-weight: 700;
+    }
+  
+    .ant-card {
+      background-color: #141414;
+      border: none;
     }
 
     .ant-form input[type="number"] {

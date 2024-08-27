@@ -88,8 +88,6 @@ const Navbar = () => {
             style={{ cursor: 'pointer', width: '40%' }} 
             onClick={() => setOpenMenu(!openMenu)}
         />
-        <img style={{marginLeft:'10%'}} src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
-        <p style={{color: "gold", position: "absolute", marginTop: '2.75%', marginLeft:'21.5%', fontSize:'x-small'}}>{formatNumber(playerInfo?.wallet1)}</p>
         </div>
     );
 
@@ -144,6 +142,7 @@ const Navbar = () => {
     <div className={`${isVertical ? "v" : "h"}-header-container`}>
             <div className="menu-container">            
                 {playerInfo && !isVertical && renderHorizontal()}   
+                {playerInfo && isVertical && renderVertical()}   
             </div>
             <div className="logo-container">
                 <img className="logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" style={{ cursor: 'pointer' }}  onClick={() => handleRedirect("/select-game/live")} />

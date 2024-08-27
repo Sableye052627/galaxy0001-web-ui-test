@@ -255,6 +255,7 @@
         display: flex;
         justify-content: center;
         //align-items: center;
+        margin-bottom: 5%;
 
         .lb-game-cat-container {
             width: 15%;
@@ -289,12 +290,17 @@
             }
         }
     }
+
     .lb-jackpot-container {
         width: 100%;
         height: 20%;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    
+    .lb-marquee-container {
+        margin-top: 2.5%;
     }
 }
 

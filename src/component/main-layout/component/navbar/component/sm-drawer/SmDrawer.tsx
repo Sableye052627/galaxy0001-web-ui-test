@@ -81,6 +81,7 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
             <hr />
 
             <Row gutter={[16, 16]} className="game-category">
+                {/* 
                 {gpCategory?.map((items: any, index: number) => (
                     <Col xs={8} key={index}>
                         <div className={`item ${pathname[2] === items.category.toLocaleLowerCase()}`} onClick={() => handleRedirect(items.category)}>
@@ -90,10 +91,44 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                                 }/navbar-game-icon/${items.category.toUpperCase()}.png`}
                                 alt={items.category}
                             />
-                            {/* {t(items.category.toLocaleLowerCase())} */}
+                            {/* {t(items.category.toLocaleLowerCase())}
                         </div>
-                    </Col>
+                    </Col> 
                 ))}
+                */}
+                
+                <Col xs={6}>
+                    <div className={`item live`} onClick={() => handleRedirect("Live")}>
+                        <img
+                            src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-game-icon/LIVE.png`}
+                            alt="Live"
+                        />
+                    </div>
+                </Col> 
+                <Col xs={6}>
+                    <div className={`item lottery`} onClick={() => handleRedirect("Lottery")}>
+                        <img
+                            src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-game-icon/LOTTERY.png`}
+                            alt="Lottery"
+                        />
+                    </div>
+                </Col> 
+                <Col xs={6}>
+                    <div className={`item slot`} onClick={() => handleRedirect("Slot")}>
+                        <img
+                            src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-game-icon/SLOT.png`}
+                            alt="Slot"
+                        />
+                    </div>
+                </Col> 
+                <Col xs={6}>
+                    <div className={`item sport`} onClick={() => handleRedirect("Sport")}>
+                        <img
+                            src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-game-icon/SPORT.png`}
+                            alt="Sport"
+                        />
+                    </div>
+                </Col> 
             </Row>
 
             <hr hidden={!playerInfo} />

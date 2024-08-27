@@ -1,0 +1,16 @@
+.h-marquee-container {
+    position: relative;
+
+    .h-marquee-img {
+        width: 100%;
+        height: 100%;
+    }
+    .h-marquee-text {
+        width:92%;
+        color: gold;
+        position: absolute;
+        top: 50%;
+        left: 53.5%;
+        transform: translate(-50%, -50%);   
+    }
+}

@@ -16,8 +16,8 @@
         overflow-y: auto;
 
         .game {
-            width: calc(100% / 3);
-            aspect-ratio: 1.75/1;
+            width: calc(100% / 4);
+            //  aspect-ratio: 1.75/1;
             padding: 8px;
             cursor: pointer;
 
@@ -38,7 +38,6 @@
     justify-content: start;
     align-items: center;
     gap: 10px;
-    margin-top: 6%;
 
     .game-wrapper {
         width: 100%;
@@ -49,10 +48,11 @@
         align-items: start;
         overflow-x: hidden;
         overflow-y: auto;
+        margin-left: 5%;
 
         .game {
-            width: calc(100% / 5);
-            aspect-ratio: 1.75/1;
+            width: 20%; // calc(100% / 5);
+            //aspect-ratio: 1.75/1;
             padding: 10px;
             cursor: pointer;
 

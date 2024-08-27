@@ -1,4 +1,4 @@
-import { Button, Col, Form, InputNumber, Row, Spin, message } from "antd";
+import { Button, Card, Col, Form, InputNumber, Row, Spin, message } from "antd";
 
 import "./game-transfer.scss";
 import { gridSetting } from "../../component/main-layout/MainLayout";
@@ -45,7 +45,7 @@ interface IGameDownload {
     gameLoginPassword: string;
 }
 const GameTransfer = () => {
-    const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname } = useGameTransfer();
+    const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname, isVertical } = useGameTransfer();
     const { category, srno, gameID } = useParams();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -98,6 +98,15 @@ const GameTransfer = () => {
                 Amount: values.amount,
                 CallBackUrl: window.location.href,
             };
+            console.log(srno)
+            console.log(category)
+            const item = { 
+                srno: srno,
+                category: category,
+                src: "https://client.pplc001.net/desktop/spaceman/?tabletype=spaceman&casino_id=ppcds00000002422&web_server=https:%2F%2Fgs17.pplc001.net&config_url=%2Fcgibin%2Fappconfig%2Fxml%2Fconfigs%2Furls.xml&JSESSIONID=-ltQEuxKAZkjmUnt5S9shOXI0IDebWjZZau2SElNr_C3N1a9JuIO!-1958674880-9dd6fdc4&table_id=spacemanyxe123nh&socket_server=wss:%2F%2Fgs17.pplc001.net%2Fgame&token=-ltQEuxKAZkjmUnt5S9shOXI0IDebWjZZau2SElNr_C3N1a9JuIO!-1958674880-9dd6fdc4&stats_collector_uuid=0cb5068b-35ee-48fd-ac9d-8acae9cffd25&actual_web_server=https:%2F%2Fgs17.pplc001.net&socket_port=443&uiAddress=https:%2F%2Fclient.pplc001.net%2Fdesktop%2Fspaceman%2F&uiversion=1.15.2&gametype=spaceman&operator_theme=default%2Fsm1.1&game_mode=html5_desktop&lobby_version=2&lang=en&swf_lobby_path=%2Fmember%2Fgames%2Flobby.swf&meta_server=https:%2F%2Fgames.pplc001.net&lobbyGameSymbol=null"
+            };
+            navigate("/start-game", { state: { item } });
+            /*
             const result = await theOneApi("/game-loading", object);
             if (result.status) {
                 if (gameDetail?.type === "App") {
@@ -113,6 +122,7 @@ const GameTransfer = () => {
                     }
                 }
             }
+            */
         } catch (error: any) {
             console.log(error);
             // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
@@ -157,6 +167,7 @@ const GameTransfer = () => {
         <Row className="gp-transfer-balance" justify="center">
             <Col {...gridSetting}>
                 <Spin spinning={isLoading}>
+                    {/* 
                     <Row className="game-provider-menu" gutter={[16, 10]}>
                         {gpList?.map((items: IGpList, index: number) => {
                             return (
@@ -171,11 +182,18 @@ const GameTransfer = () => {
                             );
                         })}
                     </Row>
+                    */}
                     <Row justify="center">
                         <Col xs={24} sm={18} md={14} lg={12} xl={11} xxl={10}>
-                            <div className="gp-btn">
-                                <img src={gameDetail?.bannerImage} alt={gameDetail?.gameName} />
-                            </div>
+                            {isVertical ? (
+                                <div className="gp-btn-v">
+                                    <img src={gameDetail?.btnImage} alt={gameDetail?.gameName} />
+                                </div>
+                            ) : (
+                                <div className="gp-btn-h">
+                                    <img src={gameDetail?.bannerImage} alt={gameDetail?.gameName} />
+                                </div>
+                            )}
 
                             <Form layout="vertical" initialValues={initialValue} onFinish={handleTransfer}>
                                 <Form.Item

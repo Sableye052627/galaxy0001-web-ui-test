@@ -10,7 +10,7 @@ const GameList = () => {
     const { t, isVertical } = useJackpot();
 
     return (
-        <div className="hp-jackpot-container">
+        <div className="ml-jackpot-container">
             <div className="ft-jackpot-container">
                 <img className="ft-jackpot-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/common/jackpot.png" alt="" />
                 <p className="ft-jackpot-text">123123123</p>

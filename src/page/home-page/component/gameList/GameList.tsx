@@ -19,6 +19,8 @@ interface IApiData {
   logoImage: string;
   bannerImage: string;
   btnImage: string;
+  btnImage_V: string;
+  btnImage_H: string;
   status: number;
 }
 
