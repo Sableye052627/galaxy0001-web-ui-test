@@ -1,10 +1,25 @@
 import { Button, Col, Form, InputNumber, Row, Spin, message } from "antd";
 import { useGameLayout } from "./hook/useGameLayout";
+import { theOneApi, playerApi } from "../../service/CallApi";
 import { gridSetting } from "../../component/main-layout/MainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import { useLocation } from 'react-router-dom';
 import Swal from "sweetalert2";
+
+interface IGameAccountType {
+  srno: number;
+  gameCode: string;
+  gameName: string;
+  currency: string;
+  gameLoginID: string;
+  score: number;
+  isChecked: boolean;
+  isAvailableToTransfer: boolean;
+  createDate: Date;
+  agentGpSrno: number;
+}
 
 const IframeComponent = () => {
   const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname, windowWidth, windowHeight } = useGameLayout();
@@ -25,13 +40,42 @@ const IframeComponent = () => {
           background: "#434343",
       }).then((result) => {
           if (result.isConfirmed) {
-            handleRedirectBack();
+            handleGetBalance();
           }
       });
   }
 
-  function handleRedirectBack(){
-    navigate(`/game-transfer/${item.category}/${item.srno}`);
+async function handleGetBalance() {
+  const object = { 
+    Hostname: hostname,
+    UserID: Cookies.get("UserID"), 
+    UserToken: Cookies.get("UserToken"), 
+    AgentGpSrno: item.srno
+  };
+  await playerApi("/game-account/get-balance", object)
+    .then((result) => {
+      if (result.data.balance > 0) {
+        handleWithdrawBalance(result.data.balance);
+      }
+    })
+    .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
+  }
+
+  async function handleWithdrawBalance(balance: number) {
+    if (balance > 0) {
+      const object = { 
+        Hostname: hostname,
+        UserID: Cookies.get("UserID"), 
+        UserToken: Cookies.get("UserToken"), 
+        AgentGpSrno: item.srno,
+        Balance: balance
+      };
+      await playerApi("/game-account/withdraw-balance", object)
+        .then((result) => {
+          navigate(`/game-transfer/${item.category}/${item.srno}`);
+        })
+        .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
+    }
   }
 
   return (

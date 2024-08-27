@@ -57,7 +57,7 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
 
             <div className="wallet-resync" hidden={!playerInfo}>
                 <div className="wallet" onClick={() => handleRedirect2("/player-info/deposit-balance")}>
-                    MYR {formatNumber(playerInfo?.wallet1)}
+                    MMK {formatNumber(playerInfo?.wallet1)}
                 </div>
                 <div className="btn-resync" onClick={() => confirmWithdrawAll(setPlayerInfo)}>
                     {t("resync")}

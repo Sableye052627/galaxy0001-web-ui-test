@@ -44,6 +44,7 @@ interface IGameDownload {
     gameLoginID: string;
     gameLoginPassword: string;
 }
+
 const GameTransfer = () => {
     const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname, isVertical } = useGameTransfer();
     const { category, srno, gameID } = useParams();

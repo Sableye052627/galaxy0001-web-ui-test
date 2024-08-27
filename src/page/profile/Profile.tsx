@@ -77,7 +77,7 @@ const Profile = () => {
                             </div>
                         </Col>
 
-                        {gpCategory?.map((items: any, index: number) => (
+                        {/* gpCategory?.map((items: any, index: number) => (
                             <Col key={index}>
                                 <div
                                     className={`item ${pathname[2] === items.category.toLocaleLowerCase()}`}
@@ -86,11 +86,11 @@ const Profile = () => {
                                     {/* <img
                                         src={`https://game-platform.sgp1.digitaloceanspaces.com/${platformInfo?.uniqueID}/${items.category}.png`}
                                         alt={items.category}
-                                    /> */}
+                                    /> /}
                                     {t(items.category.toLocaleLowerCase())} 
                                 </div>
                             </Col>
-                        ))}
+                        )) */}
 
                         <Col>
                             <div className={`item ${pathname[1] === "suggestion"}`} onClick={() => handleRedirect3("/suggestion")}>
