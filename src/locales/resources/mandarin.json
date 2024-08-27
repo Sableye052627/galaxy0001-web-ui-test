@@ -169,5 +169,6 @@
     "redirectToGameNow": "立即跳转到游戏",
 
     "downloadGame": "下载游戏并继续",
-    "back":"返回"
+    "back":"返回",
+    "confirmToExit": "确认退出?"
 }

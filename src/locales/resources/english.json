@@ -172,5 +172,6 @@
     "redirectToGameNow": "Redirect To Game Now",
 
     "downloadGame": "Download the game to continue",
-    "back":"Back"
+    "back":"Back",
+    "confirmToExit": "Confirm to Exit?"
 }

@@ -4,6 +4,7 @@ import { gridSetting } from "../../component/main-layout/MainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const IframeComponent = () => {
   const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname, windowWidth, windowHeight } = useGameLayout();
@@ -14,6 +15,24 @@ const IframeComponent = () => {
   };
   const location = useLocation();
   const { item } = location.state || {};
+
+  function confirmGoBack() {
+      Swal.fire({
+          text: t("confirmToExit"),
+          icon: "info",
+          showCancelButton: true,
+          color: "#fff",
+          background: "#434343",
+      }).then((result) => {
+          if (result.isConfirmed) {
+            handleRedirectBack();
+          }
+      });
+  }
+
+  function handleRedirectBack(){
+    navigate(`/game-transfer/${item.category}/${item.srno}`);
+  }
 
   return (
     <div style={{ position: 'relative', width: windowWidth, height: windowHeight }}>
@@ -29,7 +48,7 @@ const IframeComponent = () => {
         height: 50, // Adjust size as needed
         cursor: 'pointer'
       }}
-      onClick={()=>{navigate(`/game-transfer/${item.category}/${item.srno}`);}}
+      onClick={()=>confirmGoBack()}
      />
       
       <Row justify="center">
