@@ -72,7 +72,7 @@ async function handleGetBalance() {
       };
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
-          navigate(`/game-transfer/${item.category}/${item.srno}`);
+          //navigate(`/game-transfer/${item.category}/${item.srno}`);
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
     }
