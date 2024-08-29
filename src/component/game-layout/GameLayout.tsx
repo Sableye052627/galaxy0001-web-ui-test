@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useLocation } from 'react-router-dom';
 import Swal from "sweetalert2";
+import { validateToken } from "../../function/ApiFunction";
 
 interface IGameAccountType {
   srno: number;
@@ -40,7 +41,9 @@ const IframeComponent = () => {
           background: "#434343",
       }).then((result) => {
           if (result.isConfirmed) {
-            handleGetBalance();
+            //handleGetBalance();
+            validateToken(hostname, setPlayerInfo, setAgentInfo);
+            navigate(`/game-transfer/${item.category}/${item.srno}`);
           }
       });
   }
@@ -73,7 +76,6 @@ async function handleGetBalance() {
       };
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
-          new Promise((resolve) => setTimeout(resolve, 1000));
           navigate(`/game-transfer/${item.category}/${item.srno}`);
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
