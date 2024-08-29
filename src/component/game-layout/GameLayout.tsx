@@ -48,14 +48,14 @@ const IframeComponent = () => {
 async function handleGetBalance() {
   const object = { 
     Hostname: hostname,
-    UserID: Cookies.get("UserID"), 
-    UserToken: Cookies.get("UserToken"), 
+    UserID: Cookies.get("PlayerID"), 
+    UserToken: Cookies.get("PlayerToken"), 
     AgentGpSrno: item.srno
   };
   await playerApi("/game-account/get-balance", object)
     .then((result) => {
       if (result.data.balance > 0) {
-        //handleWithdrawBalance(result.data.balance);
+        handleWithdrawBalance(result.data.balance);
       }
     })
     .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
@@ -65,14 +65,14 @@ async function handleGetBalance() {
     if (balance > 0) {
       const object = { 
         Hostname: hostname,
-        UserID: Cookies.get("UserID"), 
-        UserToken: Cookies.get("UserToken"), 
+        UserID: Cookies.get("PlayerID"), 
+        UserToken: Cookies.get("PlayerToken"), 
         AgentGpSrno: item.srno,
         Balance: balance
       };
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
-          //navigate(`/game-transfer/${item.category}/${item.srno}`);
+          navigate(`/game-transfer/${item.category}/${item.srno}`);
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
     }
