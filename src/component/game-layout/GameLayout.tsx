@@ -5,7 +5,7 @@ import { gridSetting } from "../../component/main-layout/MainLayout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import Swal from "sweetalert2";
 
 interface IGameAccountType {
@@ -29,6 +29,7 @@ const IframeComponent = () => {
       amount: playerInfo?.wallet1,
   };
   const location = useLocation();
+  const history = useHistory();
   const { item } = location.state || {};
 
   function confirmGoBack() {
@@ -53,7 +54,6 @@ async function handleGetBalance() {
     AgentGpSrno: item.srno
   };
 
-  console.log()
   await playerApi("/game-account/get-balance", object)
     .then((result) => {
       if (result.data.balance > 0) {
@@ -74,7 +74,8 @@ async function handleGetBalance() {
       };
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
-          navigate(`/game-transfer/${item.category}/${item.srno}`);
+          //navigate(`/game-transfer/${item.category}/${item.srno}`);
+          history.push(`/game-transfer/${item.category}/${item.srno}`);
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
     }
