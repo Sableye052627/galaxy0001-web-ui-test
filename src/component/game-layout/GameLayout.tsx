@@ -41,9 +41,7 @@ const IframeComponent = () => {
           background: "#434343",
       }).then((result) => {
           if (result.isConfirmed) {
-            //handleGetBalance();
-            validateToken(hostname, setPlayerInfo, setAgentInfo);
-            navigate(`/game-transfer/${item.category}/${item.srno}`);
+            handleGetBalance();
           }
       });
   }
@@ -76,6 +74,7 @@ async function handleGetBalance() {
       };
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
+          validateToken(hostname, setPlayerInfo, setAgentInfo);
           navigate(`/game-transfer/${item.category}/${item.srno}`);
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
