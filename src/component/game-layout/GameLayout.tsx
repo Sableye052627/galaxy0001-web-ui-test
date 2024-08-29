@@ -78,6 +78,8 @@ async function handleGetBalance() {
         .then((result) => {
           validateToken(hostname, setPlayerInfo, setAgentInfo);
           navigate(`/game-transfer/${item.category}/${item.srno}`, {state: { reload : 1 }});
+          console.log("xxx");
+          window.location.reload();
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
     }
