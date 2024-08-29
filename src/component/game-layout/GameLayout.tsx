@@ -3,7 +3,7 @@ import { useGameLayout } from "./hook/useGameLayout";
 import { theOneApi, playerApi } from "../../service/CallApi";
 import { gridSetting } from "../../component/main-layout/MainLayout";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useLocation } from 'react-router-dom';
 import Swal from "sweetalert2";
@@ -22,23 +22,17 @@ interface IGameAccountType {
   agentGpSrno: number;
 }
 
-const IframeComponent: React.FC = () => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
+const IframeComponent = () => {
   const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname, windowWidth, windowHeight } = useGameLayout();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const initialValue = {
-      amount: playerInfo?.wallet1,
-  };
+  const [gameSrc, setGameSrc] = useState<string>('');
   const location = useLocation();
   const { item } = location.state || {};
-
-  const reloadIframe = () => {
-    if (iframeRef.current) {
-      iframeRef.current.contentWindow?.location.reload();
-    }
-  };
+  
+  useEffect(() => {
+    setGameSrc(item.src);
+  }, [item]);
 
   function confirmGoBack() {
       Swal.fire({
@@ -83,7 +77,6 @@ async function handleGetBalance() {
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
           validateToken(hostname, setPlayerInfo, setAgentInfo);
-          reloadIframe();
           navigate(`/game-transfer/${item.category}/${item.srno}`);
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
@@ -108,11 +101,7 @@ async function handleGetBalance() {
      />
       
       <Row justify="center">
-        <iframe 
-        ref={iframeRef} 
-        style={{ width: windowWidth, height: windowHeight }} 
-        src={item.src}>
-        </iframe>
+        <iframe id="gameFrame" style={{ width: windowWidth, height: windowHeight }} src={gameSrc} allowFullScreen></iframe>
       </Row>
     </div>
   );
