@@ -55,7 +55,7 @@ async function handleGetBalance() {
   await playerApi("/game-account/get-balance", object)
     .then((result) => {
       if (result.data.balance > 0) {
-        handleWithdrawBalance(result.data.balance);
+        //handleWithdrawBalance(result.data.balance);
       }
     })
     .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
