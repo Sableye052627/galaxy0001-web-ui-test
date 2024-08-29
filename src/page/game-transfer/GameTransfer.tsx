@@ -61,13 +61,13 @@ const GameTransfer = () => {
     const [showDownload, setShowDownload] = useState<boolean>(false);
 
     const location = useLocation();
-    const { item } = location.state || {};
+    const { reload } = location.state || {};
     
     useEffect(() => {
-        if(item.reload == 1){
+        if(reload == 1){
             window.location.reload();
         }
-    }, [item]);
+    }, [reload]);
 
     useEffect(() => {
         getGameInfo();
