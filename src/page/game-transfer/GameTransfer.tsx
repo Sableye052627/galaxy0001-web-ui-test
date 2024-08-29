@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { validateToken } from "../../function/ApiFunction";
 import { formatNumber, isMobile } from "../../function/Common";
 import { GameDownloadModal } from "./component/game-download-modal/GameDownloadModal";
+import { useLocation } from 'react-router-dom';
 
 interface IGameDetail {
     srno: number;
@@ -58,6 +59,13 @@ const GameTransfer = () => {
     const [gpList, setGpList] = useState<[IGpList] | undefined>(undefined);
     const [gameDownload, setGameDownload] = useState<IGameDownload | undefined>(undefined);
     const [showDownload, setShowDownload] = useState<boolean>(false);
+
+    const location = useLocation();
+    const { item } = location.state || {};
+    
+    useEffect(() => {
+        window.location.reload();
+    }, [item]);
 
     useEffect(() => {
         getGameInfo();

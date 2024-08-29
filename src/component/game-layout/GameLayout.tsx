@@ -31,10 +31,6 @@ const IframeComponent = () => {
   const { item } = location.state || {};
   
   useEffect(() => {
-    const iframe = document.getElementById('gameFrame') as HTMLIFrameElement;
-    if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.location.reload();
-    }
     setGameSrc(item.src);
   }, [item]);
 
@@ -81,7 +77,7 @@ async function handleGetBalance() {
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
           validateToken(hostname, setPlayerInfo, setAgentInfo);
-          navigate(`/game-transfer/${item.category}/${item.srno}`, {state: { prevPath: location.pathname }});
+          navigate(`/game-transfer/${item.category}/${item.srno}`, {state: { reload : 1 }});
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
     }
