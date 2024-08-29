@@ -64,7 +64,9 @@ const GameTransfer = () => {
     const { item } = location.state || {};
     
     useEffect(() => {
-        window.location.reload();
+        if(item.reload == 1){
+            window.location.reload();
+        }
     }, [item]);
 
     useEffect(() => {
