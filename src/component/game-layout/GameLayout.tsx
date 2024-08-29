@@ -48,10 +48,12 @@ const IframeComponent = () => {
 async function handleGetBalance() {
   const object = { 
     Hostname: hostname,
-    UserID: Cookies.get("PlayerID"), 
-    UserToken: Cookies.get("PlayerToken"), 
+    PlayerID: Cookies.get("PlayerID"), 
+    PlayerToken: Cookies.get("PlayerToken"), 
     AgentGpSrno: item.srno
   };
+
+  console.log()
   await playerApi("/game-account/get-balance", object)
     .then((result) => {
       if (result.data.balance > 0) {
@@ -65,8 +67,8 @@ async function handleGetBalance() {
     if (balance > 0) {
       const object = { 
         Hostname: hostname,
-        UserID: Cookies.get("PlayerID"), 
-        UserToken: Cookies.get("PlayerToken"), 
+        PlayerID: Cookies.get("PlayerID"), 
+        PlayerToken: Cookies.get("PlayerToken"), 
         AgentGpSrno: item.srno,
         Balance: balance
       };
