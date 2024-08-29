@@ -64,8 +64,10 @@ const GameTransfer = () => {
     const { reload } = location.state || {};
     
     useEffect(() => {
-        if(reload == 1){
+        let reloaded = 0;
+        if(reload == 1 && reloaded == 0){
             window.location.reload();
+            reloaded = 1;
         }
     }, [reload]);
 
