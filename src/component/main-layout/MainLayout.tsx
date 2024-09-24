@@ -27,7 +27,7 @@ const MainLayout = () => {
     }, []);
     
     return (
-        <div id="main-layout" style={!isVertical ? {backgroundImage: "url('https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/background/background.png')", backgroundPosition: "top" } : {}}>
+        <div id="main-layout" >
             <Navbar />
             {isVertical && <NavbarInfo /> }
             {isVertical && location.pathname.includes("select-game/") && <Jackpot /> }

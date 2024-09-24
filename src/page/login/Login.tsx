@@ -94,18 +94,18 @@ const Login = () => {
                 <Row justify="center" align="middle">
                     <Col xs={24}>
                         <Form.Item name="playerID">
-                            <Input prefix={<UserOutlined />} placeholder="Player ID" size="large" />
+                            <Input prefix={<UserOutlined />} placeholder={t("playerID")} size="large" />
                         </Form.Item>
                     </Col>
                     <Col xs={24}>
                         <Form.Item name="password">
-                            <Input.Password prefix={<LockOutlined />} placeholder="Password" size="large" />
+                            <Input.Password prefix={<LockOutlined />} placeholder={t("password")}size="large" />
                         </Form.Item>
                     </Col>
                     <Col xs={12}>
                         <Form.Item>
                             <Button block htmlType="submit" type="primary" size="large" shape="round">
-                                LOGIN
+                                {t("login")}
                             </Button>
                         </Form.Item>
                     </Col>

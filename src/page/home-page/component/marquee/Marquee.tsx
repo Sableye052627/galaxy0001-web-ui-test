@@ -18,7 +18,7 @@ const GameList = () => {
     const [lang, setLang] = useState<boolean>(false);
 
     const currentLng = i18n.language;
-    let language = currentLng === "EN" || currentLng === "en-US" ? "english" : currentLng === "CN" || currentLng === "zh-CN" ? "mandarin" : "bahasa";
+    let language = currentLng === "EN" || currentLng === "en-US" ? "burnese" : currentLng === "CN" || currentLng === "zh-CN" ? "mandarin" : "burnese";
 
 
     return (

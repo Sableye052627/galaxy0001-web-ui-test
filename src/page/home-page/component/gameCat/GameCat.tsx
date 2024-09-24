@@ -12,7 +12,7 @@ const GameCat = () => {
     return (
         <div className={`${isVertical ? "v" : "h"}-game-cat-container`}>
             <div className="cat-title">
-                <img className="cat-img" src="https://game-platform.sgp1.digitaloceanspaces.com/bwg/common/category.png" alt="" />
+                <img className="cat-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/common/categories.png" alt="" />
             </div>
             {/* 
             {gpCategory?.map((items: any, index: number) => (
@@ -34,9 +34,9 @@ const GameCat = () => {
             </div>
             <div className="cat">
                 <img
-                    src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/LOTTERY.png`}
+                    src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/FISHING.png`}
                     alt="Lottery"
-                    onClick={() => handleRedirect("Lottery")}
+                    onClick={() => handleRedirect("Fishing")}
                  />
             </div>
             <div className="cat">

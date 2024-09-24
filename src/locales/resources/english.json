@@ -4,7 +4,7 @@
 
     "english": "ENGLISH",
     "mandarin": "MANDARIN",
-    "bahasa": "BAHASA",
+    "burnese": "BURNESE",
 
     "login": "LOGIN",
     "signUp": "REGISTER",
@@ -20,7 +20,7 @@
     "series918": "SERIES 918",
     "suggestion": "SUGGESTION",
 
-    "contactUs": "Contact Us",
+    "contactUs": "Contact Us",  
     "telegram": "Telegram: ",
     "whatsapp": "WhatsApp: ",
     "product": "Products",
