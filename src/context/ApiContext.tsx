@@ -128,11 +128,20 @@ const ApiContext = ({ children }: IApiContextProps) => {
   }, [windowWidth]);
 
   async function handleFirstLoad() {
-    const api1 = validateToken(hostname, setPlayerInfo, setAgentInfo);
+    
+    const pathname = window.location.pathname.split("/");
+
     const api2 = getPlatformInfo(hostname, setPlatformInfo, setGpCategory, setAgentInfo);
     const api3 = getHomePage(hostname, setBannerList, setGpList);
 
-    await Promise.all([api1, api2, api3]).catch((error) => console.log(error));
+    if(pathname[1] != "signup" && pathname[1] != "login"){
+      const api1 = validateToken(hostname, setPlayerInfo, setAgentInfo);
+      await Promise.all([api1, api2, api3]).catch((error) => console.log(error));
+    }
+    else{
+      await Promise.all([api2, api3]).catch((error) => console.log(error));
+    }
+    setIsLoading(false);
     setIsLoading(false);
   }
 

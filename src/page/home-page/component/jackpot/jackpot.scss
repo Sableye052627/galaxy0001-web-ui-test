@@ -7,11 +7,15 @@
     margin-top:2%;
     margin-bottom:2%;
     margin-right:20%;
+    margin-left: 20%;
 
     .ft-suggestion-container {
         height: 90%;
         aspect-ratio: 1.5/1;
         cursor: pointer;
+        width: 20%; 
+        max-width: 20%;
+        min-width: 20%;
 
         .ft-suggestion-img {
             height: 100%;
@@ -27,6 +31,9 @@
         aspect-ratio: 2.5/1;
         cursor: pointer;
         position: relative;
+        width: 100%; 
+        max-width: 100%; 
+        min-width: 100%; 
 
         .ft-jackpot-img {
             //height: 150%;
@@ -39,12 +46,28 @@
             top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
+    
+            /* Add these properties for text truncation */
+            white-space: nowrap; /* Prevents the text from wrapping */
+            overflow: hidden; /* Ensures that overflow is hidden */
+            text-overflow: ellipsis; /* Adds an ellipsis at the point of truncation */
+            max-width: 150px; /* Adjust this width as needed */
+
+            /* Fix the font size using viewport units */
+            font-size: 2vw; /* You can adjust this value */
+            
+            /* Disable zoom from changing the font size */
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
     }
     .ft-transaction-container {
         height: 90%;
         aspect-ratio: 1.5/1;
         cursor: pointer;
+        width: 20%; 
+        max-width: 20%;
+        min-width: 20%;
 
         .ft-transaction-img {
             height: 100%;

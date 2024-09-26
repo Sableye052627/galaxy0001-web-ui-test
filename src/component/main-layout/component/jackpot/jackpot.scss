@@ -38,6 +38,19 @@
             top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
+    
+            /* Add these properties for text truncation */
+            white-space: nowrap; /* Prevents the text from wrapping */
+            overflow: hidden; /* Ensures that overflow is hidden */
+            text-overflow: ellipsis; /* Adds an ellipsis at the point of truncation */
+            max-width: 150px; /* Adjust this width as needed */
+
+            /* Fix the font size using viewport units */
+            font-size: 4vw; /* You can adjust this value */
+            
+            /* Disable zoom from changing the font size */
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
     }
     .ft-transaction-container {

@@ -24,6 +24,14 @@ const Navbar = () => {
         navigate(path);
     }
 
+    function navigateToDepositPage(){
+        navigate(`/player-info/top-up-balance`);
+    }
+
+    function navigateToProfilePage(){
+        navigate(`/player-info/my-profile`);
+    }
+
     function confirmWithdrawAll() {
         Swal.fire({
             text: t("confirmToWithdrawBalance"),
@@ -92,22 +100,35 @@ const Navbar = () => {
     );
 
     const renderHorizontal = () => (
-        <div style={{ marginRight:'10%'}} className="player-btn-container">
-            <img className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
-            <p className="player-text">{formatNumber(playerInfo?.wallet1)}</p>
-        </div>
-    );
-
-    const renderLoginPlayer = () => (
         <div 
         style={{ 
-            marginLeft: '10%', 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'space-between' 
         }} 
         className="player-btn-container">
-            <img  style={{ marginLeft: isVertical ? '-4%' : '6%' }} className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/playerbutton/playerbutton.png" alt="" />
+        <img className="deposit-btn-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/deposit-btn-icon.png" alt=""  onClick={() => navigateToDepositPage()} />
+        <img className="deposit-arrow-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/arrow-right-icon.png" alt=""  />
+            <img className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
+            <p className="deposit-text">
+                {(playerInfo?.wallet1 ?? 0) / 1000 > 1 
+                ? `${formatNumber((playerInfo?.wallet1 ?? 0) / 1000)}k` 
+                : formatNumber((playerInfo?.wallet1 ?? 0))}
+            </p>
+        </div>
+    );
+    
+    const renderLoginPlayer = () => (
+        <div 
+        style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between' 
+        }} 
+        className="player-btn-container">
+            <img  style={{ marginLeft: isVertical ? '-4%' : '0%', marginRight: isVertical ? '0%' : '27.5%' }} className="player-btn-img" 
+            src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/playerbutton/playerbutton.png" alt=""
+            onClick={navigateToProfilePage} />
             <p  className="player-text">{playerInfo?.playerID}</p>
             {!isVertical && (
             <img 

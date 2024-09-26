@@ -40,10 +40,6 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
             Cookies.remove("PlayerID");
             Cookies.remove("PlayerToken");
             setPlayerInfo(undefined);
-            navigate("/");
-
-            setOpenMenu(false);
-            return;
         }
         navigate("/login");
         setOpenMenu(false);

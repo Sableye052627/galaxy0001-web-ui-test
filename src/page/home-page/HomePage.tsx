@@ -65,13 +65,13 @@ const HomePage = () => {
                                 <div className="lb-marquee-container"> 
                                     <HMarquee />
                                 </div>
-                                <div className="lb-jackpot-container">
-                                    <Jackpot />
-                                </div>
                                 <div className="lb-game-container">
                                     <GameList />
                                 </div>
                             </div>
+                        </div>
+                        <div className="lb-jackpot-container">
+                            <Jackpot />
                         </div>
                     </div>
                 )
