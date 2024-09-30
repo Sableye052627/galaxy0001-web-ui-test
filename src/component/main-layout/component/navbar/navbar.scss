@@ -121,6 +121,12 @@
                 width: 40%;
                 height: 100%;
                 cursor: pointer;
+                filter: grayscale(1);
+
+                // Firefox-specific style
+                @-moz-document url-prefix() {
+                    width: 70%;
+                }
             }
             
             .deposit-arrow-img {
@@ -136,6 +142,11 @@
                 top: 50%;
                 left: 97.5%;
                 transform: translate(-50%, -50%); 
+
+                // Firefox-specific style
+                @-moz-document url-prefix() {
+                    left: 80%;
+                }
     
                 /* Add these properties for text truncation */
                 white-space: nowrap; /* Prevents the text from wrapping */
@@ -159,6 +170,11 @@
                 top: 50%;
                 left: 40%;
                 transform: translate(-50%, -50%); 
+
+                // Firefox-specific style
+                @-moz-document url-prefix() {
+                    left: 32.5%;
+                }
     
                 /* Add these properties for text truncation */
                 white-space: nowrap; /* Prevents the text from wrapping */

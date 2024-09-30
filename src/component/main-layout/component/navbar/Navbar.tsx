@@ -25,7 +25,7 @@ const Navbar = () => {
     }
 
     function navigateToDepositPage(){
-        navigate(`/player-info/top-up-balance`);
+        //navigate(`/player-info/top-up-balance`);
     }
 
     function navigateToProfilePage(){
@@ -135,7 +135,7 @@ const Navbar = () => {
                 className="setting-btn-img" 
                 src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/menubutton/menu%20button.png" 
                 alt="" 
-                style={{ cursor: 'pointer', width: '40%', marginRight:'30%' }} 
+                style={{ cursor: 'pointer' }} 
                 onClick={() => setOpenMenu(!openMenu)}
             />
             )}

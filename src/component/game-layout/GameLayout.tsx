@@ -43,6 +43,7 @@ const IframeComponent = () => {
           background: "#434343",
       }).then((result) => {
           if (result.isConfirmed) {
+            console.log("confirmed")
             handleGetBalance();
           }
       });
@@ -58,14 +59,14 @@ async function handleGetBalance() {
 
   await playerApi("/game-account/get-balance", object)
     .then((result) => {
-      if (result.data.balance > 0) {
-        handleWithdrawBalance(result.data.balance);
-      }
+      console.log("get balance")
+      handleWithdrawBalance(result.data.balance);
     })
     .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
   }
 
   async function handleWithdrawBalance(balance: number) {
+    navigate(`/select-game/${item.category}`);
     if (balance > 0) {
       const object = { 
         Hostname: hostname,
@@ -77,7 +78,6 @@ async function handleGetBalance() {
       await playerApi("/game-account/withdraw-balance", object)
         .then((result) => {
           validateToken(hostname, setPlayerInfo, setAgentInfo);
-          navigate(`/select-game/${item.category}`);
         })
         .catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
     }

@@ -22,7 +22,7 @@ const Navbar = () => {
     }
 
     function navigateToDepositPage(){
-        navigate(`/player-info/top-up-balance`);
+        //navigate(`/player-info/top-up-balance`);
     }
 
     function navigateToPersonalPage(){

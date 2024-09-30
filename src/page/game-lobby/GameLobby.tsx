@@ -4,11 +4,14 @@ import "./game-lobby.scss";
 import { gridSetting } from "../../component/main-layout/MainLayout";
 import { useGameLobby } from "./hook/useGameLobby";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Cookies from "js-cookie";
 import { gameProviderApi } from "../../service/CallApi";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
 import { getPlatformInfo } from "../../function/ApiFunction";
+import { Player } from "../../context/player/PlayerContext";
+import { PlayGame } from "../../context/PlayGameContext";
+
 interface IApiData {
   srno: number;
   gameName: string;
@@ -28,6 +31,12 @@ const GameLobby = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [apiData, setApiData] = useState<IApiData[] | []>([]);
+  
+  const playerContext = useContext(Player);
+  const { playerInfo } = playerContext;
+  
+  const playGameContext = useContext(PlayGame);
+  const { getGameInfo, handleTransfer } = playGameContext;
 
   useEffect(() => {
     getGameProviderList();
@@ -58,7 +67,9 @@ const GameLobby = () => {
       if (item.getGameList === 1) {
         navigate(`/game-menu/${category}/${item.srno}`);
       } else {
-        navigate(`/game-transfer/${category}/${item.srno}`);
+        //navigate(`/game-transfer/${category}/${item.srno}`);
+        handleTransfer(category ?? "", "", item.srno.toString(), playerInfo?.wallet1 ?? 0)
+
       }
     } else {
       message.info(t("gameUnderMaintenance"));

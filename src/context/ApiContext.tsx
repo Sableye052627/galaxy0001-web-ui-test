@@ -142,7 +142,6 @@ const ApiContext = ({ children }: IApiContextProps) => {
       await Promise.all([api2, api3]).catch((error) => console.log(error));
     }
     setIsLoading(false);
-    setIsLoading(false);
   }
 
   if (isLoading) {
