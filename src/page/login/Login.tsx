@@ -6,6 +6,7 @@ import "./login.scss";
 import { useEffect, useState } from "react";
 import { playerApi } from "../../service/CallApi";
 import { SuccessModal } from "./component/success-modal/SuccessModal";
+import { FailedModal } from "./component/failed-modal/FailedModal";
 import Cookies from "js-cookie";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
 
@@ -16,6 +17,9 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   // const [banner, setBanner] = useState();
   const [show, setShow] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
+  const [erroMsg, setErrorMsg] = useState<string>("");
 
   useEffect(() => {
     if (playerInfo) {
@@ -57,6 +61,15 @@ const Login = () => {
       }
     } catch (error: any) {
       console.log(error);
+
+      if(error.response.data.message == "Player ID or Password wrong"){
+        setErrorMsg(t("wrongPassword"));
+      }
+      else{
+        setErrorMsg(error.response.data.message)
+      }
+
+      setError(true);
       // message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
     }
     setIsLoading(false);
@@ -77,6 +90,8 @@ const Login = () => {
         }}
     >
     <SuccessModal show={show} setShow={setShow} />
+    <FailedModal show={error} setShow={setError} errorMsg={erroMsg} />
+
     <div
         className="login-container"
         style={{

@@ -9,10 +9,10 @@ export const useGameLayout = () => {
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
-    const { platformInfo, windowWidth, windowHeight } = apiContext;
+    const { platformInfo, windowWidth, windowHeight, isVertical } = apiContext;
 
     const playerContext = useContext(Player);
     const { playerInfo, setPlayerInfo, setAgentInfo, hostname } = playerContext;
 
-    return { t, navigate, platformInfo, playerInfo, setPlayerInfo, setAgentInfo, hostname, windowWidth, windowHeight };
+    return { t, navigate, platformInfo, playerInfo, setPlayerInfo, setAgentInfo, hostname, windowWidth, windowHeight, isVertical };
 };

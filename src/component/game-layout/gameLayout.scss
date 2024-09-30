@@ -1,0 +1,21 @@
+.return-btn {
+    position: absolute;
+    top: 10px; // Adjust these values as needed
+    left: 10px;
+    z-index: 1; // Ensure the button appears above other elements
+    width: 50px; // Adjust size as needed
+    height: 50px; // Adjust size as needed
+    cursor: pointer;
+}
+
+.return-btn-rotate {
+    position: absolute;
+    top: 10px; // Adjust these values as needed
+    left: auto; // Let left be auto if positioning from the right side
+    right: 10px; // Position from the right side
+    z-index: 1; // Ensure the button appears above other elements
+    width: 50px; // Adjust size as needed
+    height: 50px; // Adjust size as needed
+    cursor: pointer; // Use pointer without quotes
+    transform: rotate(90deg); // Rotate the button 90 degrees
+}

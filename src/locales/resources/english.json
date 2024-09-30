@@ -173,5 +173,7 @@
 
     "downloadGame": "Download the game to continue",
     "back":"Back",
-    "confirmToExit": "Confirm to Exit?"
+    "confirmToExit": "Confirm to Exit?",
+    "wrongPassword": "Player ID or Password wrong",
+    "loginFailed": "Login Failed"
 }

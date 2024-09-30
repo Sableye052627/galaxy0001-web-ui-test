@@ -170,5 +170,7 @@
 
     "downloadGame": "下载游戏并继续",
     "back":"返回",
-    "confirmToExit": "确认退出?"
+    "confirmToExit": "确认退出?",
+    "wrongPassword": "玩家ID或密码错误",
+    "loginFailed": "登录失败"
 }

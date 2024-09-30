@@ -1,15 +1,16 @@
 import { Modal } from "antd";
 import { Dispatch, SetStateAction } from "react";
-import { useSuccessModal } from "./hook/useFailedModal";
+import { useFailedModal } from "./hook/useFailedModal";
 import "./failed-modal.scss";
 
-interface ISuccessModalProps {
+interface IFailedModalProps {
     show: boolean;
     setShow: Dispatch<SetStateAction<boolean>>;
+    errorMsg: string;
 }
 
-export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
-    const { t, navigate, playerInfo, platformInfo } = useSuccessModal();
+export const FailedModal = ({ show, setShow, errorMsg }: IFailedModalProps) => {
+    const { t, navigate, playerInfo, platformInfo } = useFailedModal();
 
     const modalSetting = {
         className: "login-modal",
@@ -28,7 +29,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
 
     return (
         <Modal {...modalSetting}>
-            {`${t("loginSuccessMsg", { domainName: platformInfo?.platformName }) + " " + playerInfo?.playerID}.`}
+            {errorMsg }
             <div className="btn-close-red">
                 <button onClick={() => handleClose()}>{t("close")}</button>
             </div>

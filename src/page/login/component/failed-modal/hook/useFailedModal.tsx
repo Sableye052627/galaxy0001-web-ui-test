@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Player } from "../../../../../context/player/PlayerContext";
 import { Api } from "../../../../../context/ApiContext";
 
-export const useSuccessModal = () => {
+export const useFailedModal = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
