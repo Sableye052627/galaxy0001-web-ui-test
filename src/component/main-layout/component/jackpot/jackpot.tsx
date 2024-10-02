@@ -1,6 +1,7 @@
 import { Col, Form, Input, Modal, Row, message } from "antd";
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import "./jackpot.scss";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useJackpot } from "./hook/useJackpot";
 
@@ -8,13 +9,30 @@ import { useJackpot } from "./hook/useJackpot";
 const GameList = () => {
     const navigate = useNavigate();
     const { t, isVertical } = useJackpot();
-    const [jackpot, setJackpot] = useState(() => Math.floor(Math.random() * 50000000) + 100000000);
-    
+    // Initialize the jackpot value from cookies or with a random number if the cookie doesn't exist
+    const [jackpot, setJackpot] = useState(() => {
+      const savedJackpot = Cookies.get('galaxy0001-jackpot');
+      return savedJackpot ? parseInt(savedJackpot, 10) : Math.floor(Math.random() * 50000) + 50000;
+    });
+  
     useEffect(() => {
-      // Define an interval to update the jackpot state every second
+      // Define an interval to upd  ate the jackpot state every second
       const intervalId = setInterval(() => {
-        const randomAddition = Math.floor(Math.random() * 1000000); // Random number to add
-        setJackpot(prevJackpot => prevJackpot + randomAddition);
+        const randomAddition = Math.floor(Math.random() * 500); // Random number to add or subtract
+        const randomDeduction = Math.floor(Math.random() * 5000); // Random number to add or subtract
+        
+        // Introduce a small chance (1 in 1000) to deduct instead of adding
+        const shouldDeduct = Math.random() < 0.01; // 0.1% chance of deduction
+  
+        setJackpot(prevJackpot => {
+          const newJackpot = shouldDeduct 
+            ? Math.max(0, prevJackpot - randomDeduction) // Deduct the amount, ensuring jackpot doesn't go below 0
+            : prevJackpot + randomAddition; // Add the amount
+  
+          // Update the cookie with the new jackpot value
+          Cookies.set('jackpot', newJackpot.toString(), { expires: 7 }); // Cookie expires in 7 days
+          return newJackpot;
+        });
       }, 1000); // Update every 1000ms (1 second)
   
       // Cleanup interval on component unmount

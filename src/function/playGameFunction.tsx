@@ -78,13 +78,13 @@ export async function handleTransfer(category: string, gameID: string, srno: str
                 // result.data.iosDownloadUrl
                 // result.data.androidDownloadUrl
             } else {
-                if (isMobile()) {
-                    const item = { 
-                        srno: srno,
-                        category: category,
-                        src: result.data.mobileUrl
-                    };
-                    navigate("/start-game", { state: { item } });
+                    if (isMobile()) {
+                        const item = { 
+                            srno: srno,
+                            category: category,
+                            src: result.data.mobileUrl
+                        };
+                        navigate("/start-game", { state: { item } });
                 } else {
                     const item = { 
                         srno: srno,

@@ -12,10 +12,11 @@ import SmDrawer from "./component/sm-drawer/SmDrawer";
 import LanguageModal from "../../../language-modal/LanguageModal";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
-import { theOneApi } from "../../../../service/CallApi";
+import { playerApi } from "../../../../service/CallApi";
+import { validateToken } from "../../../../function/ApiFunction"
 
 const Navbar = () => {
-    const { t, navigate, playerInfo, setPlayerInfo, hostname, isVertical } = useNavbar();
+    const { t, navigate, playerInfo, setPlayerInfo, setAgentInfo, hostname, isVertical } = useNavbar();
 
     const [openMenu, setOpenMenu] = useState(false);
     const [lang, setLang] = useState<boolean>(false);
@@ -64,9 +65,10 @@ const Navbar = () => {
                 Category: "all",
                 AgentGpSrno: 0,
             };
-            const result = await theOneApi("/withdraw-balance", object);
+            const result = await playerApi("/game-account/withdraw-all-balance", object);
             if (result.status) {
-                setPlayerInfo(result.data);
+                //setPlayerInfo(result.data);
+                validateToken(hostname, setPlayerInfo, setAgentInfo);
                 Swal.close();
             }
         } catch (error: any) {}
