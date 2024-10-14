@@ -111,6 +111,7 @@ const GameMenu = () => {
                           src: result.data.mobileUrl
                       };
                       navigate("/start-game", { state: { item } });
+                      //console.log(playerInfo?.wallet1)
                   } else {
                       const item = { 
                           srno: srno,
@@ -118,11 +119,13 @@ const GameMenu = () => {
                           src: result.data.pcUrl
                       };
                       navigate("/start-game", { state: { item } });
+                      //console.log(playerInfo?.wallet1)
                   }
               }
           }
       } catch (error: any) {
           console.log(error);
+          message.info(t("gameUnderMaintenance"));
       }
       setIsGameLoading(false); // Set loading to false after the transfer
   }

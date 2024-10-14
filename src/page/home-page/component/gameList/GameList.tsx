@@ -95,6 +95,7 @@ const GameList = () => {
           navigate(`/game-menu/${category}/${item.srno}`);
         } else {
           handleTransfer(category ?? "", "", item.srno.toString(), playerInfo?.wallet1 ?? 0);
+          //console.log( playerInfo?.wallet1 );
         }
       } else {
         message.info(t("gameUnderMaintenance"));
@@ -138,6 +139,7 @@ const GameList = () => {
           }
       } catch (error: any) {
           console.log(error);
+          message.info(t("gameUnderMaintenance"));
       }
       setIsGameLoading(false); // Set loading to false after the transfer
   }

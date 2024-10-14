@@ -90,6 +90,25 @@ const Navbar = () => {
                 alignItems: 'center', 
                 justifyContent: 'space-between' 
             }}>
+            <img 
+                className="home-btn-img" 
+                src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/navbar-home-btn.png" 
+                alt="" 
+                style={{ cursor: 'pointer' }} 
+                onClick={() => handleRedirect("/select-game/live")}
+            />
+        </div>
+    );
+
+    const renderVertical2 = () => (
+        <div 
+            className="btn" 
+            style={{ 
+                marginRight: '10%', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'flex-end'  // Changed to flex-end to align image to the right
+            }}>
 
         <img 
             className="setting-btn-img" 
@@ -128,10 +147,19 @@ const Navbar = () => {
             justifyContent: 'space-between' 
         }} 
         className="player-btn-container">
-            <img  style={{ marginLeft: isVertical ? '-4%' : '0%', marginRight: isVertical ? '0%' : '27.5%' }} className="player-btn-img" 
+            <img  style={{ marginLeft: isVertical ? '-4%' : '0%', marginRight: isVertical ? '0%' : '7.5%' }} className="player-btn-img" 
             src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/playerbutton/playerbutton.png" alt=""
             onClick={navigateToProfilePage} />
             <p  className="player-text">{playerInfo?.playerID}</p>
+            {!isVertical && (
+            <img 
+                className="home-btn-img" 
+                src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/navbar-home-btn.png" 
+                alt="" 
+                style={{ cursor: 'pointer' }} 
+                onClick={() => handleRedirect("/select-game/live")}
+            />
+            )}
             {!isVertical && (
             <img 
                 className="setting-btn-img" 
@@ -171,7 +199,8 @@ const Navbar = () => {
                 <img className="logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" style={{ cursor: 'pointer' }}  onClick={() => handleRedirect("/select-game/live")} />
             </div>
             <div className="menu-container">
-            {playerInfo && !isVertical && renderLoginPlayer() }
+                {playerInfo && !isVertical && renderLoginPlayer() }
+                {playerInfo && isVertical && renderVertical2()}   
             </div>
             <SmDrawer openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>  

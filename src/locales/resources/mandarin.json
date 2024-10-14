@@ -135,7 +135,7 @@
 
     "bankCode": "银行代码",
     "haventRegisterWithdrawalBankYet": "尚未注册提现银行账户！",
-    "confirmToWithdrawBalance": "确认提现余额",
+    "confirmToWithdrawBalance": "确认拉回余额",
     "withdrawBalance": "提取所有余额",
     "topup": "充值余额",
 
