@@ -123,7 +123,7 @@ const Login = () => {
             <img className="login-logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" />
         </div>
         <div className="login-wrapper">
-            <Form className="login-form" layout="vertical" onFinish={handleLogin}>
+            <Form className="login-form" layout="vertical" onFinish={handleLogin} initialValues={{ language: 'EN' }}>
                 <Row justify="center" align="middle">
                     <Col xs={24}>
                         <Form.Item name="playerID">

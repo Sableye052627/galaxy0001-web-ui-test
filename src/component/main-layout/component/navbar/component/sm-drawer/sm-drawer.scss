@@ -53,6 +53,7 @@
             font-size: 12px;
             filter: brightness(0.8);
             transition: 0.5s;
+            cursor: pointer;
 
             img {
                 width: 25px;
@@ -91,5 +92,6 @@
         padding: 10px 0;
         background-color: #434343;
         border-radius: 8px;
+        cursor: pointer;
     }
 }

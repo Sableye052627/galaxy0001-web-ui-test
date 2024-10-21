@@ -1,11 +1,12 @@
 import { Col, Drawer, Row } from "antd";
-import { HomeOutlined, EditOutlined } from "@ant-design/icons";
+import { HomeOutlined, EditOutlined, TranslationOutlined } from "@ant-design/icons";
 
 import "./sm-drawer.scss";
 import { useSmDrawer } from "./hook/useSmDrawer";
 import { confirmWithdrawAll, formatNumber } from "../../../../../../function/Common";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import Cookies from "js-cookie";
+import LanguageModal from "../../../../../language-modal/LanguageModal";
 
 interface ISmDrawerProps {
     openMenu: boolean;
@@ -14,6 +15,7 @@ interface ISmDrawerProps {
 
 const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
     const { t, navigate, platformInfo, gpCategory, playerInfo, setPlayerInfo } = useSmDrawer();
+    const [lang, setLang] = useState<boolean>(false);
 
     const pathname = window.location.pathname.split("/");
     const drawerSetting = {
@@ -55,8 +57,10 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                 <div className="wallet" onClick={() => handleRedirect2("/player-info/deposit-balance")}>
                     MMK {formatNumber(playerInfo?.wallet1)}
                 </div>
-                <div className="btn-resync" onClick={() => confirmWithdrawAll(setPlayerInfo)}>
+                <div className="btn-resync" onClick={() => confirmWithdrawAll(setPlayerInfo, t("confirmToWithdrawBalance"))}>
+                <span style={{cursor:"pointer"}}>
                     {t("resync")}
+                    </span>
                 </div>
             </div>
 
@@ -64,13 +68,25 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                 <div className={`item ${pathname[1] === ""}`} onClick={() => handleRedirect2("/")}>
                     {/* <img src={homeIcon} alt="home" /> */}
                     <HomeOutlined />
-                    {t("home")}
+                    <span style={{cursor:"pointer"}}>
+                        {t("home")}
+                    </span>
                 </div>
 
                 <div className={`item ${pathname[1] === "suggestion"}`} onClick={() => handleRedirect2("/suggestion")}>
                     {/* <img src={suggestionIcon} alt="suggestion" /> */}
                     <EditOutlined />
-                    {t("suggestion")}
+                    <span style={{cursor:"pointer"}}>
+                        {t("suggestion")}
+                    </span>
+                </div>
+
+                <div className={`item ${pathname[1] === ""}`} onClick={() => setLang(!lang)}>
+                    {/* <img src={suggestionIcon} alt="suggestion" /> */}
+                    <TranslationOutlined />
+                    <span style={{cursor:"pointer"}}>
+                        {t("language")}
+                    </span>
                 </div>
             </div>
 
@@ -134,21 +150,27 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                     className={`item ${pathname[1] === "player-info" && pathname[2] === "my-profile"}`}
                     onClick={() => handleRedirect2("/player-info/my-profile")}
                 >
+                    <span style={{cursor:"pointer"}}>
                     {t("myProfile")}
+                    </span>
                 </div>
 
                 <div
                     className={`item ${pathname[1] === "player-info" && pathname[2] === "change-password"}`}
                     onClick={() => handleRedirect2("/player-info/change-password")}
                 >
+                    <span style={{cursor:"pointer"}}>
                     {t("changePassword")}
+                    </span>
                 </div>
 
                 <div
                     className={`item ${pathname[1] === "player-info" && pathname[2] === "top-up-balance"}`}
                     onClick={() => handleRedirect2("/player-info/top-up-balance")}
                 >
+                    <span style={{cursor:"pointer"}}>
                     {t("topUpBalance")}
+                    </span>
                 </div>
 
                 <div
@@ -156,7 +178,9 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                     onClick={() => handleRedirect2("/player-info/deposit-balance")}
                     hidden={platformInfo?.cdM_Deposit === 0}
                 >
+                    <span style={{cursor:"pointer"}}>
                     {t("deposit")}
+                    </span>
                 </div>
 
                 <div
@@ -164,21 +188,27 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                     onClick={() => handleRedirect2("/player-info/withdraw-balance")}
                     hidden={platformInfo?.cdM_Withdrawal === 0}
                 >
+                    <span style={{cursor:"pointer"}}>
                     {t("withdraw")}
+                    </span>
                 </div>
 
                 <div
                     className={`item ${pathname[1] === "player-info" && pathname[2] === "transaction-history"}`}
                     onClick={() => handleRedirect2("/player-info/transaction-history")}
                 >
+                    <span style={{cursor:"pointer"}}>
                     {t("transactionHistory")}
+                    </span>
                 </div>
 
                 <div
                     className={`item ${pathname[1] === "player-info" && pathname[2] === "game-account"}`}
                     onClick={() => handleRedirect2("/player-info/game-account")}
                 >
+                    <span style={{cursor:"pointer"}}>
                     {t("gameAccount")}
+                    </span>
                 </div>
             </div>
 
@@ -187,6 +217,7 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
             <div className="btn-login-logout" onClick={() => handleLogInOut()}>
                 {playerInfo ? t("logOut") : t("login")}
             </div>
+            <LanguageModal lang={lang} setLang={setLang} />
         </Drawer>
     );
 };

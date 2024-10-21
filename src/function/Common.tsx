@@ -14,9 +14,10 @@ export function formatNumber(value: any) {
     });
 }
 
-export function confirmWithdrawAll(setPlayerInfo: any) {
+export function confirmWithdrawAll(setPlayerInfo: any, text: string) {
+
     Swal.fire({
-        text: "Confirm withdraw all balance",
+        text: text,
         icon: "info",
         showCancelButton: true,
         color: "#fff",

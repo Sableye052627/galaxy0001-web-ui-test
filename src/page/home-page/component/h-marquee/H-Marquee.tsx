@@ -23,14 +23,18 @@ const HMarquee = () => {
 
     return (
         <div>
-        <Row justify="center">
-            <Col {...gridSetting}>
-                <div className="h-marquee-container">
-                <img className="h-marquee-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/annoucement-icon.png" alt="" />
-                    <Marquee className="h-marquee-text" gradient={false}>{t("marqueeText", { domainName: platformInfo?.platformName })}</Marquee>
-                </div>
-            </Col>
-        </Row>
+            <Row justify="center">
+                <Col {...gridSetting}>
+                    <div className="h-container">
+                        <div className="h-marquee-container">
+                            <img className="h-marquee-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/annoucement-icon.png" alt="" />
+                            <Marquee className="h-marquee-text" gradient={false}>
+                                {t("marqueeText", { domainName: platformInfo?.platformName })}
+                            </Marquee>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
         </div>
     );
 };
