@@ -3,6 +3,7 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useEffe
 import { Player } from "./player/PlayerContext";
 import { getHomePage, getPlatformInfo, validateToken } from "../function/ApiFunction";
 
+import { useTranslation } from "react-i18next";
 import Loading from "../component/loading/Loading";
 
 interface IPlatformType {
@@ -96,8 +97,9 @@ interface IApiContextProps {
   children: ReactNode;
 }
 const ApiContext = ({ children }: IApiContextProps) => {
+  const { t, i18n } = useTranslation();
   const playerContext = useContext(Player);
-  const { setPlayerInfo, agentInfo, setAgentInfo, hostname } = playerContext;
+  const { playerInfo, setPlayerInfo, agentInfo, setAgentInfo, hostname } = playerContext;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
@@ -127,6 +129,13 @@ const ApiContext = ({ children }: IApiContextProps) => {
       };
   }, [windowWidth]);
 
+  useEffect(() => {
+    const pathname = window.location.pathname.split("/");
+    if(pathname[1] != "login"){
+      i18n.changeLanguage(playerInfo?.lang)
+    }
+  },[playerInfo?.lang])
+
   async function handleFirstLoad() {
     
     const pathname = window.location.pathname.split("/");
@@ -141,6 +150,7 @@ const ApiContext = ({ children }: IApiContextProps) => {
     else{
       await Promise.all([api2, api3]).catch((error) => console.log(error));
     }
+
     setIsLoading(false);
   }
 

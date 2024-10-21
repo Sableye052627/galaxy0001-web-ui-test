@@ -1,7 +1,7 @@
 .return-btn {
     position: absolute;
-    top: 10px; // Adjust these values as needed
-    left: 10px;
+    top: 47.25px; // Adjust these values as needed
+    right: 10px; // Position from the right side
     z-index: 1; // Ensure the button appears above other elements
     width: 50px; // Adjust size as needed
     height: 50px; // Adjust size as needed
@@ -18,4 +18,57 @@
     height: 50px; // Adjust size as needed
     cursor: pointer; // Use pointer without quotes
     transform: rotate(90deg); // Rotate the button 90 degrees
+}
+
+.contact-us-float {
+    position: fixed;
+    top: -100px;  // Starting position for the float
+    left: 50%;    // Center horizontally
+    transform: translateX(-50%);  // Centering adjustment
+    display: flex;
+    width: 100%; // Adjusted width for better appearance
+    height: 100px;
+
+    border: 2px solid transparent;
+    background: linear-gradient(to bottom, red, black) padding-box,
+                linear-gradient(to bottom, #d4af37, #ffd700, #ffec8b, white, black, #b8860b, #ffd700, #d4af37) border-box;
+
+    transition: top 0.5s;        
+    scroll-snap-align: center;
+    cursor: pointer;
+    z-index: 1000;
+
+    &.active {  // Active class
+        top: -50px;  // Move the whole block up when active
+    }
+
+    .button {
+        position: absolute;  // Changed to absolute to position it relative to the parent
+        top: 97px;              // Starts at the top of the parent
+        left: 50%;           // Center horizontally
+        transform: translateX(-50%);  // Centering adjustment
+        display: flex;
+        width: 50px;
+        height: 30px;
+
+        border-radius: 0 0 20px 20px;
+        border: 2px solid transparent;
+        background: linear-gradient(black, black) padding-box,
+                    linear-gradient(to bottom, #d4af37, #ffd700, #ffec8b, #b8860b, #ffd700, #d4af37) border-box;
+
+        transition: top 0.5s;        
+        scroll-snap-align: center;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: goldenrod;
+        font-size: 24px;
+        font-weight: 700;
+        margin-left: 11px;
+    }
 }

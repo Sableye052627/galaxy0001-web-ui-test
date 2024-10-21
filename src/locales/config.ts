@@ -7,5 +7,5 @@ import burnese from "./resources/burnese.json";
 
 const resources = { EN: { translation: english }, CN: { translation: mandarin }, MM: { translation: burnese } };
 
-i18next.use(initReactI18next).init({ resources, lng: "MM" });
+i18next.use(initReactI18next).init({ resources, lng: "EN" });
 export default i18next;

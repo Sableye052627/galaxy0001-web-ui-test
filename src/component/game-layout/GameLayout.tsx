@@ -9,6 +9,7 @@
   import Swal from "sweetalert2";
   import { validateToken } from "../../function/ApiFunction";
   import "./gameLayout.scss";
+  import { CaretDownFilled } from "@ant-design/icons";
 
   interface IGameAccountType {
     srno: number;
@@ -30,6 +31,14 @@
     const [gameSrc, setGameSrc] = useState<string>('');
     const location = useLocation();
     const { item } = location.state || {};
+
+    // State to manage the active class
+    const [isTopBarActive, setIsTopBarActive] = useState(false);
+
+    // Toggle the active state on click
+    const handleToggle = () => {
+        setIsTopBarActive(!isTopBarActive);
+    };
     
     useEffect(() => {
       setGameSrc(item.src);
@@ -86,16 +95,24 @@
 
     return (
       <div style={{ position: 'relative', width: windowWidth, height: windowHeight }}>
-      <img 
-        src="https://game-platform.sgp1.digitaloceanspaces.com/mb-app-h5-v2/button/close.png"
-        alt="Return Button"
-        className={ item.srno == 123 && isVertical ? "return-btn-rotate" : "return-btn"}
-        onClick={()=>confirmGoBack()}
-      />
         
         <Row justify="center">
           <iframe id="gameFrame" style={{ width: windowWidth, height: windowHeight }} src={gameSrc} allowFullScreen></iframe>
         </Row>
+
+        <div className={`contact-us-float ${isTopBarActive ? 'active' : ''}`} onClick={handleToggle}>
+          <img 
+          src="https://game-platform.sgp1.digitaloceanspaces.com/mb-app-h5-v2/button/close.png"
+          alt="Return Button"
+          className="return-btn"
+          onClick={()=>confirmGoBack()}
+          />
+          <div className="button">
+            <div className="title">
+              <CaretDownFilled />
+            </div>
+          </div>
+        </div>
       </div>
     );
   };

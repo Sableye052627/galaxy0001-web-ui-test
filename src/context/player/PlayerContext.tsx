@@ -14,6 +14,7 @@ interface IPlayerType {
     email: string;
     status: number;
     createDate: Date;
+    lang: string;
 }
 
 interface IAgentType {

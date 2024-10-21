@@ -24,6 +24,9 @@ const MainLayout = () => {
         navigate("/login");
         return;
       }
+      else{
+        
+      }
     }, []);
     
     return (

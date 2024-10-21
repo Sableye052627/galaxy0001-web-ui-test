@@ -1,6 +1,6 @@
 import { useLogin } from "./hook/useLogin";
-import { Button, Card, Carousel, Col, Form, Input, Row, Spin, message } from "antd";
-
+import { Button, Card, Carousel, Col, Form, Input, Row, Spin, message, Radio } from "antd";
+import { RadioChangeEvent } from 'antd/lib/radio';
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import "./login.scss";
 import { useEffect, useState } from "react";
@@ -18,8 +18,9 @@ const Login = () => {
   // const [banner, setBanner] = useState();
   const [show, setShow] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-
   const [erroMsg, setErrorMsg] = useState<string>("");
+
+  const [selectedLanguage, setSelectedLanguage] = useState("EN");
 
   useEffect(() => {
     if (playerInfo) {
@@ -40,6 +41,13 @@ const Login = () => {
     setIsFirstLoad(false);
   }
 
+    // Handle radio button change event using RadioChangeEvent
+    const handleLanguageChange = (e: RadioChangeEvent) => {
+      const value = e.target.value;
+      i18n.changeLanguage(value);
+      setSelectedLanguage(value);
+  };
+
   async function handleLogin(values: any) {
     setIsLoading(true);
     try {
@@ -55,7 +63,17 @@ const Login = () => {
 
         Cookies.set("PlayerID", result.data.playerID);
         Cookies.set("PlayerToken", result.data.playerToken);
-        i18n.changeLanguage(result.data.lang);
+
+        const lang_object = {
+            Hostname: hostname,
+            PlayerID: Cookies.get("PlayerID"),
+            PlayerToken: Cookies.get("PlayerToken"),
+            Language: selectedLanguage,
+        };
+        const lang_result = await playerApi("/update-language", lang_object);
+        if (lang_result.status) {
+            message.success(result.message);
+        }
 
         setShow(true);
       }
@@ -115,6 +133,28 @@ const Login = () => {
                     <Col xs={24}>
                         <Form.Item name="password">
                             <Input.Password prefix={<LockOutlined />} placeholder={t("password")}size="large" />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24}>
+                        <Form.Item name="language">
+                            <Radio.Group onChange={handleLanguageChange}>
+                                <Radio value="EN">
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                                        alt="UK Flag"
+                                        style={{ width: '20px', marginRight: '8px' }}
+                                    />
+                                    <span style={{ color: 'white' }}>English</span>
+                                </Radio>
+                                <Radio value="MM">
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
+                                        alt="Myanmar Flag"
+                                        style={{ width: '20px', marginRight: '8px' }}
+                                    />
+                                    <span style={{ color: 'white' }}>Burnese</span>
+                                </Radio>
+                            </Radio.Group>
                         </Form.Item>
                     </Col>
                     <Col xs={12}>
