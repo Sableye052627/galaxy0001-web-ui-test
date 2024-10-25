@@ -2,6 +2,7 @@ import { Modal } from "antd";
 import { Dispatch, SetStateAction } from "react";
 import { useSuccessModal } from "./hook/useSuccessModal";
 import "./success-modal.scss";
+import { websiteName } from "../../../../function/Common";
 
 interface ISuccessModalProps {
     show: boolean;
@@ -29,7 +30,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
 
     return (
         <Modal {...modalSetting}>
-            {`${t("signUpSuccessMsg", { domainName: platformInfo?.platformName }) + " " + playerInfo?.playerID}.`}
+            {`${t("signUpSuccessMsg", { domainName: platformInfo?.platformName, websiteName: websiteName }) + " " + playerInfo?.playerID}.`}
             <div className="btn-close">
                 <button onClick={() => handleClose()}>{t("close")}</button>
             </div>

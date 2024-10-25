@@ -6,6 +6,7 @@ import { gridSetting } from "../../MainLayout";
 import { useState } from "react";
 import LanguageModal from "../../../language-modal/LanguageModal";
 import { downloadApp } from "../../../../asset/Asset";
+import { websiteName } from "../../../../function/Common";
 
 const Footer = () => {
     const { t, navigate, platformInfo, windowWidth, gpCategory, agentInfo } = useFooter();
@@ -17,7 +18,7 @@ const Footer = () => {
                 <Row className="footer-item" gutter={[0, 20]} hidden={windowWidth < 576}>
                     <Col xs={24} sm={12} lg={8}>
                         <div className="download-app">
-                            <div className="title">{t("downloadApp", { domainName: platformInfo?.platformName })}</div>
+                            <div className="title">{t("downloadApp", { domainName: platformInfo?.platformName, websiteName: websiteName})}</div>
                             <Row className="content">
                                 {downloadApp.map((items) => (
                                     <Col key={items.key} xs={11} sm={11} lg={6} xl={8}>
@@ -37,7 +38,7 @@ const Footer = () => {
                                 {agentInfo?.map((items, index) => (
                                     <div key={index} className="item" onClick={() => window.open(items.redirectUrl)}>
                                         <span>{`${
-                                            t(items.contactType) + platformInfo?.platformName?.toUpperCase()
+                                            t(items.contactType) + "MYBOSS"//platformInfo?.platformName?.toUpperCase()
                                         } @ ${items?.contactType?.toUpperCase()}`}</span>
                                     </div>
                                 ))}
@@ -91,7 +92,7 @@ const Footer = () => {
                     </Col>
                 </Row>*/}
 
-                <div className="footer-remark">COPYRIGHT © {platformInfo?.accountPrefix?.toUpperCase()} 2022. ALL RIGHTS RESERVED</div>
+                <div className="footer-remark">COPYRIGHT © {platformInfo?.accountPrefix?.toUpperCase()} 2024. ALL RIGHTS RESERVED</div>
             </Col>
         </Row>
     );

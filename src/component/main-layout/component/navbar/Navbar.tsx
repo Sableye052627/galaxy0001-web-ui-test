@@ -132,7 +132,7 @@ const Navbar = () => {
         <img className="deposit-arrow-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/arrow-right-icon.png" alt=""  />
             <img className="player-btn-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/refreshbutton/refreshbutton.png" alt="" onClick={() => confirmWithdrawAll()} />
             <p className="deposit-text">
-                {(playerInfo?.wallet1 ?? 0) / 1000 > 1 
+                {(playerInfo?.wallet1 ?? 0) / 1000 > 1000 
                 ? `${formatNumber((playerInfo?.wallet1 ?? 0) / 1000)}k` 
                 : formatNumber((playerInfo?.wallet1 ?? 0))}
             </p>

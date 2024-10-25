@@ -8,12 +8,15 @@ import { useJackpot } from "./hook/useJackpot";
 
 const GameList = () => {
     const navigate = useNavigate();
-    const { t, isVertical } = useJackpot();
+    const { t, isVertical, jackpot,setJackpot } = useJackpot();
     // Initialize the jackpot value from cookies or with a random number if the cookie doesn't exist
+    
+    /*
     const [jackpot, setJackpot] = useState(() => {
       const savedJackpot = Cookies.get('galaxy0001-jackpot');
       return savedJackpot ? parseInt(savedJackpot, 10) : Math.floor(Math.random() * 50000) + 50000;
     });
+    */
     
     function formatNumber(value: number) {
       return new Intl.NumberFormat('en-US', {

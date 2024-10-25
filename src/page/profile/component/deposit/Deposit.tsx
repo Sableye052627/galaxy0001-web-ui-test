@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import { playerApi } from "../../../../service/CallApi";
 import { checkImage, previewImage } from "../../../../function/UploadFunction";
 import Cookies from "js-cookie";
+import { websiteName } from "../../../../function/Common";
 
 const Deposit = () => {
     const { t, navigate, platformInfo, playerInfo, hostname } = useDeposit();
@@ -239,7 +240,7 @@ const Deposit = () => {
                         <li className="item">{t("depositDesc3")}</li>
                         <li className="item">{t("depositDesc4")}</li>
                         <li className="item">{t("depositDesc5")}</li>
-                        <li className="item">{t("depositDesc6", { domainName: platformInfo?.platformName })}</li>
+                        <li className="item">{t("depositDesc6", { domainName: platformInfo?.platformName, websiteName: websiteName })}</li>
                     </ul>
                 </div>
             </Col>

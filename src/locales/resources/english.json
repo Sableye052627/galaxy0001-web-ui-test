@@ -45,23 +45,23 @@
     "referralID": "Referral ID (Optional)",
 
     "loginSuccess": "LOGIN SUCCESS",
-    "loginSuccessMsg": "Welcome to {{domainName}}",
+    "loginSuccessMsg": "Welcome to {{websiteName}}",
     "close": "CLOSE",
 
     "signupSuccess": "REGISTER SUCCESS",
     "signUpSuccessMsg": "Register success, Please proceed to login",
     "passwordNotMatch": "Passwords do not match",
 
-    "marqueeText": "{{domainName}} doesn't only offer you the opportunity to play your favorite online gambling games using your web browser but offers you to play the games using the mobile app. This is an easy approach brought by us to the users in order for them to easily access various services offered in the platform. Be it that you are a user of an Android or iOS mobile device, this application will be compatible for any devices.",
+    "marqueeText": "{{websiteName}} doesn't only offer you the opportunity to play your favorite online gambling games using your web browser but offers you to play the games using the mobile app. This is an easy approach brought by us to the users in order for them to easily access various services offered in the platform. Be it that you are a user of an Android or iOS mobile device, this application will be compatible for any devices.",
 
-    "trustedOnlineCasinoMalaysia": "TRUSTED ONLINE CASINO MALAYSIA - {{domainName}}",
-    "aboutUsDesc": "{{domainName}} is trusted Malaysia online casino, the geographical region of Asia having a customer base of over a million users. We can not only play games in various well-known game companies, but also provide fast cash withdrawal services.",
+    "trustedOnlineCasinoMalaysia": "TRUSTED ONLINE CASINO MALAYSIA - {{websiteName}}",
+    "aboutUsDesc": "{{websiteName}} is trusted Malaysia online casino, the geographical region of Asia having a customer base of over a million users. We can not only play games in various well-known game companies, but also provide fast cash withdrawal services.",
 
     "sponsored": "SPONSORED",
 
     "usefulInformation": "USEFUL INFORMATION",
     "mobileApp": "Mobile App",
-    "infoContent1": "{{domainName}} doesn't only offer you the opportunity to play your favorite online gambling games using your web browser but offers you to play the games using the mobile app. This is an easy approach brought by us to the users in order for them to easily access various services offered in the platform. Be it that you are a user of an Android or iOS mobile device, this application will be compatible for any devices.",
+    "infoContent1": " {{websiteName}} doesn't only offer you the opportunity to play your favorite online gambling games using your web browser but offers you to play the games using the mobile app. This is an easy approach brought by us to the users in order for them to easily access various services offered in the platform. Be it that you are a user of an Android or iOS mobile device, this application will be compatible for any devices.",
     "securityAndSafety": "Security And Safety",
     "infoContent2": "Our players are safe and secure using the online casino platform and the mobile app. We featured a two-factor authenticated feature as well as 128-encrypted features that are safe from any hacking activist. We have acquired multiple online gambling licenses from international gambling corporations such as Gaming Curacao, which is an authority that provides legal casino licenses. Hence, our players may rest assured that online casino is legal and legit.",
     "paymentMethod": "Payment Method",
@@ -72,7 +72,7 @@
     "latestHighlightVideo": "Latest Highlight Video",
     "recommended": "Recommended",
 
-    "downloadApp": "DOWNLOAD {{domainName}} APP",
+    "downloadApp": "DOWNLOAD {{websiteName}} APP",
 
     "suggestionType": "Suggestion Type",
     "gameProblem": "Game Problem",
@@ -133,7 +133,7 @@
     "depositDesc3": "Please do not fill in any sensitive information when transferring funds, such as the following GAMBLING, GAME, CASINO and etc.",
     "depositDesc4": "Please confirm the transfer is successful before submitting the deposit application to avoid deposit delay.",
     "depositDesc5": "Please include a leaflet with every deposit application so that your request can be passed more quickly.",
-    "depositDesc6": "For cash deposit transactions, please write 'for {{domainName}} only' on the receipt with a pen each time, and then upload the receipt after submitting the application.",
+    "depositDesc6": "For cash deposit transactions, please write 'for {{websiteName}} only' on the receipt with a pen each time, and then upload the receipt after submitting the application.",
     "depositDesc7": "If your wallet does not update to show the new balance after making a deposit, please try refreshing the page.",
 
     "bankCode": "Bank Code",

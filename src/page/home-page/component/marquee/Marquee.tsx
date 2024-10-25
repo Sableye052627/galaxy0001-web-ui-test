@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import { gridSetting } from "../../../../component/main-layout/MainLayout";
 import LanguageModal from "../../../../component/language-modal/LanguageModal";
-
+import { websiteName } from "../../../../function/Common";
 
 const GameList = () => {
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const GameList = () => {
             <Col {...gridSetting}>
                 <div className="marquee">
                     <NotificationOutlined />
-                    <Marquee gradient={false}>{t("marqueeText", { domainName: platformInfo?.platformName })}</Marquee>
+                    <Marquee gradient={false}>{t("marqueeText", { domainName: platformInfo?.platformName, websiteName: websiteName })}</Marquee>
 
                     <LanguageModal lang={lang} setLang={setLang} />
                     <TranslationOutlined style={{ fontSize: 20, cursor: "pointer" }} onClick={() => setLang(!lang)} />

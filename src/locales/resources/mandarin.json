@@ -44,22 +44,22 @@
     "referralID": "推荐码（可选）",
 
     "loginSuccess": "登录成功",
-    "loginSuccessMsg": "欢迎来到{{domainName}}",
+    "loginSuccessMsg": "欢迎来到{{websiteName}}",
     "close": "关闭",
     "signupSuccess": "注册成功",
     "signUpSuccessMsg": "注册成功，请继续登录",
     "passwordNotMatch": "密码不匹配",
 
-    "marqueeText": "{{domainName}}不仅提供您通过浏览器玩您喜爱的在线赌博游戏的机会，还提供使用移动应用程序玩游戏的机会。这是我们为用户提供的一种便捷方法，使他们能够轻松访问平台上提供的各种服务。无论您是Android或iOS移动设备的用户，此应用程序都可以兼容任何设备。",
+    "marqueeText": "{{websiteName}}不仅提供您通过浏览器玩您喜爱的在线赌博游戏的机会，还提供使用移动应用程序玩游戏的机会。这是我们为用户提供的一种便捷方法，使他们能够轻松访问平台上提供的各种服务。无论您是Android或iOS移动设备的用户，此应用程序都可以兼容任何设备。",
 
-    "trustedOnlineCasinoMalaysia": "马来西亚可信赖的在线赌场 - {{domainName}}",
-    "aboutUsDesc": "{{domainName}}是马来西亚可信赖的在线赌场，拥有超过一百万用户的亚洲客户群体。我们不仅可以玩各种知名游戏公司的游戏，还提供快速提现服务。",
+    "trustedOnlineCasinoMalaysia": "马来西亚可信赖的在线赌场 - {{websiteName}}",
+    "aboutUsDesc": "{{websiteName}}是马来西亚可信赖的在线赌场，拥有超过一百万用户的亚洲客户群体。我们不仅可以玩各种知名游戏公司的游戏，还提供快速提现服务。",
 
     "sponsored": "赞助",
 
     "usefulInformation": "有用的信息",
     "mobileApp": "移动应用",
-    "infoContent1": "{{domainName}}不仅提供您通过浏览器玩您喜爱的在线赌博游戏的机会，还提供使用移动应用程序玩游戏的机会。这是我们为用户提供的一种便捷方法，使他们能够轻松访问平台上提供的各种服务。无论您是Android或iOS移动设备的用户，此应用程序都可以兼容任何设备。",
+    "infoContent1": " {{websiteName}}不仅提供您通过浏览器玩您喜爱的在线赌博游戏的机会，还提供使用移动应用程序玩游戏的机会。这是我们为用户提供的一种便捷方法，使他们能够轻松访问平台上提供的各种服务。无论您是Android或iOS移动设备的用户，此应用程序都可以兼容任何设备。",
     "securityAndSafety": "安全与保障",
     "infoContent2": "我们的玩家使用在线赌场平台和移动应用程序是安全可靠的。我们提供两因素认证功能以及128位加密功能，防止任何黑客攻击。我们已经从国际赌博公司如Gaming Curacao获得了多个在线赌博许可证。因此，我们的玩家可以放心，在线赌场是合法和可信的。",
     "paymentMethod": "支付方式",
@@ -70,7 +70,7 @@
     "latestHighlightVideo": "最新亮点视频",
     "recommended": "推荐",
 
-    "downloadApp": "下载{{domainName}}应用",
+    "downloadApp": "下载{{websiteName}}应用",
 
     "suggestionType": "建议类型",
     "gameProblem": "游戏问题",
@@ -131,7 +131,7 @@
     "depositDesc3": "转账时请勿填写任何敏感信息，如赌博、游戏、赌场等。",
     "depositDesc4": "提交存款申请前请确认转账成功，以免存款延迟。",
     "depositDesc5": "请在每次存款申请中附上传单，以便快速处理您的请求。",
-    "depositDesc6": "对于现金存款交易，请在每次收据上用笔写“仅限{{domainName}}”，然后在提交申请后上传收据。",
+    "depositDesc6": "对于现金存款交易，请在每次收据上用笔写“仅限{{websiteName}}”，然后在提交申请后上传收据。",
 
     "bankCode": "银行代码",
     "haventRegisterWithdrawalBankYet": "尚未注册提现银行账户！",

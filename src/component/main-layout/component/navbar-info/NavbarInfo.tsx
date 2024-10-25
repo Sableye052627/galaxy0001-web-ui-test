@@ -88,7 +88,7 @@ const Navbar = () => {
         <div className="amount-btn-container">
             <img className="amount-btn-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/amount-value-icon.png" alt="" onClick={() => confirmWithdrawAll()} />
             <p className="amount-text">
-            {(playerInfo?.wallet1 ?? 0) / 1000 > 1 
+            {(playerInfo?.wallet1 ?? 0) / 1000 > 1000 
                 ? `${formatNumber((playerInfo?.wallet1 ?? 0) / 1000)}k` 
                 : formatNumber((playerInfo?.wallet1 ?? 0))}
             </p>

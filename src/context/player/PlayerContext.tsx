@@ -29,6 +29,8 @@ interface IPlayerContextType {
     agentInfo: [IAgentType] | undefined;
     setAgentInfo: Dispatch<SetStateAction<[IAgentType] | undefined>>;
     hostname: string;
+    jackpot: number;
+    setJackpot: Dispatch<SetStateAction<number>>;
 }
 const initPlayerContext: IPlayerContextType = {
     playerInfo: undefined,
@@ -36,6 +38,8 @@ const initPlayerContext: IPlayerContextType = {
     agentInfo: undefined,
     setAgentInfo: () => {},
     hostname: "",
+    jackpot: 0,
+    setJackpot: () => {},
 };
 export const Player = createContext<IPlayerContextType>(initPlayerContext);
 
@@ -48,7 +52,9 @@ const PlayerContext = ({ children }: IPlayerContextProps) => {
     const hostname = "galaxy0001.com"
         //window.location.hostname === "localhost" || window.location.hostname === "webh5.danger.asia" ? "danger.asia" : window.location.hostname;
 
-    const values: IPlayerContextType = { playerInfo, setPlayerInfo, agentInfo, setAgentInfo, hostname };
+    const [jackpot, setJackpot] = useState(Math.floor(Math.random() * 88888) + 800000)
+
+    const values: IPlayerContextType = { playerInfo, setPlayerInfo, agentInfo, setAgentInfo, hostname, jackpot, setJackpot };
     return <Player.Provider value={values}>{children}</Player.Provider>;
 };
 

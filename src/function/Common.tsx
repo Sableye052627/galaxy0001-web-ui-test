@@ -8,6 +8,8 @@ export const domainName =
         ? "win22"
         : window.location.hostname.split(".")[0];
 
+export const websiteName = "Myboss";
+
 export function formatNumber(value: any) {
     return Number(value).toLocaleString(undefined, {
         minimumFractionDigits: 2,

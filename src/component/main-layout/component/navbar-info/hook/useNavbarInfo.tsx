@@ -12,7 +12,7 @@ export const useNavbarInfo = () => {
     const { platformInfo, windowWidth, isVertical } = apiContext;
 
     const playerContext = useContext(Player);
-    const { playerInfo, setPlayerInfo, hostname } = playerContext;
+    const { playerInfo, setPlayerInfo, hostname, jackpot, setJackpot } = playerContext;
 
     return { t, navigate, platformInfo, windowWidth, isVertical, playerInfo, setPlayerInfo, hostname };
 };

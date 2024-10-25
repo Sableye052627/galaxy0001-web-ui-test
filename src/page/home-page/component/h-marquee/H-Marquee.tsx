@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import { gridSetting } from "../../../../component/main-layout/MainLayout";
 import LanguageModal from "../../../../component/language-modal/LanguageModal";
-
+import { websiteName } from "../../../../function/Common";
 
 const HMarquee = () => {
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ const HMarquee = () => {
                         <div className="h-marquee-container">
                             <img className="h-marquee-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/annoucement-icon.png" alt="" />
                             <Marquee className="h-marquee-text" gradient={false}>
-                                {t("marqueeText", { domainName: platformInfo?.platformName })}
+                                {t("marqueeText", { domainName: platformInfo?.platformName, websiteName: websiteName })}
                             </Marquee>
                         </div>
                     </div>
