@@ -49,7 +49,7 @@ interface IPlayerContextProps {
 const PlayerContext = ({ children }: IPlayerContextProps) => {
     const [playerInfo, setPlayerInfo] = useState<IPlayerType | undefined>(undefined);
     const [agentInfo, setAgentInfo] = useState<[IAgentType] | undefined>(undefined);
-    const hostname = "galaxy0001.com"
+    const hostname = "myboss68.com"
         //window.location.hostname === "localhost" || window.location.hostname === "webh5.danger.asia" ? "danger.asia" : window.location.hostname;
 
     const [jackpot, setJackpot] = useState(Math.floor(Math.random() * 88888) + 800000)
