@@ -13,7 +13,7 @@ const Suggestion = () => {
     const { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname, setImagePreview, handlePreviewImage } = useSuggestion();
 
     const [isLoading, setIsLoading] = useState(false);
-    const [type, setType] = useState(1);
+    const [type, setType] = useState("gameProblem");
     const [userInput, setUserInput] = useState("");
     const [fileList, setFileList] = useState<UploadFile[]>([]);
 
@@ -51,7 +51,7 @@ const Suggestion = () => {
     };
 
     function handleClear() {
-        setType(1);
+        setType("gameProblem");
         setUserInput("");
         handleRemoveAll();
     }
@@ -75,7 +75,7 @@ const Suggestion = () => {
             const result = await playerApi("/add-suggestion", object);
             if (result.status) {
                 message.success(result.message);
-                setType(1);
+                setType("gameProblem");
                 setUserInput("");
                 handleRemoveAll();
             }
@@ -96,7 +96,7 @@ const Suggestion = () => {
                             <Row className="content" gutter={[16, 10]}>
                                 {suggestionType.map((items, index) => (
                                     <Col key={index} xs={12} xl={8}>
-                                        <div className={`item ${type === items.key}`} onClick={() => setType(items.key)}>
+                                        <div className={`item ${type === items.label}`} onClick={() => setType(items.label)}>
                                             {t(items.label)}
                                         </div>
                                     </Col>
@@ -114,7 +114,7 @@ const Suggestion = () => {
                                 />
                             </div>
                         </div>
-
+                        {/* 
                         <div className="suggestion-attachment">
                             <div className="title">{t("attachment")}</div>
                             <div className="content">
@@ -131,6 +131,7 @@ const Suggestion = () => {
                                 </Upload>
                             </div>
                         </div>
+                        */}
 
                         <Row className="clear-submit" gutter={10}>
                             <Col xs={12}>
