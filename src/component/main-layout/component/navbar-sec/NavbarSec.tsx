@@ -43,7 +43,7 @@ const NavbarSec = () => {
                     ))}
 
                     <Col>
-                        <div className={`item ${pathname[1] === "suggestion"}`} onClick={() => handleRedirect2("/suggestion")}>
+                        <div className={`item ${pathname[1] === "feedback"}`} onClick={() => handleRedirect2("/feedback")}>
                             {/* <img src={suggestionIcon} alt="suggestion" /> */}
                             {t("suggestion")}
                         </div>

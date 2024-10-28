@@ -50,7 +50,7 @@ const GameList = () => {
     }, []);
 
     function navigateToSuggestionPage(){
-        navigate(`/suggestion`);
+        navigate(`/feedback`);
     }
 
     function navigateToTransactionPage(){

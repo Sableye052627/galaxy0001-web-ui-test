@@ -19,7 +19,7 @@
     "fishing": "FISHING",
     "esport": "E-SPORT",
     "series918": "SERIES 918",
-    "suggestion": "SUGGESTION",
+    "suggestion": "FEEDBACK",
 
     "contactUs": "Contact Us",  
     "telegram": "Telegram: ",
@@ -75,13 +75,13 @@
 
     "downloadApp": "DOWNLOAD {{websiteName}} APP",
 
-    "suggestionType": "Suggestion Type",
+    "suggestionType": "Feedback Type",
     "gameProblem": "Game Problem",
     "dealerCheat": "Dealer Cheat",
     "dealerComplaints": "Dealer Complaints",
     "others": "Others",
     "message": "Message",
-    "pleaseSelectSuggestionTypeAndInsertMessage": "Please select suggestion type and insert message",
+    "pleaseSelectSuggestionTypeAndInsertMessage": "Please select feedback type and insert message",
 
     "myProfile": "My Profile",
     "changePassword": "Change Password",

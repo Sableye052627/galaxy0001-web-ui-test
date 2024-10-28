@@ -49,11 +49,25 @@ const GameList = () => {
       return () => clearInterval(intervalId);
     }, []);
 
+    function navigateToSuggestionPage(){
+        navigate(`/feedback`);
+    }
+
+    function navigateToTransactionPage(){
+        navigate(`/player-info/transaction-history`);
+    }
+
     return (
         <div className="ml-jackpot-container">
+            <div className="ft-suggestion-container">
+              <img className="ft-suggestion-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/suggestion-icon.png" alt="" onClick={navigateToSuggestionPage} />
+            </div>
             <div className="ft-jackpot-container">
                 <img className="ft-jackpot-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/common/jackpot.png" alt="" />
                 <p className="ft-jackpot-text">{formatNumber(jackpot)}</p>
+            </div>
+            <div className="ft-transaction-container">
+              <img className="ft-transaction-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/transaction-icon.png" alt="" onClick={navigateToTransactionPage}/>
             </div>
         </div>
     );

@@ -58,6 +58,17 @@
         }
       }
   
+      .suggestion-attachment {
+        margin-top: 15px;
+  
+        .title {
+          margin-bottom: 5px;
+          color: var(--primary-color);
+          font-size: 14px;
+          font-weight: 800;
+        }
+      }
+  
       .clear-submit {
         margin-top: 20px;
       }

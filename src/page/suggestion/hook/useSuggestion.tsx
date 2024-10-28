@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Api } from "../../../context/ApiContext";
 import { Player } from "../../../context/player/PlayerContext";
+import { previewImage } from "../../../function/UploadFunction";
 
 export const useSuggestion = () => {
     const { t } = useTranslation();
@@ -14,5 +15,11 @@ export const useSuggestion = () => {
     const playerContext = useContext(Player);
     const { playerInfo, setPlayerInfo, hostname } = playerContext;
 
-    return { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname };
+    const [imagePreview, setImagePreview] = useState<any | undefined>(undefined);
+  
+    async function handlePreviewImage(file: any) {
+      setImagePreview([await previewImage(file)]);
+    }
+
+    return { t, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, hostname, imagePreview, setImagePreview, handlePreviewImage };
 };

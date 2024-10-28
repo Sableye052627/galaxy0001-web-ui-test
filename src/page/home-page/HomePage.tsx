@@ -2,7 +2,7 @@ import { Carousel, Col, Row } from "antd";
 import "./home-page.scss";
 import { useHomePage } from "./hook/useHomePage";
 import { useParams, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Autoplay } from "swiper/modules";
 import GameCat from "./component/gameCat/GameCat";
 import GameList from "./component/gameList/GameList";

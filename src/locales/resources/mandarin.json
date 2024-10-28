@@ -18,7 +18,7 @@
     "fishing": "捕鱼",
     "esport": "电子竞技",
     "series918": "918系列",
-    "suggestion": "建议",
+    "suggestion": "回馈",
 
     "contactUs": "联系我们",
     "telegram": "Telegram: ",
@@ -72,13 +72,13 @@
 
     "downloadApp": "下载{{websiteName}}应用",
 
-    "suggestionType": "建议类型",
+    "suggestionType": "回馈类型",
     "gameProblem": "游戏问题",
     "dealerCheat": "庄家作弊",
     "dealerComplaints": "庄家投诉",
     "others": "其他",
     "message": "消息",
-    "pleaseSelectSuggestionTypeAndInsertMessage": "请选择建议类型并输入消息",
+    "pleaseSelectSuggestionTypeAndInsertMessage": "请选择回馈类型并输入消息",
 
     "myProfile": "我的资料",
     "changePassword": "更改密码",

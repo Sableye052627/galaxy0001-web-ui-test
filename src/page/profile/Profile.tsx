@@ -93,7 +93,7 @@ const Profile = () => {
                         )) */}
 
                         <Col>
-                            <div className={`item ${pathname[1] === "suggestion"}`} onClick={() => handleRedirect3("/suggestion")}>
+                            <div className={`item ${pathname[1] === "feedback"}`} onClick={() => handleRedirect3("/feedback")}>
                                 {/* <img src={suggestionIcon} alt="suggestion" /> */}
                                 {t("suggestion")}
                             </div>

@@ -42,7 +42,7 @@ function App() {
                     element: <PlayGame />,
                 },
                 {
-                    path: "suggestion",
+                    path: "feedback",
                     element: <Suggestion />,
                 },
                 {

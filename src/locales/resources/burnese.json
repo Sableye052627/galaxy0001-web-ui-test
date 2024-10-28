@@ -18,7 +18,7 @@
     "fishing": "ငါးဖမ်း",
     "esport": "E-SPORT",
     "series918": "918 စီးရီး",
-    "suggestion": "အကြံပြုချက်",
+    "suggestion": "တုံ့ပြန်ချက်",
 
     "contactUs": "ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ",
     "telegram": "Telegram: ",
@@ -74,13 +74,13 @@
 
     "downloadApp": "{{websiteName}} အက်ပ်ကို ဒေါင်းလုပ်ဆွဲပါ",
 
-    "suggestionType": "အကြံပြုချက် အမျိုးအစား",
+    "suggestionType": "တုံ့ပြန်ချက်အမျိုးအစား",
     "gameProblem": "ဂိမ်းပြဿနာ",
     "dealerCheat": "စီမံခန့်ခွဲသူ သွေးဆောင်မှု",
     "dealerComplaints": "စီမံခန့်ခွဲသူ တိုင်ကြားချက်",
     "others": "အခြားများ",
     "message": "မက်ဆေ့",
-    "pleaseSelectSuggestionTypeAndInsertMessage": "အကြံပြုချက်အမျိုးအစားရွေးပါ၊ မက်ဆေ့ ထည့်ပါ",
+    "pleaseSelectSuggestionTypeAndInsertMessage": "ကျေးဇူးပြု၍ တုံ့ပြန်ချက်အမျိုးအစားကို ရွေးချယ်ပြီး စာမေးချက်ထည့်ပါ။",
 
     "myProfile": "ကျွန်ုပ်၏ ကိုယ်ရေးအချက်အလက်",
     "changePassword": "စကားဝှက် ပြောင်းပါ",

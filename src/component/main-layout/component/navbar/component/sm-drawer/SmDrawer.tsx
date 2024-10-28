@@ -73,7 +73,7 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                     </span>
                 </div>
 
-                <div className={`item ${pathname[1] === "suggestion"}`} onClick={() => handleRedirect2("/suggestion")}>
+                <div className={`item ${pathname[1] === "feedback"}`} onClick={() => handleRedirect2("/feedback")}>
                     {/* <img src={suggestionIcon} alt="suggestion" /> */}
                     <EditOutlined />
                     <span style={{cursor:"pointer"}}>

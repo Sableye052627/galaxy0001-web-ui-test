@@ -9,9 +9,12 @@
         height: 90%;
         aspect-ratio: 1.5/1;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
 
         .ft-suggestion-img {
             height: 100%;
+            width: 75%;
             aspect-ratio: 1.5/1;
         }
 
@@ -57,9 +60,12 @@
         height: 90%;
         aspect-ratio: 1.5/1;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
 
         .ft-transaction-img {
             height: 100%;
+            width: 75%;
             aspect-ratio: 1.5/1;
         }
 
