@@ -28,7 +28,7 @@ const ChangePassword = () => {
             }
         } catch (error: any) {
             console.log(error);
-            //   message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
+            message.error({ content: error?.response?.data?.message, key: error?.response?.data?.message });
         }
         setIsLoading(false);
     }

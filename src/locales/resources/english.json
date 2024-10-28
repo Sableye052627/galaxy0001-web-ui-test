@@ -9,6 +9,7 @@
     "login": "LOGIN",
     "signUp": "REGISTER",
     "language": "Language",
+    "languageUpCap": "LANGUAGE",
 
     "home": "HOME",
     "slot": "SLOT",

@@ -85,7 +85,7 @@ const SmDrawer = ({ openMenu, setOpenMenu }: ISmDrawerProps) => {
                     {/* <img src={suggestionIcon} alt="suggestion" /> */}
                     <TranslationOutlined />
                     <span style={{cursor:"pointer"}}>
-                        {t("language")}
+                        {t("languageUpCap")}
                     </span>
                 </div>
             </div>
