@@ -88,7 +88,8 @@ const GameList = () => {
     }
   
     function handleRedirect(item: IApiData) {
-      if (item.status === 1 && !isGameLoading) {
+      console.log(playerInfo)
+      if ((playerInfo?.playerType == "2" || item.status === 1) && !isGameLoading) {
         setIsGameLoading(true); // Set loading to true when the user clicks
 
         if (item.getGameList === 1) {

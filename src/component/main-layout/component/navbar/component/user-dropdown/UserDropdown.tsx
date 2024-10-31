@@ -9,7 +9,7 @@ function UserDropdown() {
     function handleRedirect(path: string) {
         navigate(`/player-info/${path}`);
     }
-
+    
     function handleLogOut() {
         Cookies.remove("PlayerID");
         Cookies.remove("PlayerToken");

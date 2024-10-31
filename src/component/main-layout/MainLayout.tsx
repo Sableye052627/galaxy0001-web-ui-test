@@ -19,7 +19,6 @@ const MainLayout = () => {
     const location = useLocation();
 
     useEffect(() => {
-      console.log(location.pathname);
       if (!playerInfo) {
         navigate("/login");
         return;
