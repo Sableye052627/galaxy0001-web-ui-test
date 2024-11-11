@@ -1,5 +1,5 @@
 import { Col, Form, Input, Modal, Row, message } from "antd";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import "./game-cat.scss";
 import { useNavigate } from "react-router-dom";
 import { useGameCat } from "./hook/useGameCat";
@@ -7,7 +7,7 @@ import { downloadApp } from "../../../../asset/Asset";
 
 const GameCat = () => {
     const navigate = useNavigate();
-    const { t, platformInfo, gpCategory, isVertical, handleRedirect } = useGameCat();
+    const { t, playerInfo, platformInfo, gpCategory, isVertical, handleRedirect } = useGameCat();
 
     return (
         <div className={`${isVertical ? "v" : "h"}-game-cat-container`}>
@@ -51,6 +51,14 @@ const GameCat = () => {
                     src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/SPORT.png`}
                     alt="Sport"
                     onClick={() => handleRedirect("Sport")}
+                 />
+            </div>
+            <div className="cat" 
+                style={{ display: Number(playerInfo?.playerType) === 2 ? "" : "none" }}>
+                <img
+                    src={`https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/home-game-btn/TABLE.png`}
+                    alt="Table"
+                    onClick={() => handleRedirect("Table")}
                  />
             </div>
         </div>
