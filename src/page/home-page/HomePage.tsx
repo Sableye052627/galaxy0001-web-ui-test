@@ -33,7 +33,7 @@ const HomePage = () => {
       }
     }
 
-    if (location.pathname == "/") {
+    if (location.pathname === "/") {
       console.log(location.pathname);
       navigate("/select-game/slot");
     }
