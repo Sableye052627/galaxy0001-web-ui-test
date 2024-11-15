@@ -11,73 +11,70 @@ import Marquee from "./component/marquee/Marquee";
 import HMarquee from "./component/h-marquee/H-Marquee";
 
 const HomePage = () => {
-    const { t, i18n, navigate, windowWidth, isVertical } = useHomePage();
+  const { t, i18n, navigate, windowWidth, isVertical } = useHomePage();
 
-    const { category } = useParams();
-    const location = useLocation();
+  const { category } = useParams();
+  const location = useLocation();
 
-    const [gameSwiperShow, setGameSwiperShow] = useState(5);
-    const [providerSwiperShow, setProviderSwiperShow] = useState(10);
-    
-    useEffect(() => {
-        if (windowWidth < 992) {
-            setGameSwiperShow(4);
-            setProviderSwiperShow(8);
-            if (windowWidth < 768) {
-                setGameSwiperShow(3);
-                setProviderSwiperShow(6);
-                if (windowWidth < 577) {
-                    setGameSwiperShow(2);
-                    setProviderSwiperShow(4);
-                }
-            }
+  const [gameSwiperShow, setGameSwiperShow] = useState(5);
+  const [providerSwiperShow, setProviderSwiperShow] = useState(10);
+
+  useEffect(() => {
+    if (windowWidth < 992) {
+      setGameSwiperShow(4);
+      setProviderSwiperShow(8);
+      if (windowWidth < 768) {
+        setGameSwiperShow(3);
+        setProviderSwiperShow(6);
+        if (windowWidth < 577) {
+          setGameSwiperShow(2);
+          setProviderSwiperShow(4);
         }
+      }
+    }
 
-        if(location.pathname == "/"){
-            console.log(location.pathname)
-            navigate("/select-game/live");
-        }
+    if (location.pathname == "/") {
+      console.log(location.pathname);
+      navigate("/select-game/slot");
+    }
+  }, [windowWidth]);
 
-    }, [windowWidth]);
+  return (
+    <div id="home-page">
+      {isVertical ? (
+        <div className="v-lobby-container">
+          <div className="lb-marquee-container">
+            <Marquee />
+          </div>
+          <div className="lb-game-cat-container">
+            <GameCat />
+          </div>
+          <div className="lb-game-container">
+            <GameList />
+          </div>
+        </div>
+      ) : (
+        <div className="h-lobby-container">
+          <div className="lb-main-container">
+            <div className="lb-game-cat-container">
+              <GameCat />
+            </div>
+            <div className="lb-sub-container">
+              <div className="lb-marquee-container">
+                <HMarquee />
+              </div>
+              <div className="lb-game-container">
+                <GameList />
+              </div>
+            </div>
+          </div>
+          <div className="lb-jackpot-container">
+            <Jackpot />
+          </div>
+        </div>
+      )}
 
-    return (
-        <div id="home-page">
-            
-            {isVertical ? (
-                <div className="v-lobby-container">
-                    <div className="lb-marquee-container">
-                        <Marquee />
-                    </div>
-                    <div className="lb-game-cat-container">
-                        <GameCat />
-                    </div>
-                    <div className="lb-game-container">
-                        <GameList />
-                    </div>
-                </div>
-                ) : (
-                    <div className="h-lobby-container">
-                        <div className="lb-main-container">
-                            <div className="lb-game-cat-container">
-                                <GameCat />
-                            </div>
-                            <div className="lb-sub-container">  
-                                <div className="lb-marquee-container"> 
-                                    <HMarquee />
-                                </div>
-                                <div className="lb-game-container">
-                                    <GameList />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="lb-jackpot-container">
-                            <Jackpot />
-                        </div>
-                    </div>
-                )
-            }
-
-            {/*
+      {/*
             <Row className="sponsored" justify="center">
                 <Col {...gridSetting}>
                     <div className="title">{t("sponsored")}</div>
@@ -183,8 +180,8 @@ const HomePage = () => {
                 </Col>
             </Row>
             */}
-        </div>
-    );
+    </div>
+  );
 };
 
 export default HomePage;
