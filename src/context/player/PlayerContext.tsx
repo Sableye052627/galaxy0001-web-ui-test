@@ -15,6 +15,7 @@ interface IPlayerType {
     status: number;
     createDate: Date;
     lang: string;
+    contactPermissionAsked: number;
 }
 
 interface IAgentType {

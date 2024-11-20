@@ -26,7 +26,12 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
   function handleClose() {
     setShow(false);
     //navigate("/select-game/slot");
-    window.location.href = "http://localhost:3000/select-game/slot"
+    if(playerInfo?.contactPermissionAsked == 0){
+      window.location.href = "http://localhost:3000/permission"
+    }
+    else{
+      navigate("/select-game/slot");
+    }
   }
 
   return (

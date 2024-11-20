@@ -10,6 +10,7 @@ import GameMenu from "./page/game-menu/GameMenu";
 import GameTransfer from "./page/game-transfer/GameTransfer";
 import PlayGame from "./page/play-game/PlayGame";   
 import GameLayout from "./component/game-layout/GameLayout"
+import ContactPermission from "./component/contact-permission/ContactPermission";
 
 function App() {
     const router = createBrowserRouter([
@@ -58,6 +59,10 @@ function App() {
         {
             path: "/start-game",
             element: <GameLayout />,
+        },
+        {
+            path: "/permission",
+            element: <ContactPermission />,
         },
     ]);
     return <RouterProvider router={router} />;
