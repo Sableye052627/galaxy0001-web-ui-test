@@ -160,11 +160,12 @@ const Login = () => {
                     <Col xs={12}>
                         <Form.Item>
                             <Button block htmlType="submit" type="primary" size="large" shape="round">
-                                {t("login")}
+                                {t("login")} 
                             </Button>
                         </Form.Item>
                     </Col>
                 </Row>
+                <span style={{color:"white"}}>TESTING</span>
             </Form>
         </div>
     </div>
