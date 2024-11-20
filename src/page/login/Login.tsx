@@ -165,7 +165,6 @@ const Login = () => {
                         </Form.Item>
                     </Col>
                 </Row>
-                <span style={{color:"white"}}>TESTING</span>
             </Form>
         </div>
     </div>

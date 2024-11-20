@@ -27,7 +27,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
     setShow(false);
     //navigate("/select-game/slot");
     if(playerInfo?.contactPermissionAsked == 0){
-      window.location.href = "http://localhost:3000/permission?srno=" + playerInfo?.srno
+      window.location.href = "https://ui-test.myboss68.com/permission?srno=" + playerInfo?.srno
     }
     else{
       navigate("/select-game/slot");
