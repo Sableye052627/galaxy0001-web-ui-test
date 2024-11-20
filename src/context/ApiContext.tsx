@@ -116,38 +116,36 @@ const ApiContext = ({ children }: IApiContextProps) => {
   }, []);
 
   useEffect(() => {
-      function handleWindowWidth() {
-          setWindowWidth(window.innerWidth);
-          setWindowHeight(window.innerHeight);
-          setIsVertical(windowWidth <= windowHeight);
-      }
-      handleWindowWidth();
-      window.addEventListener("resize", handleWindowWidth);
+    function handleWindowWidth() {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
+      setIsVertical(windowWidth <= windowHeight);
+    }
+    handleWindowWidth();
+    window.addEventListener("resize", handleWindowWidth);
 
-      return () => {
-          window.removeEventListener("resize", handleWindowWidth);
-      };
+    return () => {
+      window.removeEventListener("resize", handleWindowWidth);
+    };
   }, [windowWidth]);
 
   useEffect(() => {
     const pathname = window.location.pathname.split("/");
-    if(pathname[1] != "login"){
-      i18n.changeLanguage(playerInfo?.lang)
+    if (pathname[1] != "login") {
+      i18n.changeLanguage(playerInfo?.lang);
     }
-  },[playerInfo?.lang])
+  }, [playerInfo?.lang]);
 
   async function handleFirstLoad() {
-    
     const pathname = window.location.pathname.split("/");
 
     const api2 = getPlatformInfo(hostname, setPlatformInfo, setGpCategory, setAgentInfo);
     const api3 = getHomePage(hostname, setBannerList, setGpList);
 
-    if(pathname[1] != "signup" && pathname[1] != "login"){
+    if (pathname[1] != "signup" && pathname[1] != "login") {
       const api1 = validateToken(hostname, setPlayerInfo, setAgentInfo);
       await Promise.all([api1, api2, api3]).catch((error) => console.log(error));
-    }
-    else{
+    } else {
       await Promise.all([api2, api3]).catch((error) => console.log(error));
     }
 

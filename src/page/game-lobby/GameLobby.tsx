@@ -31,10 +31,10 @@ const GameLobby = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [apiData, setApiData] = useState<IApiData[] | []>([]);
-  
+
   const playerContext = useContext(Player);
   const { playerInfo } = playerContext;
-  
+
   const playGameContext = useContext(PlayGame);
   const { getGameInfo, handleTransfer } = playGameContext;
 
@@ -68,8 +68,7 @@ const GameLobby = () => {
         navigate(`/game-menu/${category}/${item.srno}`);
       } else {
         //navigate(`/game-transfer/${category}/${item.srno}`);
-        handleTransfer(category ?? "", "", item.srno.toString(), playerInfo?.wallet1 ?? 0)
-
+        // handleTransfer(category ?? "", "", item.srno.toString(), playerInfo?.wallet1 ?? 0)
       }
     } else {
       message.info(t("gameUnderMaintenance"));
