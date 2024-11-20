@@ -11,7 +11,7 @@ import Marquee from "./component/marquee/Marquee";
 import HMarquee from "./component/h-marquee/H-Marquee";
 
 const HomePage = () => {
-  const { t, i18n, navigate, windowWidth, isVertical } = useHomePage();
+  const { t, i18n, navigate, playerInfo, windowWidth, isVertical } = useHomePage();
 
   const { category } = useParams();
   const location = useLocation();
@@ -34,8 +34,11 @@ const HomePage = () => {
     }
 
     if (location.pathname === "/") {
-      console.log(location.pathname);
-      navigate("/select-game/slot");
+      //console.log(location.pathname);
+      //navigate("/select-game/slot");
+      if (playerInfo) {
+        window.location.href = "http://localhost:3000/select-game/slot"
+      }
     }
   }, [windowWidth]);
 

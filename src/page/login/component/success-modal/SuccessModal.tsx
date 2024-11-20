@@ -25,7 +25,8 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
 
   function handleClose() {
     setShow(false);
-    navigate("/select-game/slot");
+    //navigate("/select-game/slot");
+    window.location.href = "http://localhost:3000/select-game/slot"
   }
 
   return (
