@@ -10,7 +10,7 @@ interface ISuccessModalProps {
 }
 
 export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
-  const { t, navigate, playerInfo, platformInfo } = useSuccessModal();
+  const { t, i18n, navigate, playerInfo, platformInfo } = useSuccessModal();
 
   const modalSetting = {
     className: "login-modal",
@@ -27,7 +27,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
     setShow(false);
     //navigate("/select-game/slot");
     if(window.location.hostname.split('.')[0] == "ui-test" && playerInfo?.contactPermissionAsked == 0){
-      window.location.href = `${window.location.protocol}//${window.location.host}/permission?srno=${playerInfo?.srno}&lang=${playerInfo?.lang}`
+      window.location.href = `${window.location.protocol}//${window.location.host}/permission?srno=${playerInfo?.srno}&lang=${i18n.language}`
     }
     else{
       navigate("/select-game/slot");

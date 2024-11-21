@@ -5,7 +5,7 @@ import { Player } from "../../../../../context/player/PlayerContext";
 import { Api } from "../../../../../context/ApiContext";
 
 export const useSuccessModal = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
 
     const apiContext = useContext(Api);
@@ -14,5 +14,5 @@ export const useSuccessModal = () => {
     const playerContext = useContext(Player);
     const { playerInfo } = playerContext;
 
-    return { t, navigate, playerInfo, platformInfo };
+    return { t, i18n, navigate, playerInfo, platformInfo };
 };
