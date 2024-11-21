@@ -129,7 +129,11 @@ const Login = () => {
       src={imageUrls[selectedLanguage as keyof typeof imageUrls]}
       alt="Twitter"
       className={isVertical ? "v-twitter" : "h-twitter"}
-      onClick={() => window.open("https://mesej.la/manager", "_blank")}
+      onClick={() => {
+        //window.open("https://mesej.la/manager", "_blank")
+        const telegramLink = "tg://resolve?domain=mesejla_manager";
+        window.location.href = telegramLink; // This will attempt to open the Telegram app
+      }}
     />
 
         <div className="login-logo">
