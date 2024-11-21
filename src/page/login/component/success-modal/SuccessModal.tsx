@@ -31,15 +31,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
       window.location.href = `${window.location.protocol}//${window.location.host}/permission?srno=${playerInfo?.srno}&lang=${i18n.language}`
     }
     else{
-      //navigate("/select-game/slot");
-      
-      fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
-      .then(response => response.json())
-      .then(data => {
-        const telegramLink = data[0].telegramLink;
-        window.location.href = `${window.location.protocol}//${window.location.host}/telegram?url=${telegramLink}`
-      })
-      .catch(error => console.error('Error fetching data:', error));
+      navigate("/select-game/slot");
     }
   }
 

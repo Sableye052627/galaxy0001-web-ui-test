@@ -3,10 +3,15 @@ import { useEffect, useState } from "react";
 import { useTelegramAccess } from "./hook/useTelegramAccess";
 
 const TelegramAccess = () => {
-    const { navigate } = useTelegramAccess();
+    const { navigate, playerInfo } = useTelegramAccess();
 
     useEffect(() => {
-        navigate("/select-game/slot");
+        if(playerInfo){
+            navigate("/select-game/slot");
+        }
+        else{
+            navigate("/login");
+        }
     }, []);
     
     return (<div></div>);
