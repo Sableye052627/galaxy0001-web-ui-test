@@ -17,11 +17,6 @@ const GameList = () => {
       return savedJackpot ? parseInt(savedJackpot, 10) : Math.floor(Math.random() * 50000) + 50000;
     });
     */
-  
-  const imageUrls = {
-    EN: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-01.png",
-    MM: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-02.png"
-  };
     
     function formatNumber(value: number) {
       return new Intl.NumberFormat('en-US', {
@@ -68,12 +63,12 @@ const GameList = () => {
             {/* <img className="ft-suggestion-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/suggestion-icon.png" alt="" onClick={navigateToSuggestionPage} /> */}
             
             <img
-              src={imageUrls[playerInfo?.lang as keyof typeof imageUrls]}
+              src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-03.png"
               alt="Twitter"
-              className={isVertical ? "v-twitter" : "h-twitter"}
+              className="ft-suggestion-img" 
               onClick={() => {
 
-                if(window.location.hostname.split('.')[0] == "ui-test")
+                if(window.location.hostname.split('.')[0] == "apph5")
                 {
                   fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
                   .then(response => response.json())

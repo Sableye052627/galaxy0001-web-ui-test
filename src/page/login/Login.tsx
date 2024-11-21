@@ -47,7 +47,7 @@ const Login = () => {
       i18n.changeLanguage(value);
       setSelectedLanguage(value);
   };
-  
+
   const imageUrls = {
     EN: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-01.png",
     MM: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-02.png"
@@ -132,7 +132,7 @@ const Login = () => {
       className={isVertical ? "v-twitter" : "h-twitter"}
       onClick={() => {
 
-        if(window.location.hostname.split('.')[0] == "ui-test")
+        if(window.location.hostname.split('.')[0] == "apph5")
         {
           fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
           .then(response => response.json())

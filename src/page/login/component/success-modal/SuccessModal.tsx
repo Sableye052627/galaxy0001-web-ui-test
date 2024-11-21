@@ -27,7 +27,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
     setShow(false);
     //navigate("/select-game/slot");
     //
-    if(window.location.hostname.split('.')[0] == "ui-test" && playerInfo?.contactPermissionAsked == 0){
+    if(window.location.hostname.split('.')[0] == "apph5" && playerInfo?.contactPermissionAsked == 0){
       window.location.href = `${window.location.protocol}//${window.location.host}/permission?srno=${playerInfo?.srno}&lang=${i18n.language}`
     }
     else{
