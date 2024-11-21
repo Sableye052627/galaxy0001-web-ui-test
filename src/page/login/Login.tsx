@@ -130,9 +130,14 @@ const Login = () => {
       alt="Twitter"
       className={isVertical ? "v-twitter" : "h-twitter"}
       onClick={() => {
-        //window.open("https://mesej.la/manager", "_blank")
         const telegramLink = "tg://resolve?domain=mesejla_manager";
+        const webFallbackUrl = 'https://mesej.la/manager'; // Fallback if Telegram isn't installed
         window.location.href = telegramLink; // This will attempt to open the Telegram app
+
+        // Fallback to web version after a short delay
+        setTimeout(() => {
+          window.open(webFallbackUrl, '_blank');
+        }, 500);
       }}
     />
 
