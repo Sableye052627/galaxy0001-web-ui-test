@@ -11,7 +11,7 @@ import Cookies from "js-cookie";
 import { LazyLoad } from "../loading/lazy-load/LazyLoad";
 
 const Login = () => {
-  const { t, i18n, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, setAgentInfo, hostname } = useLogin();
+  const { t, i18n, navigate, platformInfo, windowWidth, isVertical, playerInfo, setPlayerInfo, setAgentInfo, hostname } = useLogin();
 
   const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -46,6 +46,10 @@ const Login = () => {
       const value = e.target.value;
       i18n.changeLanguage(value);
       setSelectedLanguage(value);
+  };
+  const imageUrls = {
+    EN: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-01.png",
+    MM: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-02.png"
   };
 
   async function handleLogin(values: any) {
@@ -105,6 +109,7 @@ const Login = () => {
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            backgroundColor: "black"
         }}
     >
     <SuccessModal show={show} setShow={setShow} />
@@ -119,6 +124,14 @@ const Login = () => {
             backgroundRepeat: "no-repeat",
         }}
     >
+    {/* Twitter Icon */}
+    <img
+      src={imageUrls[selectedLanguage as keyof typeof imageUrls]}
+      alt="Twitter"
+      className={isVertical ? "v-twitter" : "h-twitter"}
+      onClick={() => window.open("https://mesej.la/manager", "_blank")}
+    />
+
         <div className="login-logo">
             <img className="login-logo-img" src="https://miniworldcup1.sgp1.digitaloceanspaces.com/BWG/loginlogo/logo.png" alt="" />
         </div>

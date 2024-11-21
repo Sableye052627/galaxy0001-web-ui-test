@@ -18,6 +18,24 @@
         align-items: center;
         gap: 10px;
       
+        .v-twitter {
+          width: calc(100% / 5);
+          height: calc(100% / 12);
+          position:absolute;
+          top: 1%;
+          right: 2%;
+          cursor: pointer
+        }
+      
+        .h-twitter {
+          width: calc(100% / 10);
+          height: calc(100% / 8);
+          position:absolute;
+          top: 2%;
+          right: 1%;
+          cursor: pointer
+        }
+      
         .login-logo {
           width: calc(100% / 3);
           height: calc(100% / 3);

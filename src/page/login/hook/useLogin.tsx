@@ -9,10 +9,10 @@ export const useLogin = () => {
   const navigate = useNavigate();
 
   const apiContext = useContext(Api);
-  const { platformInfo, windowWidth } = apiContext;
+  const { platformInfo, windowWidth, isVertical } = apiContext;
 
   const playerContext = useContext(Player);
   const { playerInfo, setPlayerInfo, setAgentInfo, hostname } = playerContext;
 
-  return { t, i18n, navigate, platformInfo, windowWidth, playerInfo, setPlayerInfo, setAgentInfo, hostname };
+  return { t, i18n, navigate, platformInfo, windowWidth, isVertical, playerInfo, setPlayerInfo, setAgentInfo, hostname };
 };
