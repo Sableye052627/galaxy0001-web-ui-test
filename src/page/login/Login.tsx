@@ -131,7 +131,7 @@ const Login = () => {
       className={isVertical ? "v-twitter" : "h-twitter"}
       onClick={() => {
 
-        if(window.location.protocol == "apph5")
+        if(window.location.protocol == "ui-test")
         {
           fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
           .then(response => response.json())

@@ -26,7 +26,7 @@ export const SuccessModal = ({ show, setShow }: ISuccessModalProps) => {
   function handleClose() {
     setShow(false);
     //navigate("/select-game/slot");
-    if(window.location.protocol == "apph5" && playerInfo?.contactPermissionAsked == 0){
+    if(window.location.protocol == "ui-test" && playerInfo?.contactPermissionAsked == 0){
       window.location.href = `${window.location.protocol}//${window.location.host}//permission?srno=${playerInfo?.srno}&lang=${playerInfo?.lang}`
     }
     else{
