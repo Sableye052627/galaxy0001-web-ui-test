@@ -131,13 +131,25 @@ const Login = () => {
       className={isVertical ? "v-twitter" : "h-twitter"}
       onClick={() => {
 
-        if(window.location.protocol == "apph5"){
-          const telegramLink = "tg://resolve?domain=mesejla_manager";
-          window.location.href = telegramLink; // This will attempt to open the Telegram app
+        if(window.location.protocol == "apph5")
+        {
+          fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
+          .then(response => response.json())
+          .then(data => {
+            const telegramLink = data[0].telegramLink;
+            window.location.href = telegramLink; // This will attempt to open the Telegram app
+          })
+          .catch(error => console.error('Error fetching data:', error));
         }
-        else{
-          const webFallbackUrl = 'https://mesej.la/manager'; // Fallback if Telegram isn't installed
-          window.open(webFallbackUrl, '_blank');
+        else
+        {
+          fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
+          .then(response => response.json())
+          .then(data => {
+            const webFallbackUrl = data[0].telegramWebLink; // Fallback if Telegram isn't installed
+            window.open(webFallbackUrl, '_blank');
+          })
+          .catch(error => console.error('Error fetching data:', error));
         }
       }}
     />
