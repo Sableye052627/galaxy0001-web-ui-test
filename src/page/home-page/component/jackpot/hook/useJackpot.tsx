@@ -12,7 +12,7 @@ export const useJackpot = () => {
     const { isVertical } = apiContext;
 
     const playerContext = useContext(Player);
-    const { jackpot, setJackpot } = playerContext;
+    const { playerInfo, jackpot, setJackpot } = playerContext;
 
-    return { t, isVertical, jackpot, setJackpot };
+    return { t, isVertical, playerInfo, jackpot, setJackpot };
 };

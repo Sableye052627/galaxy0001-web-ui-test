@@ -8,7 +8,7 @@ import { useJackpot } from "./hook/useJackpot";
 
 const GameList = () => {
     const navigate = useNavigate();
-    const { t, isVertical, jackpot, setJackpot } = useJackpot();
+    const { t, isVertical, playerInfo, jackpot, setJackpot } = useJackpot();
     // Initialize the jackpot value from cookies or with a random number if the cookie doesn't exist
 
     /*
@@ -17,6 +17,11 @@ const GameList = () => {
       return savedJackpot ? parseInt(savedJackpot, 10) : Math.floor(Math.random() * 50000) + 50000;
     });    
     */
+  
+  const imageUrls = {
+    EN: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-01.png",
+    MM: "https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/twitter/MB3.0_Complain%20Box-02.png"
+  };
     
     function formatNumber(value: number) {
       return new Intl.NumberFormat('en-US', {
@@ -60,7 +65,36 @@ const GameList = () => {
     return (
         <div className="ml-jackpot-container">
             <div className="ft-suggestion-container">
-              <img className="ft-suggestion-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/suggestion-icon.png" alt="" onClick={navigateToSuggestionPage} />
+            {/* <img className="ft-suggestion-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/navbar-player-icon/suggestion-icon.png" alt="" onClick={navigateToSuggestionPage} /> */}
+            
+            <img
+              src={imageUrls[playerInfo?.lang as keyof typeof imageUrls]}
+              alt="Twitter"
+              className={isVertical ? "v-twitter" : "h-twitter"}
+              onClick={() => {
+
+                if(window.location.hostname.split('.')[0] == "ui-test")
+                {
+                  fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
+                  .then(response => response.json())
+                  .then(data => {
+                    const telegramLink = data[0].telegramLink;
+                    window.location.href = `${window.location.protocol}//${window.location.host}/telegram?url=${telegramLink}`
+                  })
+                  .catch(error => console.error('Error fetching data:', error));
+                }
+                else
+                {
+                  fetch('https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/apk/version.json')
+                  .then(response => response.json())
+                  .then(data => {
+                    const webFallbackUrl = data[0].telegramWebLink; // Fallback if Telegram isn't installed
+                    window.open(webFallbackUrl, '_blank');
+                  })
+                  .catch(error => console.error('Error fetching data:', error));
+                }
+              }}
+            />
             </div>
             <div className="ft-jackpot-container">
                 <img className="ft-jackpot-img" src="https://game-platform.sgp1.digitaloceanspaces.com/GALAXY0001/common/jackpot.png" alt="" />
