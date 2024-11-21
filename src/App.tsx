@@ -11,6 +11,7 @@ import GameTransfer from "./page/game-transfer/GameTransfer";
 import PlayGame from "./page/play-game/PlayGame";   
 import GameLayout from "./component/game-layout/GameLayout"
 import ContactPermission from "./component/contact-permission/ContactPermission";
+import TelegramAccess from "./component/telegram-access/telegramAccess";
 
 function App() {
     const router = createBrowserRouter([
@@ -63,6 +64,10 @@ function App() {
         {
             path: "/permission",
             element: <ContactPermission />,
+        },
+        {
+            path: "/telegram",
+            element: <TelegramAccess />,
         },
     ]);
     return <RouterProvider router={router} />;

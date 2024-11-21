@@ -137,7 +137,7 @@ const Login = () => {
           .then(response => response.json())
           .then(data => {
             const telegramLink = data[0].telegramLink;
-            window.location.href = telegramLink; // This will attempt to open the Telegram app
+            `${window.location.protocol}//${window.location.host}/telegram?url=${telegramLink}`
           })
           .catch(error => console.error('Error fetching data:', error));
         }
