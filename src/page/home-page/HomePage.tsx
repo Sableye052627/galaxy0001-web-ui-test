@@ -40,6 +40,7 @@ const HomePage = () => {
       //console.log(location.pathname);
       //navigate("/select-game/slot");
       if (playerInfo) {
+        console.log(window.location.hostname)
         if(window.location.protocol == "ui-test" && playerInfo?.contactPermissionAsked == 0){
           window.location.href = `${window.location.protocol}//${window.location.host}//permission?srno=${playerInfo?.srno}&lang=${playerInfo?.lang}`
         }
