@@ -130,14 +130,15 @@ const Login = () => {
       alt="Twitter"
       className={isVertical ? "v-twitter" : "h-twitter"}
       onClick={() => {
-        const telegramLink = "tg://resolve?domain=mesejla_manager";
-        const webFallbackUrl = 'https://mesej.la/manager'; // Fallback if Telegram isn't installed
-        window.location.href = telegramLink; // This will attempt to open the Telegram app
 
-        // Fallback to web version after a short delay
-        setTimeout(() => {
+        if(window.location.protocol == "apph5"){
+          const telegramLink = "tg://resolve?domain=mesejla_manager";
+          window.location.href = telegramLink; // This will attempt to open the Telegram app
+        }
+        else{
+          const webFallbackUrl = 'https://mesej.la/manager'; // Fallback if Telegram isn't installed
           window.open(webFallbackUrl, '_blank');
-        }, 500);
+        }
       }}
     />
 
