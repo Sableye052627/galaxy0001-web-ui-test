@@ -22,7 +22,6 @@ const ContactPermission = () => {
             //.catch((error) => message.error({ content: t(error?.response?.data?.message?.replace(/ /g, "")), key: error?.response?.data?.message }));
         };
 
-        console.log(playerInfo)
         if(playerInfo?.contactPermissionAsked == 0){
             handleUpdateContactPermission();
         }

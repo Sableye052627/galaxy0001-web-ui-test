@@ -41,7 +41,7 @@ const HomePage = () => {
       //navigate("/select-game/slot");
       if (playerInfo) {
         if(window.location.protocol == "apph5" && playerInfo?.contactPermissionAsked == 0){
-          window.location.href = `${window.location.protocol}//${window.location.host}//permission?srno=${playerInfo?.srno}`
+          window.location.href = `${window.location.protocol}//${window.location.host}//permission?srno=${playerInfo?.srno}&lang=${playerInfo?.lang}`
         }
         else{
           navigate("/select-game/slot");
