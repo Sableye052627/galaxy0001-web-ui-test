@@ -11,7 +11,7 @@ import GameTransfer from "./page/game-transfer/GameTransfer";
 import PlayGame from "./page/play-game/PlayGame";   
 import GameLayout from "./component/game-layout/GameLayout"
 import ContactPermission from "./component/contact-permission/ContactPermission";
-import TelegramAccess from "./component/telegram-access/telegramAccess";
+import TelegramAccess from "./component/telegram-access/TelegramAccess";
 
 function App() {
     const router = createBrowserRouter([
